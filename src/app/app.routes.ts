@@ -5,7 +5,7 @@ import {MainComponent} from './main/main.component';
 export const rootRouterConfig: Routes = [
     {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'home/six',
         pathMatch: 'full'
     },
     {
@@ -20,7 +20,7 @@ export const rootRouterConfig: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'home/six'
     }
 ];
 

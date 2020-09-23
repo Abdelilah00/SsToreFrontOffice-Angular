@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {CartItem} from '../../../../shared/classes/cart-item';
+import {CartItem} from '../../../models/cart-item';
 import {CartService} from '../../../../shared/services/cart.service';
 import {ProductsService} from '../../../../shared/services/products.service';
 import {Observable} from 'rxjs';
@@ -8,45 +8,45 @@ import {Observable} from 'rxjs';
 declare var $: any;
 
 @Component({
-  selector: 'app-header-widgets',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+    selector: 'app-header-widgets',
+    templateUrl: './settings.component.html',
+    styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
 
-  @Input() shoppingCartItems: CartItem[] = [];
+    @Input() shoppingCartItems: CartItem[] = [];
 
-  public show: boolean = false;
+    public show: boolean = false;
 
-  constructor(private translate: TranslateService, private cartService: CartService,
-              public productsService: ProductsService) {
-  }
+    constructor(private translate: TranslateService, private cartService: CartService,
+                public productsService: ProductsService) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  public updateCurrency(curr) {
-    this.productsService.currency = curr;
-  }
+    public updateCurrency(curr) {
+        // this.productsService.currency = curr;
+    }
 
-  public changeLanguage(lang) {
-    this.translate.use(lang)
-  }
+    public changeLanguage(lang) {
+        this.translate.use(lang);
+    }
 
-  public openSearch() {
-    this.show = true;
-  }
+    public openSearch() {
+        this.show = true;
+    }
 
-  public closeSearch() {
-    this.show = false;
-  }
+    public closeSearch() {
+        this.show = false;
+    }
 
-  public getTotal(): Observable<number> {
-    return this.cartService.getTotalAmount();
-  }
+    public getTotal(): Observable<number> {
+        return this.cartService.getTotalAmount();
+    }
 
-  public removeItem(item: CartItem) {
-    this.cartService.removeFromCart(item);
-  }
+    public removeItem(item: CartItem) {
+        this.cartService.removeFromCart(item);
+    }
 
 }

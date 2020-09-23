@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../../../../shared/classes/product';
+import {Product} from '../../../../shared/models/product';
 import {ProductsService} from '../../../../shared/services/products.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class NewProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productsService.getProducts().subscribe(product => this.products = product);
+    this.productsService.getAll().subscribe(product => this.products = product);
   }
 
 }

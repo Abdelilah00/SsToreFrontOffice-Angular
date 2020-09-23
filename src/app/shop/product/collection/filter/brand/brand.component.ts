@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ProductTags} from '../../../../../shared/classes/product';
+import {ProductTags} from '../../../../../shared/models/product';
 
 declare var $: any;
 

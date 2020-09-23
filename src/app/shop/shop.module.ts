@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ShopRoutingModule} from './shop-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
-import {BarRatingModule} from "ngx-bar-rating";
+import {BarRatingModule} from 'ngx-bar-rating';
 import {RangeSliderModule} from 'ngx-rangeslider-component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {NgxPayPalModule} from 'ngx-paypal';

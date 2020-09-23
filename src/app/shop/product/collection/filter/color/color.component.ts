@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ColorFilter} from '../../../../../shared/classes/product';
+import {ColorFilter} from '../../../../../shared/models/product';
 
 @Component({
   selector: 'app-color',

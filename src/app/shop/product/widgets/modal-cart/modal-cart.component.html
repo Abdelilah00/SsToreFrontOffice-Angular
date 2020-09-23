@@ -13,7 +13,7 @@
                                 </button>
                                 <div class="media">
                                     <a [routerLink]="['/home/left-sidebar/product', product.id]">
-                                        <img [src]="product.pictures[0]" alt="" class="img-fluid pro-img">
+                                        <img [src]="product.imageCover" alt="" class="img-fluid pro-img">
                                     </a>
                                     <div class="media-body align-self-center text-center">
                                         <a [routerLink]="['/home/left-sidebar/product', product.id]">
@@ -48,7 +48,7 @@
                                             <div class="img-wrapper">
                                                 <div class="front">
                                                     <a [routerLink]="['/home/left-sidebar/product', relatedProduct.id]">
-                                                        <img [src]="relatedProduct.pictures[0]" alt=""
+                                                        <img [src]="relatedProduct.imageCover" alt=""
                                                              class="img-fluid mb-1">
                                                     </a>
                                                 </div>

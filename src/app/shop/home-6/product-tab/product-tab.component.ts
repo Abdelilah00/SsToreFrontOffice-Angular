@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Product} from '../../../shared/classes/product';
+import {Product} from '../../../shared/models/product';
 import * as $ from 'jquery';
 
 @Component({
@@ -16,15 +16,15 @@ export class ProductTabSixComponent implements OnInit {
 
     ngOnInit() {
         // tab js
-        $("#tab-1").css("display", "Block");
-        $(".default").css("display", "Block");
-        $(".tabs li a").on('click', function () {
+        $('#tab-1').css('display', 'Block');
+        $('.default').css('display', 'Block');
+        $('.tabs li a').on('click', function () {
             event.preventDefault();
-            $(this).parent().parent().find("li").removeClass("current");
-            $(this).parent().addClass("current");
-            var currunt_href = $(this).attr("href");
+            $(this).parent().parent().find('li').removeClass('current');
+            $(this).parent().addClass('current');
+            var currunt_href = $(this).attr('href');
             $('#' + currunt_href).show();
-            $(this).parent().parent().parent().find(".tab-content").not('#' + currunt_href).css("display", "none");
+            $(this).parent().parent().parent().find('.tab-content').not('#' + currunt_href).css('display', 'none');
         });
     }
 

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../../../shared/classes/product';
+import {Product} from '../../../shared/models/product';
 import {ProductsService} from '../../../shared/services/products.service';
 import {CartService} from '../../../shared/services/cart.service';
 import {Observable, of} from 'rxjs';
@@ -19,7 +19,7 @@ export class ProductCompareComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.product = this.productsService.getComapreProducts();
+    //this.product = this.productsService.getComapreProducts();
     this.product.subscribe(products => this.products = products);
   }
 
@@ -30,7 +30,7 @@ export class ProductCompareComponent implements OnInit {
 
   // Remove from compare list
   public removeItem(product: Product) {
-    this.productsService.removeFromCompare(product);
+    //this.productsService.removeFromCompare(product);
   }
 
 }

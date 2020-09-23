@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-6  col-xs-12">
                         <div class="quick-view-img">
-                            <img [src]="!variantImage ? product.pictures[0] : variantImage" alt="" class="img-fluid">
+                            <img [src]="!variantImage ? product.imageCover : variantImage" alt="" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-lg-6 rtl-text">
@@ -25,7 +25,8 @@
                             <ul *ngIf="product.variants" class="color-variant">
                                 <li (click)="changeVariantImage(variant.images)"
                                     *ngFor="let variant of product.variants"
-                                    [class.active]="selectedColor == variant.images" [class]="variant.color"></li>
+                                    [class.active]="selectedColor == variant.images"
+                                    [class]="variant.color"></li>
                             </ul>
                             <div class="border-product">
                                 <h6 class="product-title">product details</h6>

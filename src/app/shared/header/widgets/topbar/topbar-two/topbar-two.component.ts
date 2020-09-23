@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {LandingFixService} from '../../../../services/landing-fix.service';
-import {DOCUMENT} from "@angular/common";
+import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../../../../services/windows.service';
-import {CartItem} from '../../../../classes/cart-item';
+import {CartItem} from '../../../../models/cart-item';
 import {CartService} from '../../../../services/cart.service';
 
 declare var $: any;

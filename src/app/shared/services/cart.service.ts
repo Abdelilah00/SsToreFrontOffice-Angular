@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Product} from '../classes/product';
-import {CartItem} from '../classes/cart-item';
+import {Product} from '../models/product';
+import {CartItem} from '../models/cart-item';
 import {ToastrService} from 'ngx-toastr';
 import {BehaviorSubject, Observable, Subscriber} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 // Get product from Localstorage
-let products = JSON.parse(localStorage.getItem("cartItem")) || [];
+let products = JSON.parse(localStorage.getItem('cartItem')) || [];
 
 @Injectable({
     providedIn: 'root'

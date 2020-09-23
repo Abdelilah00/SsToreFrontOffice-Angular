@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Product} from '../../../../shared/classes/product';
+import {Product} from '../../../../shared/models/product';
 import {ProductsService} from '../../../../shared/services/products.service';
-import {PaginationService} from '../../../../shared/classes/paginate'
-import {animate, style, transition, trigger} from "@angular/animations";
+import {PaginationService} from '../../../../shared/models/paginate';
+import {animate, style, transition, trigger} from '@angular/animations';
 import * as $ from 'jquery';
 
 @Component({
@@ -31,18 +31,21 @@ export class CollectionNoSidebarComponent implements OnInit {
     paginate: any = {};
     private allProduct: Product[] = [];
 
-    constructor(private route: ActivatedRoute, private router: Router,
-                private productsService: ProductsService, private paginateService: PaginationService) {
-        this.route.params.subscribe(params => {
-            const category = params['category'];
-            this.productsService.getProductByCategory(category).subscribe(products => {
-                this.allProduct = products
-                this.setPage(1);
-            })
-        });
+    constructor(private route: ActivatedRoute,
+                private router: Router,
+                private productsService: ProductsService,
+                private paginateService: PaginationService) {
     }
 
     ngOnInit() {
+        this.route.params.subscribe(params => {
+            const category = params['category'];
+
+            this.productsService.getAll().subscribe(products => {
+                this.allProduct = products;
+                this.setPage(1);
+            });
+        });
     }
 
     // Animation Effect fadeIn
@@ -55,35 +58,19 @@ export class CollectionNoSidebarComponent implements OnInit {
         this.animation = 'fadeOut';
     }
 
-    public twoCol() {
-        if ($('.product-wrapper-grid').hasClass("list-view")) {
-        } else {
-            $(".product-wrapper-grid").children().children().children().removeClass();
-            $(".product-wrapper-grid").children().children().children().addClass("col-lg-6");
-        }
-    }
-
-    public threeCol() {
-        if ($('.product-wrapper-grid').hasClass("list-view")) {
-        } else {
-            $(".product-wrapper-grid").children().children().children().removeClass();
-            $(".product-wrapper-grid").children().children().children().addClass("col-lg-4");
-        }
-    }
-
     public fourCol() {
-        if ($('.product-wrapper-grid').hasClass("list-view")) {
+        if ($('.product-wrapper-grid').hasClass('list-view')) {
         } else {
-            $(".product-wrapper-grid").children().children().children().removeClass();
-            $(".product-wrapper-grid").children().children().children().addClass("col-lg-3");
+            $('.product-wrapper-grid').children().children().children().removeClass();
+            $('.product-wrapper-grid').children().children().children().addClass('col-lg-3');
         }
     }
 
     public sixCol() {
-        if ($('.product-wrapper-grid').hasClass("list-view")) {
+        if ($('.product-wrapper-grid').hasClass('list-view')) {
         } else {
-            $(".product-wrapper-grid").children().children().children().removeClass();
-            $(".product-wrapper-grid").children().children().children().addClass("col-lg-2");
+            $('.product-wrapper-grid').children().children().children().removeClass();
+            $('.product-wrapper-grid').children().children().children().addClass('col-lg-2');
         }
     }
 

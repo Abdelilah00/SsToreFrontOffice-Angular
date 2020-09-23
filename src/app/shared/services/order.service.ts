@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Order} from '../classes/order';
+import {Order} from '../models/order';
 import {Router} from '@angular/router';
 
 @Injectable({

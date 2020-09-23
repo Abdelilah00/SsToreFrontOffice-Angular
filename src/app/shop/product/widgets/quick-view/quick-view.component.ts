@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Product} from '../../../../shared/classes/product';
 import {ProductsService} from '../../../../shared/services/products.service';
 import {CartService} from '../../../../shared/services/cart.service';
+import {Product} from '../../../../shared/models/product';
 
 declare var $: any;
 
@@ -23,7 +23,7 @@ export class QuickViewComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.productsService.getProducts().subscribe(product => this.products = product);
+        this.productsService.getAll().subscribe(product => this.products = product);
     }
 
     ngOnDestroy() {
@@ -52,7 +52,9 @@ export class QuickViewComponent implements OnInit, OnDestroy {
     }
 
     public addToCart(product: Product, quantity) {
-        if (quantity == 0) return false;
+        if (quantity == 0) {
+            return false;
+        }
         this.cartService.addToCart(product, parseInt(quantity));
     }
 

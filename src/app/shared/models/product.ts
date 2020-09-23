@@ -1,4 +1,6 @@
 // Product Colors
+import {BaseModel} from './base-model.model';
+
 export type ProductColor =
     'white'
     | 'black'
@@ -18,11 +20,12 @@ export type ProductSize = 'M' | 'L' | 'XL';
 export type ProductTags = 'nike' | 'puma' | 'lifestyle' | 'caprese';
 
 // Product
-export interface Product {
-    id?: number;
+export class Product extends BaseModel {
     name?: string;
     price?: number;
     salePrice?: number;
+    imageCover?: String;
+    images?: String[];
     discount?: number;
     pictures?: string;
     shortDetails?: string;
@@ -37,6 +40,7 @@ export interface Product {
     variants?: any[];
 }
 
+
 // Color Filter
 export interface ColorFilter {
     color?: ProductColor;
@@ -44,5 +48,5 @@ export interface ColorFilter {
 
 // Tag Filter
 export interface TagFilter {
-    tag?: ProductTags
+    tag?: ProductTags;
 }

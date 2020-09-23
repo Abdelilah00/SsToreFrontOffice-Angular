@@ -1,6 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Product} from '../../../../shared/classes/product';
+import {Product} from '../../../../shared/models/product';
 import {ProductsService} from '../../../../shared/services/products.service';
 import {WishlistService} from '../../../../shared/services/wishlist.service';
 import {CartService} from '../../../../shared/services/cart.service';
@@ -12,19 +12,19 @@ import {CartService} from '../../../../shared/services/cart.service';
 })
 export class ProductRightImageComponent implements OnInit {
 
-    public product: Product = {};
+    public product: Product;
     public products: Product[] = [];
     public counter: number = 1;
     public selectedSize: any = '';
-    public screenWidth
-    public slideRightNavConfig
+    public screenWidth;
+    public slideRightNavConfig;
     public slideRightConfig = {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
         fade: true,
         asNavFor: '.slider-right-nav'
-    }
+    };
 
     //Get Product By Id
     constructor(private route: ActivatedRoute, private router: Router,
@@ -32,13 +32,13 @@ export class ProductRightImageComponent implements OnInit {
                 private cartService: CartService) {
         this.route.params.subscribe(params => {
             const id = +params['id'];
-            this.productsService.getProduct(id).subscribe(product => this.product = product)
+            this.productsService.get(id).subscribe(product => this.product = product);
         });
         this.onResize();
     }
 
     ngOnInit() {
-        this.productsService.getProducts().subscribe(product => this.products = product);
+        this.productsService.getAll().subscribe(product => this.products = product);
     }
 
     @HostListener('window:resize', ['$event'])
@@ -56,7 +56,7 @@ export class ProductRightImageComponent implements OnInit {
                 dots: false,
                 centerMode: false,
                 focusOnSelect: true
-            }
+            };
         } else {
             return this.slideRightNavConfig = {
                 vertical: false,
@@ -78,7 +78,7 @@ export class ProductRightImageComponent implements OnInit {
                         }
                     }
                 ]
-            }
+            };
         }
     }
 
@@ -95,14 +95,17 @@ export class ProductRightImageComponent implements OnInit {
 
     // Add to cart
     public addToCart(product: Product, quantity) {
-        if (quantity == 0) return false;
+        if (quantity == 0) {
+            return false;
+        }
         this.cartService.addToCart(product, parseInt(quantity));
     }
 
     // Add to cart
     public buyNow(product: Product, quantity) {
-        if (quantity > 0)
+        if (quantity > 0) {
             this.cartService.addToCart(product, parseInt(quantity));
+        }
         this.router.navigate(['/home/checkout']);
     }
 

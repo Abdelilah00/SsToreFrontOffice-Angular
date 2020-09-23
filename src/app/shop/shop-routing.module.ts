@@ -16,7 +16,7 @@ import {SuccessComponent} from './product/success/success.component';
 const routes: Routes = [
     // Home
     {
-        path: '',
+        path: 'six',
         component: HomeSixComponent
     },
     // Product

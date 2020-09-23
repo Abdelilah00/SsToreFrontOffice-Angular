@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Product} from '../../../shared/classes/product';
+import {Product} from '../../../shared/models/product';
 import {ProductsService} from '../../../shared/services/products.service';
 import {WishlistService} from '../../../shared/services/wishlist.service';
 import {CartService} from '../../../shared/services/cart.service';
@@ -28,7 +28,7 @@ export class ProductBoxHoverComponent implements OnInit {
 
   // Add to compare
   public addToCompare(product: Product) {
-    this.productsService.addToCompare(product);
+    //this.productsService.addToCompare(product);
   }
 
   // Add to wishlist

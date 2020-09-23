@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LandingFixService} from '../../services/landing-fix.service';
-import {CartItem} from '../../classes/cart-item';
+import {CartItem} from '../../models/cart-item';
 import {CartService} from '../../services/cart.service';
 
 declare var $: any;

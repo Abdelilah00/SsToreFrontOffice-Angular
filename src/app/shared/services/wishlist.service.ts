@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
-import {Product} from '../classes/product';
+import {Product} from '../models/product';
 import {BehaviorSubject, Observable, Subscriber} from 'rxjs';
 
 // Get product from Localstorage

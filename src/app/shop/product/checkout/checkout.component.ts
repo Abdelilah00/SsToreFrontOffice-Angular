@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PayPalConfig, PayPalEnvironment, PayPalIntegrationType} from 'ngx-paypal';
 // import {  IPayPalConfig,  ICreateOrderRequest } from 'ngx-paypal';
-import {CartItem} from '../../../shared/classes/cart-item';
+import {CartItem} from '../../../shared/models/cart-item';
 import {ProductsService} from '../../../shared/services/products.service';
 import {CartService} from '../../../shared/services/cart.service';
 import {OrderService} from '../../../shared/services/order.service';
@@ -96,7 +96,7 @@ export class CheckoutComponent implements OnInit {
             },
             transactions: [{
                 amount: {
-                    currency: this.productsService.currency,
+                    currency: 'USD', //this.productsService.currency,
                     total: this.amount
                 }
             }]
