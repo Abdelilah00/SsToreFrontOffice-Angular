@@ -1,0 +1,32 @@
+Theme Version 3.0 Updates(11 Jun 2019)
+--upgraded to angular 8 version
+
+Theme Version 3.0 Updates(08 MARch 2019)
+
+-- add newsletter popup
+-- add age verification popup
+-- add success (add to cart ) Popup
+-- add exit popup
+-- add 6 new demo
+-- add portfolio pages
+-- add email templates
+-- configure catelog mode
+-- upgrade package.json and other some libraries 
+-- bug fix (ngx-toastr libraries issue)
+
+
+Theme Version 2.2 Updates(22 FEB 2019)
+
+-- Added local storage 
+-- Added catalog Mode
+-- Added Exit Popup
+-- Fix issue in Product Detail page
+-- upgrade libraries
+
+
+Theme Version 2.1 Updates(25 dec 2018) :
+
+-- Fixed issue in product page (mobile version)
+-- fixed issue in cart page (mobile version)
+-- fixed issue left name (added script in script.js)
+-- update css file

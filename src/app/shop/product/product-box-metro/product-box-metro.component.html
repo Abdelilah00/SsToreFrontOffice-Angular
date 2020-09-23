@@ -1,0 +1,28 @@
+<div class="img-wrapper">
+    <div class="front">
+        <a [routerLink]="['/home/left-sidebar/product', product.id]">
+            <img [src]="product.pictures[0]" alt="" class="img-fluid">
+        </a>
+    </div>
+    <div *ngIf="!productsService?.catalogMode" class="cart-info cart-wrap">
+        <button (click)="addToCart(product)" [attr.data-target]="'#addtocart'+product.id" data-toggle="modal"
+                title="Add to cart">
+            <i class="ti-shopping-cart"></i>
+        </button>
+        <a (click)="addToWishlist(product)" [routerLink]="" title="Add to Wishlist">
+            <i aria-hidden="true" class="ti-heart"></i>
+        </a>
+        <a [attr.data-target]="'#quick-view'+product.id" [routerLink]="" data-toggle="modal" title="Quick View">
+            <i aria-hidden="true" class="ti-search"></i>
+        </a>
+        <a (click)="addToCompare(product)" [routerLink]="['/home/compare']" title="Compare">
+            <i aria-hidden="true" class="ti-reload"></i>
+        </a>
+    </div>
+</div>
+<div class="product-detail">
+    <a *ngIf="!productsService?.catalogMode" [routerLink]="['/home/left-sidebar/product', product.id]">
+        <h6>{{product.name}}</h6>
+    </a>
+    <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h4>
+</div>

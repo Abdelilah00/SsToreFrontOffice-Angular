@@ -1,0 +1,50 @@
+<!-- Tab product -->
+<div class="title1 section-t-space">
+    <h4>exclusive products</h4>
+    <h2 class="title-inner1">special products</h2>
+</div>
+<section class="section-b-space p-t-0">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="theme-tab">
+                    <ul class="tabs tab-title">
+                        <li class="current">
+                            <a href="tab-4">New Products</a>
+                        </li>
+                        <li class="">
+                            <a href="tab-5">Featured Products</a>
+                        </li>
+                        <li class="">
+                            <a href="tab-6">Best Sellers</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content-cls">
+                        <div class="tab-content active default" id="tab-4">
+                            <div class="no-slider row">
+                                <div *ngFor="let product of products | slice:0:8" class="product-box">
+                                    <app-product [product]="product"></app-product>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-5">
+                            <div class="no-slider row">
+                                <div *ngFor="let product of products | slice:2:10" class="product-box">
+                                    <app-product [product]="product"></app-product>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-6">
+                            <div class="no-slider row">
+                                <div *ngFor="let product of products | slice:0:8" class="product-box">
+                                    <app-product [product]="product"></app-product>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Tab product end -->

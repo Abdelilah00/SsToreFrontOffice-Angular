@@ -1,0 +1,33 @@
+<div class="img-wrapper">
+    <div class="lable-block">
+        <span *ngIf='product.new' class="lable3">new</span>
+        <span *ngIf='product.sale' class="lable4">on sale</span>
+    </div>
+    <div class="front">
+        <a [routerLink]="['/home/left-sidebar/product', product.id]"><img
+                [src]="!variantImage ? product.pictures[0] : variantImage" alt="" class="img-fluid"></a>
+    </div>
+    <div *ngIf="!productsService?.catalogMode" class="cart-box">
+        <button (click)="addToCart(product)" [attr.data-target]="'#addtocart'+product.id" [routerLink]=""
+                data-toggle="modal" title="Add to cart"><i class="ti-shopping-cart"></i></button>
+        <a (click)="addToWishlist(product)" [routerLink]="" title="Add to Wishlist"><i aria-hidden="true"
+                                                                                       class="ti-heart"></i></a>
+        <a [attr.data-target]="'#quick-view'+product.id" [routerLink]="" data-toggle="modal" title="Quick View"><i
+                aria-hidden="true" class="ti-search"></i></a>
+        <a (click)="addToCompare(product)" [routerLink]="['/home/compare']" title="Compare"><i aria-hidden="true"
+                                                                                               class="ti-reload"></i></a>
+    </div>
+</div>
+<div class="product-detail text-center ">
+    <div class="rating">
+        <bar-rating [rate]="5" [readOnly]="true" class="text-center pro-rating"></bar-rating>
+    </div>
+    <a [routerLink]="['/home/left-sidebar/product', product.id]"><h6>{{product.name}}</h6></a>
+    <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}
+        <del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del>
+    </h4>
+    <ul *ngIf="product.variants" class="color-variant">
+        <li (click)="changeVariantImage(variant.images)" *ngFor="let variant of product.variants"
+            [class]="variant.color"></li>
+    </ul>
+</div>

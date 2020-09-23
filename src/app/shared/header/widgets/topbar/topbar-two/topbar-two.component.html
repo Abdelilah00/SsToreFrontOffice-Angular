@@ -1,0 +1,51 @@
+<div class="row main-menu">
+    <div class="col-sm-6 col-12">
+        <div class="header-contact">
+            <ul>
+                <li>Welcome to Our store Multikart</li>
+                <li><i aria-hidden="true" class="fa fa-phone"></i>Call Us: 123 - 456 - 7890</li>
+            </ul>
+        </div>
+        <div class="menu-left">
+            <div class="navbar">
+                <a (click)="openNav()" href="javascript:void(0)">
+                    <div class="bar-style"><i aria-hidden="true" class="fa fa-bars sidebar-bar"></i></div>
+                </a>
+            </div>
+            <div class="brand-logo mobile-logo">
+                <a [routerLink]="'/home/one'"> <img alt="" class="img-fluid" src="assets/images/icon/logo.png"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="menu-right pull-right">
+            <ul class="header-dropdown">
+                <li class="mobile-wishlist">
+                    <a [routerLink]="'/home/wishlist'">
+                        <i aria-hidden="true" class="fa fa-heart"></i>
+                        <img alt="" src="assets/images/icon/like.png">
+                    </a>
+                </li>
+                <li class="onhover-dropdown mobile-account">
+                    <img alt="" src="assets/images/icon/users.png">
+                    <i aria-hidden="true" class="fa fa-user"></i>
+                    <ul class="onhover-show-div">
+                        <li>
+                            <a [routerLink]="'/pages/login'" data-lng="en">
+                                Login
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="'/home/one'" data-lng="es">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <app-header-widgets [shoppingCartItems]="shoppingCartItems"></app-header-widgets>
+            </div>
+        </div>
+    </div>
+</div>
