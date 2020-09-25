@@ -23,26 +23,24 @@ export type ProductTags = 'nike' | 'puma' | 'lifestyle' | 'caprese';
 export class Product extends BaseModel {
     name?: string;
     price?: number;
-    imageCover?: String;
-    images?: Image[];
+    imageCover?: string;
+    images?: [{
+        url: string;
+    }];
     overview?: string;
+    category?: string;
+    newest?: boolean;
+    sale?: boolean;
 
     salePrice?: number;
     discount?: number;
     pictures?: string;
     shortDetails?: string;
     stock?: number;
-    new?: boolean;
-    sale?: boolean;
-    category?: string;
     colors?: ProductColor[];
     size?: ProductTags[];
     tags?: ProductSize[];
     variants?: any[];
-}
-
-interface Image {
-    url: String;
 }
 
 // Color Filter

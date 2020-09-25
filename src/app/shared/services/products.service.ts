@@ -23,6 +23,18 @@ export class ProductsService extends BaseService<Product> {
             .pipe(retry(1));
     }
 
+    getByCategory(categoryId: number): Observable<Array<Product>> {
+        this.loading = true;
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getByCategory')
+            .pipe(retry(1));
+    }
+
+    getRelated(id: number): Observable<Array<Product>> {
+        this.loading = true;
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getRelated')
+            .pipe(retry(1));
+    }
+
     getNewest(): Observable<Array<Product>> {
         this.loading = true;
         return this.httpClient.get<Array<Product>>(this.baseUrl + '/getNewest')

@@ -25,24 +25,29 @@ export class CheckoutComponent implements OnInit {
 
 
     // Form Validator
-    constructor(private fb: FormBuilder, private cartService: CartService,
-                public productsService: ProductsService, private orderService: OrderService) {
+    constructor(private fb: FormBuilder,
+                private cartService: CartService,
+                public productsService: ProductsService,
+                private orderService: OrderService) {
+
         this.checkoutForm = this.fb.group({
-            firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
-            lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
-            phone: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-            email: ['', [Validators.required, Validators.email]],
-            address: ['', [Validators.required, Validators.maxLength(50)]],
-            country: ['', Validators.required],
-            town: ['', Validators.required],
-            state: ['', Validators.required],
-            postalcode: ['', Validators.required]
-        })
+            customerFirstName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
+            customerLastName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
+            customerPhoneNumber: ['', [Validators.required, Validators.pattern('[0-9]+')]],
+            customerEmail: ['', [Validators.required, Validators.email]],
+            customerAddress: ['', [Validators.required, Validators.maxLength(50)]],
+            customerCountry: ['', Validators.required],
+            customerCity: ['', Validators.required],
+            customerState: ['', Validators.required],
+            customerZip: ['', Validators.required],
+            orderDetails: ['', Validators.required]
+        });
     }
 
     ngOnInit() {
         this.cartItems = this.cartService.getItems();
-        this.cartItems.subscribe(products => this.checkOutItems = products);
+        this.cartItems.forEach(item => this.orderDetails.push({id: item['id'], qte: item['qte']}));
+        this.checkoutForm.controls['orderDetails'].value(this.orderDetails);
         this.getTotal().subscribe(amount => this.amount = amount);
         this.initConfig();
     }
@@ -68,7 +73,7 @@ export class CheckoutComponent implements OnInit {
             name: 'Multikart',
             description: 'Online Fashion Store',
             amount: this.amount * 100
-        })
+        });
     }
 
     // Paypal payment gateway

@@ -1,5 +1,5 @@
 <div class="img-wrapper">
-    <div *ngIf='product.new' class="ribbon"><span>new</span></div>
+    <div *ngIf='product.newest' class="ribbon"><span>new</span></div>
     <div class="front">
         <a [routerLink]="['/home/left-sidebar/product', product.id]"><img [src]="product.pictures[0]" alt=""
                                                                           class="img-fluid"></a>
