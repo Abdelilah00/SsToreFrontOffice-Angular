@@ -8,29 +8,31 @@ import {CartService} from '../../services/cart.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-header-five',
-  templateUrl: './header-five.component.html',
-  styleUrls: ['./header-five.component.scss']
+    selector: 'app-header-five',
+    templateUrl: './header-five.component.html',
+    styleUrls: ['./header-five.component.scss']
 })
 export class HeaderFiveComponent implements OnInit {
 
-  public shoppingCartItems: CartItem[] = [];
+    public shoppingCartItems: CartItem[] = [];
 
-  constructor(@Inject(DOCUMENT) private document: Document,
-              @Inject(WINDOW) private window, private fix: LandingFixService, private cartService: CartService) {
-    this.cartService.getItems().subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
-  }
+    constructor(@Inject(DOCUMENT) private document: Document,
+                @Inject(WINDOW) private window,
+                private fix: LandingFixService,
+                private cartService: CartService) {
+        this.cartService.getItems().subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
+    }
 
-  ngOnInit() {
-    $.getScript('assets/js/menu.js');
-  }
+    ngOnInit() {
+        $.getScript('assets/js/menu.js');
+    }
 
-  openNav() {
-    this.fix.addNavFix();
-  }
+    openNav() {
+        this.fix.addNavFix();
+    }
 
-  closeNav() {
-    this.fix.removeNavFix();
-  }
+    closeNav() {
+        this.fix.removeNavFix();
+    }
 
 }

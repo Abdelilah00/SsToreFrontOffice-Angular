@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 
 import {MainComponent} from './main/main.component';
+import {ErrorPageComponent} from './pages/error-page/error-page.component';
 
 export const rootRouterConfig: Routes = [
     {
@@ -20,7 +21,7 @@ export const rootRouterConfig: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'home/six'
+        component: ErrorPageComponent
     }
 ];
 

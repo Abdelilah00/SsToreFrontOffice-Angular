@@ -38,10 +38,10 @@ export class HeaderOneComponent implements OnInit {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     let number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    if (number >= 300) {
-      this.document.getElementById("sticky").classList.add('fixed');
+    if (number >= 51) {
+      this.document.getElementById('sticky').classList.add('fixed');
     } else {
-      this.document.getElementById("sticky").classList.remove('fixed');
+      this.document.getElementById('sticky').classList.remove('fixed');
     }
   }
 

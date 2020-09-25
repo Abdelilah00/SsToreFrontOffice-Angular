@@ -54,7 +54,7 @@ export class CartService {
             this.toastrService.success('This product has been added.');
         }
 
-        localStorage.setItem("cartItem", JSON.stringify(products));
+        localStorage.setItem('cartItem', JSON.stringify(products));
         return item;
     }
 
@@ -64,31 +64,35 @@ export class CartService {
             if (items.product.id == product.id) {
                 let qty = products[index].quantity + quantity;
                 let stock = this.calculateStockCounts(products[index], quantity);
-                if (qty != 0 && stock)
+                if (qty != 0 && stock) {
                     products[index]['quantity'] = qty;
-                localStorage.setItem("cartItem", JSON.stringify(products));
+                }
+                localStorage.setItem('cartItem', JSON.stringify(products));
                 return true;
             }
         });
     }
 
     // Calculate Product stock Counts
+    // TODO: link this with stock API
     public calculateStockCounts(product: CartItem, quantity): CartItem | Boolean {
         let qty = product.quantity + quantity;
         let stock = product.product.stock;
         if (stock < qty) {
             this.toastrService.error('You can not add more items than available. In stock ' + stock + ' items.');
-            return false
+            return false;
         }
-        return true
+        return true;
     }
 
     // Removed in cart
     public removeFromCart(item: CartItem) {
-        if (item === undefined) return false;
+        if (item === undefined) {
+            return false;
+        }
         const index = products.indexOf(item);
         products.splice(index, 1);
-        localStorage.setItem("cartItem", JSON.stringify(products));
+        localStorage.setItem('cartItem', JSON.stringify(products));
     }
 
     // Total amount

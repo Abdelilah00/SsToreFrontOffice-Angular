@@ -5,17 +5,17 @@
     </div>
     <div class="front">
         <a [routerLink]="['/home/left-sidebar/product', product.id]"><img
-                [src]="!variantImage ? product.pictures[0] : variantImage" alt="" class="img-fluid"></a>
+                [src]="!variantImage ? product.imageCover : variantImage" alt="" class="img-fluid"></a>
     </div>
     <div *ngIf="!productsService?.catalogMode" class="cart-box">
         <button (click)="addToCart(product)" [attr.data-target]="'#addtocart'+product.id" [routerLink]=""
                 data-toggle="modal" title="Add to cart"><i class="ti-shopping-cart"></i></button>
-        <a (click)="addToWishlist(product)" [routerLink]="" title="Add to Wishlist"><i aria-hidden="true"
-                                                                                       class="ti-heart"></i></a>
+        <!--<a (click)="addToWishlist(product)" [routerLink]="" title="Add to Wishlist"><i aria-hidden="true"
+                                                                                       class="ti-heart"></i></a>-->
         <a [attr.data-target]="'#quick-view'+product.id" [routerLink]="" data-toggle="modal" title="Quick View"><i
                 aria-hidden="true" class="ti-search"></i></a>
-        <a (click)="addToCompare(product)" [routerLink]="['/home/compare']" title="Compare"><i aria-hidden="true"
-                                                                                               class="ti-reload"></i></a>
+        <!--<a (click)="addToCompare(product)" [routerLink]="['/home/compare']" title="Compare"><i aria-hidden="true"
+                                                                                               class="ti-reload"></i></a>-->
     </div>
 </div>
 <div class="product-detail text-center ">

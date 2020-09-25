@@ -1,7 +1,8 @@
 // Menu
 export interface Menu {
+    id?: number;
     path?: string;
-    title?: string;
+    name?: string;
     type?: string;
     megaMenu?: boolean;
     megaMenuType?: string; // small, medium, large
@@ -11,19 +12,25 @@ export interface Menu {
 
 export const MENUITEMS: Menu[] = [
     {
-        title: 'shop', type: 'sub', megaMenu: true, megaMenuType: 'large', children: [
+        name: 'shop', type: 'sub', megaMenu: true, megaMenuType: 'large', children: [
             {
-                title: 'Digital', type: 'link', children: [
-                    {path: '/home/no-sidebar/collection/all', title: 'Office Keys', type: 'link'},
-                    {path: '/home/no-sidebar/collection/all', title: 'Ebay VCC', type: 'link'},
-                    {path: '/home/no-sidebar/collection/all', title: 'Edu Emails', type: 'link'}
+                name: 'Digital', type: 'link', children: [
+                    {path: '/home/no-sidebar/collection/all', name: 'Office Keys', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Ebay VCC', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Edu Emails', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Office Keys', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Ebay VCC', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Edu Emails', type: 'link'},
                 ]
             },
             {
-                title: 'Physical', type: 'link', children: [
-                    {path: '/home/no-sidebar/collection/all', title: 'Addidas', type: 'link'},
-                    {path: '/home/no-sidebar/collection/all', title: 'Nike', type: 'link'},
-                    {path: '/home/no-sidebar/collection/all', title: 'Apple', type: 'link'}
+                name: 'Physical', type: 'link', children: [
+                    {path: '/home/no-sidebar/collection/all', name: 'Addidas', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Nike', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Apple', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Addidas', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Nike', type: 'link'},
+                    {path: '/home/no-sidebar/collection/all', name: 'Apple', type: 'link'},
                 ]
             }
         ]

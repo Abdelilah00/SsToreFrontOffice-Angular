@@ -26,18 +26,21 @@ export class ProductRightImageComponent implements OnInit {
         asNavFor: '.slider-right-nav'
     };
 
-    //Get Product By Id
-    constructor(private route: ActivatedRoute, private router: Router,
-                public productsService: ProductsService, private wishlistService: WishlistService,
+    // Get Product By Id
+    constructor(private route: ActivatedRoute,
+                private router: Router,
+                public productsService: ProductsService,
+                private wishlistService: WishlistService,
                 private cartService: CartService) {
-        this.route.params.subscribe(params => {
-            const id = +params['id'];
-            this.productsService.get(id).subscribe(product => this.product = product);
-        });
+
         this.onResize();
     }
 
     ngOnInit() {
+        this.route.params.subscribe(params => {
+            const id = +params['id'];
+            this.productsService.get(id).subscribe(product => this.product = product);
+        });
         this.productsService.getAll().subscribe(product => this.products = product);
     }
 

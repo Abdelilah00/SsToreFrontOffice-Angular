@@ -9,14 +9,18 @@ import {ProductsService} from '../../shared/services/products.service';
 })
 export class HomeSixComponent implements OnInit {
 
-    public products: Product[] = [];
+    public newestProducts: Product[] = [];
+    public bestSealedProducts: Product[] = [];
 
     constructor(private productsService: ProductsService) {
     }
 
     ngOnInit() {
-        this.productsService.getAll().subscribe(product => {
-            this.products = product;
+        this.productsService.getNewest().subscribe(product => {
+            this.newestProducts = product;
+        });
+        this.productsService.getBestSealed().subscribe(product => {
+            this.bestSealedProducts = product;
         });
     }
 

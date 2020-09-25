@@ -6,7 +6,6 @@ import {CollectionNoSidebarComponent} from './product/collection/collection-no-s
 import {ProductRightImageComponent} from './product/product-details/product-right-image/product-right-image.component';
 import {SearchComponent} from './product/search/search.component';
 import {WishlistComponent} from './product/wishlist/wishlist.component';
-import {ProductCompareComponent} from './product/product-compare/product-compare.component';
 import {CartComponent} from './product/cart/cart.component';
 import {CheckoutComponent} from './product/checkout/checkout.component';
 import {SuccessComponent} from './product/success/success.component';
@@ -52,11 +51,7 @@ const routes: Routes = [
     {
         path: 'wishlist',
         component: WishlistComponent
-    },
-    {
-        path: 'compare',
-        component: ProductCompareComponent
-    },
+    }
 
 ];
 

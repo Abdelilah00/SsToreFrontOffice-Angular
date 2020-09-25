@@ -4,6 +4,8 @@ import 'rxjs/add/operator/map';
 import {BaseService} from './base-service.service';
 import {Product} from '../models/product';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {retry} from 'rxjs/operators';
 
 
 @Injectable({providedIn: 'root'})
@@ -15,5 +17,16 @@ export class ProductsService extends BaseService<Product> {
         super(httpClient, 'products', 'admin');
     }
 
+    getBestSealed(): Observable<Array<Product>> {
+        this.loading = true;
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getBestSealed')
+            .pipe(retry(1));
+    }
+
+    getNewest(): Observable<Array<Product>> {
+        this.loading = true;
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getNewest')
+            .pipe(retry(1));
+    }
 
 }

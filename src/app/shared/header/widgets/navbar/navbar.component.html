@@ -15,19 +15,19 @@
             [id]="menuItem.megaMenuType == 'large' ? 'hover-cls' : ''">
             <!-- Sub -->
             <a *ngIf="menuItem.type === 'sub'" href="javascript:void(0)">
-                {{menuItem.title | translate}}
+                {{menuItem.name | translate}}
             </a>
             <!-- Link -->
             <a *ngIf="menuItem.type === 'link'" [routerLink]="!menuItem.type ? null : [menuItem.path]">
-                {{menuItem.title | translate}}
+                {{menuItem.name | translate}}
             </a>
             <!-- External Link -->
             <a *ngIf="menuItem.type === 'extLink'" href="{{ !menuItem.type ? null : menuItem.path }}">
-                {{menuItem.title | translate}}
+                {{menuItem.name | translate}}
             </a>
             <!-- External Tab Link -->
             <a *ngIf="menuItem.type === 'extTabLink'" href="{{ !menuItem.type ? null : menuItem.path }}">
-                {{menuItem.title | translate}}
+                {{menuItem.name | translate}}
             </a>
 
 
@@ -40,22 +40,22 @@
                     <li *ngFor="let childrenItem of menuItem.children">
                         <!-- Sub -->
                         <a *ngIf="childrenItem.type === 'sub'" href="javascript:void(0)">
-                            {{childrenItem.title | translate}}
+                            {{childrenItem.name | translate}}
                         </a>
                         <!-- Link -->
                         <a *ngIf="childrenItem.type === 'link' && !menuItem.megaMenu"
                            [routerLink]="!childrenItem.type ? null : [childrenItem.path]">
-                            {{childrenItem.title | translate}}
+                            {{childrenItem.name | translate}}
                         </a>
                         <!-- External Link -->
                         <a *ngIf="childrenItem.type === 'extLink' && !menuItem.megaMenu"
                            href="{{ !childrenItem.type ? null : childrenItem.path }}">
-                            {{childrenItem.title | translate}}
+                            {{childrenItem.name | translate}}
                         </a>
                         <!-- External Tab Link -->
                         <a *ngIf="childrenItem.type === 'extTabLink' && !menuItem.megaMenu"
                            href="{{ !childrenItem.type ? null : childrenItem.path }}" target="_blank">
-                            {{childrenItem.title | translate}}
+                            {{childrenItem.name | translate}}
                         </a>
                         <!-- 3rd Level Menu -->
                         <ul *ngIf="childrenItem.children">
@@ -63,17 +63,17 @@
                                 <!-- Link -->
                                 <a *ngIf="childrenSubItem.type === 'link' && !menuItem.megaMenu"
                                    [routerLink]="!childrenSubItem.type ? null : [childrenSubItem.path]">
-                                    {{childrenSubItem.title | translate}}
+                                    {{childrenSubItem.name | translate}}
                                 </a>
                                 <!-- External Link -->
                                 <a *ngIf="childrenSubItem.type === 'extLink' && !menuItem.megaMenu"
                                    href="{{ !childrenSubItem.type ? null : childrenSubItem.path }}">
-                                    {{childrenSubItem.title | translate}}
+                                    {{childrenSubItem.name | translate}}
                                 </a>
                                 <!-- External Tab Link -->
                                 <a *ngIf="childrenSubItem.type === 'extTabLink' && !menuItem.megaMenu"
                                    href="{{ !childrenSubItem.type ? null : childrenSubItem.path }}" target="_blank">
-                                    {{childrenSubItem.title | translate}}
+                                    {{childrenSubItem.name | translate}}
                                 </a>
                             </li>
                         </ul>
@@ -92,19 +92,19 @@
                                     <a *ngIf="childrenItem.type === 'link'"
                                        [routerLink]="!childrenItem.type ? null : [childrenItem.path]">
                                         <img [src]="childrenItem.image" alt="">
-                                        <h6>{{childrenItem.title | translate}}</h6>
+                                        <h6>{{childrenItem.name | translate}}</h6>
                                     </a>
                                     <!-- External Link -->
                                     <a *ngIf="childrenItem.type === 'extLink'"
                                        href="{{ !childrenItem.type ? null : childrenItem.path }}">
                                         <img [src]="childrenItem.image" alt="">
-                                        <h6>{{childrenItem.title | translate}}</h6>
+                                        <h6>{{childrenItem.name | translate}}</h6>
                                     </a>
                                     <!-- External Tab Link -->
                                     <a *ngIf="childrenItem.type === 'extTabLink'"
                                        href="{{ !childrenItem.type ? null : childrenItem.path }}" target="_blank">
                                         <img [src]="childrenItem.image" alt="">
-                                        <h6>{{childrenItem.title | translate}}</h6>
+                                        <h6>{{childrenItem.name | translate}}</h6>
                                     </a>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                 <div *ngFor="let childrenItem of menuItem.children" class="col mega-box">
                                     <div class="link-section">
                                         <div class="menu-title">
-                                            <h5>{{childrenItem.title | translate}}</h5>
+                                            <h5>{{childrenItem.name | translate}}</h5>
                                         </div>
                                         <div class="menu-content">
                                             <!-- 3nd Level Mega Menu -->
@@ -129,18 +129,18 @@
                                                     <!-- Link -->
                                                     <a *ngIf="childrenSubItem.type === 'link'"
                                                        [routerLink]="!childrenSubItem.type ? null : [childrenSubItem.path]">
-                                                        {{childrenSubItem.title | translate}}
+                                                        {{childrenSubItem.name | translate}}
                                                     </a>
                                                     <!-- External Link -->
                                                     <a *ngIf="childrenSubItem.type === 'extLink'"
                                                        href="{{ !childrenSubItem.type ? null : childrenSubItem.path }}">
-                                                        {{childrenSubItem.title | translate}}
+                                                        {{childrenSubItem.name | translate}}
                                                     </a>
                                                     <!-- External Tab Link -->
                                                     <a *ngIf="childrenSubItem.type === 'extTabLink'"
                                                        href="{{ !childrenSubItem.type ? null : childrenSubItem.path }}"
                                                        target="_blank">
-                                                        {{childrenSubItem.title | translate}}
+                                                        {{childrenSubItem.name | translate}}
                                                     </a>
                                                 </li>
                                             </ul>

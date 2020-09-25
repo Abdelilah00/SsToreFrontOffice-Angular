@@ -34,7 +34,6 @@ import {QuickViewComponent} from './product/widgets/quick-view/quick-view.compon
 import {ModalCartComponent} from './product/widgets/modal-cart/modal-cart.component';
 import {NewProductComponent} from './product/widgets/new-product/new-product.component';
 import {SearchComponent} from './product/search/search.component';
-import {ProductCompareComponent} from './product/product-compare/product-compare.component';
 import {WishlistComponent} from './product/wishlist/wishlist.component';
 import {CartComponent} from './product/cart/cart.component';
 import {CheckoutComponent} from './product/checkout/checkout.component';
@@ -85,7 +84,6 @@ import {NewsletterComponent} from './product/widgets/newsletter/newsletter.compo
         ModalCartComponent,
         NewProductComponent,
         SearchComponent,
-        ProductCompareComponent,
         WishlistComponent,
         CartComponent,
         CheckoutComponent,
