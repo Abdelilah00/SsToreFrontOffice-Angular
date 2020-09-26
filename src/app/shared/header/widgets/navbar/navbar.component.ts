@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
             categories.forEach(category => {
                 category.type = 'link';
                 category.path = '/home/no-sidebar/collection/' + category.id;
+
                 category.children.forEach(subCategory => {
                     subCategory.type = 'link';
                     subCategory.path = '/home/no-sidebar/collection/' + subCategory.id;
@@ -37,7 +38,6 @@ export class NavbarComponent implements OnInit {
             });
             this.menuItems[0].children = categories;
         });
-
     }
 
 

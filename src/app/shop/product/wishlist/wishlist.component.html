@@ -42,12 +42,12 @@
                     <tbody *ngFor="let item of wishlistItems">
                     <tr>
                         <td>
-                            <a [routerLink]="['/home/left-sidebar/product', item.id]">
+                            <a [routerLink]="['/home/right-image/product', item.id]">
                                 <img [src]="item.pictures[0]" alt="">
                             </a>
                         </td>
                         <td>
-                            <a [routerLink]="['/home/left-sidebar/product', item.id]">{{ item.name }}</a>
+                            <a [routerLink]="['/home/right-image/product', item.id]">{{ item.name }}</a>
                             <div class="mobile-cart-content row">
                                 <div class="col-xs-3">
                                     <p>in stock</p>
@@ -88,7 +88,7 @@
         </div>
         <div *ngIf='wishlistItems.length' class="row wishlist-buttons">
             <div class="col-12">
-                <a [routerLink]="['/home/left-side/collection/all']" class="btn btn-solid">continue shopping</a>
+                <a [routerLink]="['/home/no-sidebar/collection/']" class="btn btn-solid">continue shopping</a>
                 <a [routerLink]="['/home/checkout']" class="btn btn-solid">check out</a>
             </div>
         </div>

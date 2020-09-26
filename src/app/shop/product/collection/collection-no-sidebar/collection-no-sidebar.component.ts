@@ -40,11 +40,19 @@ export class CollectionNoSidebarComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             const category = params['category'];
-
-            this.productsService.getAll().subscribe(products => {
-                this.allProduct = products;
-                this.setPage(1);
-            });
+            if (category != null) {
+                this.productsService.getByCategory(category).subscribe(products => {
+                    this.allProduct = products;
+                    this.products = products;
+                    //this.setPage(1);
+                });
+            } else {
+                this.productsService.getAll().subscribe(products => {
+                    this.allProduct = products;
+                    this.products = products;
+                    //this.setPage(1);
+                });
+            }
         });
     }
 

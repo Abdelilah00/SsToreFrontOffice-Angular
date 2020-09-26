@@ -94,9 +94,9 @@
                         </div>
                         <div *ngIf="!productsService?.catalogMode" class="product-buttons">
                             <a (click)="addToCart(product, counter)" [class.disabled]="counter > product.stock"
-                               [routerLink]="" class="btn btn-solid">add to cart</a>
+                               class="btn btn-solid">add to cart</a>
                             <a (click)="buyNow(product, counter)" [class.disabled]="counter > product.stock"
-                               [routerLink]="" class="btn btn-solid">buy now</a>
+                               class="btn btn-solid">buy now</a>
                         </div>
                         <div class="border-product">
                             <h6 class="product-title">product details</h6>

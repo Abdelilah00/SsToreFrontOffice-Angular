@@ -4,7 +4,7 @@
         <span *ngIf='product.sale' class="lable4">on sale</span>
     </div>
     <div class="front">
-        <a [routerLink]="['/home/left-sidebar/product', product.id]"><img
+        <a [routerLink]="['/home/no-sidebar/product', product.id]"><img
                 [src]="!variantImage ? product.imageCover : variantImage" alt="" class="img-fluid"></a>
     </div>
     <div *ngIf="!productsService?.catalogMode" class="cart-box">
@@ -22,7 +22,7 @@
     <div class="rating">
         <bar-rating [rate]="5" [readOnly]="true" class="text-center pro-rating"></bar-rating>
     </div>
-    <a [routerLink]="['/home/left-sidebar/product', product.id]"><h6>{{product.name}}</h6></a>
+    <a [routerLink]="['/home/no-sidebar/product', product.id]"><h6>{{product.name}}</h6></a>
     <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}
         <del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del>
     </h4>

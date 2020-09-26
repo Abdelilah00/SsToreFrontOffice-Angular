@@ -25,13 +25,13 @@ export class ProductsService extends BaseService<Product> {
 
     getByCategory(categoryId: number): Observable<Array<Product>> {
         this.loading = true;
-        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getByCategory')
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getByCategory/' + categoryId)
             .pipe(retry(1));
     }
 
     getRelated(id: number): Observable<Array<Product>> {
         this.loading = true;
-        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getRelated')
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getRelated/' + id)
             .pipe(retry(1));
     }
 

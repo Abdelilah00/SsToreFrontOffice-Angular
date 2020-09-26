@@ -12,11 +12,11 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 <div class="media">
-                                    <a [routerLink]="['/home/left-sidebar/product', product.id]">
+                                    <a [routerLink]="['/home/no-sidebar/product', product.id]">
                                         <img [src]="product.imageCover" alt="" class="img-fluid pro-img">
                                     </a>
                                     <div class="media-body align-self-center text-center">
-                                        <a [routerLink]="['/home/left-sidebar/product', product.id]">
+                                        <a [routerLink]="['/home/no-sidebar/product', product.id]">
                                             <h6>
                                                 <i class="fa fa-check"></i>Item
                                                 <span>{{product.name}}</span>
@@ -28,7 +28,7 @@
                                                 cart</a>
                                             <a [routerLink]="['/home/checkout']" class="checkout btn btn-solid">Check
                                                 out</a>
-                                            <a [routerLink]="['/home/left-sidebar/collection/all']"
+                                            <a data-dismiss="modal" href=''
                                                class="continue btn btn-solid">Continue shopping</a>
                                         </div>
 
@@ -47,14 +47,14 @@
                                              class="product-box col-sm-3 col-6">
                                             <div class="img-wrapper">
                                                 <div class="front">
-                                                    <a [routerLink]="['/home/left-sidebar/product', relatedProduct.id]">
+                                                    <a [routerLink]="['/home/no-sidebar/product', relatedProduct.id]">
                                                         <img [src]="relatedProduct.imageCover" alt=""
                                                              class="img-fluid mb-1">
                                                     </a>
                                                 </div>
                                                 <div class="product-detail">
                                                     <h6 class="mt-0"><a
-                                                            [routerLink]="['/home/left-sidebar/product', relatedProduct.id]"><span>{{relatedProduct.name}}</span></a>
+                                                            [routerLink]="['/home/no-sidebar/product', relatedProduct.id]"><span>{{relatedProduct.name}}</span></a>
                                                     </h6>
                                                     <h4>
                                                         <span>{{relatedProduct.price | currency:productsService?.currency:'symbol'}}</span>

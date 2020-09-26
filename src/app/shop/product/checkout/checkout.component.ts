@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PayPalConfig, PayPalEnvironment, PayPalIntegrationType} from 'ngx-paypal';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {PayPalConfig} from 'ngx-paypal';
 // import {  IPayPalConfig,  ICreateOrderRequest } from 'ngx-paypal';
 import {CartItem} from '../../../shared/models/cart-item';
 import {ProductsService} from '../../../shared/services/products.service';
 import {CartService} from '../../../shared/services/cart.service';
-import {OrderService} from '../../../shared/services/order.service';
 import {Observable, of} from 'rxjs';
+import {OrdersService} from '../../../shared/services/orders.service';
 
 @Component({
     selector: 'app-checkout',
@@ -16,7 +16,7 @@ import {Observable, of} from 'rxjs';
 export class CheckoutComponent implements OnInit {
 
     // form group
-    public checkoutForm: FormGroup;
+    public checkoutFormGroup = this.createFormGroup();
     public cartItems: Observable<CartItem[]> = of([]);
     public checkOutItems: CartItem[] = [];
     public orderDetails: any[] = [];
@@ -28,28 +28,21 @@ export class CheckoutComponent implements OnInit {
     constructor(private fb: FormBuilder,
                 private cartService: CartService,
                 public productsService: ProductsService,
-                private orderService: OrderService) {
-
-        this.checkoutForm = this.fb.group({
-            customerFirstName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
-            customerLastName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
-            customerPhoneNumber: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-            customerEmail: ['', [Validators.required, Validators.email]],
-            customerAddress: ['', [Validators.required, Validators.maxLength(50)]],
-            customerCountry: ['', Validators.required],
-            customerCity: ['', Validators.required],
-            customerState: ['', Validators.required],
-            customerZip: ['', Validators.required],
-            orderDetails: ['', Validators.required]
-        });
+                private orderService: OrdersService) {
     }
+
 
     ngOnInit() {
         this.cartItems = this.cartService.getItems();
-        this.cartItems.forEach(item => this.orderDetails.push({id: item['id'], qte: item['qte']}));
-        this.checkoutForm.controls['orderDetails'].value(this.orderDetails);
+
+        this.cartItems.subscribe(products => {
+            this.checkOutItems = products;
+            products.forEach(item => this.orderDetails.push({id: item['product'].id, qte: item['quantity']}));
+        });
+
+        this.checkoutFormGroup.controls['orderDetails'].setValue(this.orderDetails);
+
         this.getTotal().subscribe(amount => this.amount = amount);
-        this.initConfig();
     }
 
 
@@ -59,54 +52,27 @@ export class CheckoutComponent implements OnInit {
     }
 
     // stripe payment gateway
-    stripeCheckout() {
-        var handler = (<any>window).StripeCheckout.configure({
-            key: 'PUBLISHBLE_KEY', // publishble key
-            locale: 'auto',
-            token: (token: any) => {
-                // You can access the token ID with `token.id`.
-                // Get the token ID to your server-side code for use.
-                this.orderService.createOrder(this.checkOutItems, this.checkoutForm.value, token.id, this.amount);
+    paypalCheckout() {
+        this.orderService.pay(this.checkoutFormGroup.value).subscribe(resp => {
+            if (resp.success) {
+                window.location.href = resp.message;
             }
         });
-        handler.open({
-            name: 'Multikart',
-            description: 'Online Fashion Store',
-            amount: this.amount * 100
-        });
     }
 
-    // Paypal payment gateway
-    private initConfig(): void {
-        this.payPalConfig = new PayPalConfig(PayPalIntegrationType.ClientSideREST, PayPalEnvironment.Sandbox, {
-            commit: true,
-            client: {
-                sandbox: 'CLIENT_ID', // client Id
-            },
-            button: {
-                label: 'paypal',
-                size: 'small',    // small | medium | large | responsive
-                shape: 'rect',     // pill | rect
-                //color: 'blue',   // gold | blue | silver | black
-                //tagline: false
-            },
-            onPaymentComplete: (data, actions) => {
-                this.orderService.createOrder(this.checkOutItems, this.checkoutForm.value, data.orderID, this.amount);
-            },
-            onCancel: (data, actions) => {
-                console.log('OnCancel');
-            },
-            onError: (err) => {
-                console.log('OnError');
-            },
-            transactions: [{
-                amount: {
-                    currency: 'USD', //this.productsService.currency,
-                    total: this.amount
-                }
-            }]
+    createFormGroup(): FormGroup {
+        return new FormGroup({
+            customerFirstName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]),
+            customerLastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]),
+            customerPhoneNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]+')]),
+            customerEmail: new FormControl('', [Validators.required, Validators.email]),
+            customerAddress: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+            customerCountry: new FormControl('', Validators.required),
+            customerCity: new FormControl('', Validators.required),
+            customerState: new FormControl('', Validators.required),
+            customerZip: new FormControl('', Validators.required),
+            orderDetails: new FormControl('', Validators.required)
         });
     }
-
 
 }

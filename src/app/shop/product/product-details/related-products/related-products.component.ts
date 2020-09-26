@@ -1,21 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../../../shared/models/product';
 import {ProductsService} from '../../../../shared/services/products.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-related-products',
-  templateUrl: './related-products.component.html',
-  styleUrls: ['./related-products.component.scss']
+    selector: 'app-related-products',
+    templateUrl: './related-products.component.html',
+    styleUrls: ['./related-products.component.scss']
 })
 export class RelatedProductsComponent implements OnInit {
 
-  public products: Product[] = [];
+    public products: Product[] = [];
 
-  constructor(private productsService: ProductsService) {
-  }
+    constructor(private route: ActivatedRoute,
+                private productsService: ProductsService) {
+    }
 
-  ngOnInit() {
-    this.productsService.getAll().subscribe(product => this.products = product);
-  }
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            const id = +params['id'];
+            this.productsService.getRelated(id).subscribe(product => this.products = product);
+        });
+    }
 
 }

@@ -49,6 +49,7 @@ export class CartService {
         });
         // If Products does not exist (Add New Products)
         if (!hasItem) {
+            product.images = null;
             item = {product: product, quantity: quantity};
             products.push(item);
             this.toastrService.success('This product has been added.');

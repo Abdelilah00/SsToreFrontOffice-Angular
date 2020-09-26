@@ -53,7 +53,3 @@ export interface TagFilter {
     tag?: ProductTags;
 }
 
-export class Category extends BaseModel {
-    name: String;
-    parentId?: number;
-}

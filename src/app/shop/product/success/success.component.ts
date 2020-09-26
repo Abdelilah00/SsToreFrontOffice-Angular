@@ -3,19 +3,19 @@ import {Order} from '../../../shared/models/order';
 import {OrderService} from '../../../shared/services/order.service';
 
 @Component({
-  selector: 'app-order-success',
-  templateUrl: './success.component.html',
-  styleUrls: ['./success.component.scss']
+    selector: 'app-order-success',
+    templateUrl: './success.component.html',
+    styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
 
-  public orderDetails: Order = {};
+    public orderDetails: Order;
 
-  constructor(private orderService: OrderService) {
-  }
+    constructor(private orderService: OrderService) {
+    }
 
-  ngOnInit() {
-    this.orderDetails = this.orderService.getOrderItems();
-  }
+    ngOnInit() {
+        this.orderDetails = this.orderService.getOrderItems();
+    }
 
 }

@@ -120,7 +120,11 @@
                                 <div *ngFor="let childrenItem of menuItem.children" class="col mega-box">
                                     <div class="link-section">
                                         <div class="menu-title">
-                                            <h5>{{childrenItem.name | translate}}</h5>
+                                            <!-- Link -->
+                                            <a *ngIf="childrenItem.type === 'link'"
+                                               [routerLink]="!childrenItem.type ? null : [childrenItem.path]">
+                                                <h5>{{childrenItem.name | translate}}</h5>
+                                            </a>
                                         </div>
                                         <div class="menu-content">
                                             <!-- 3nd Level Mega Menu -->
