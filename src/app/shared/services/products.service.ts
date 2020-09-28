@@ -41,4 +41,15 @@ export class ProductsService extends BaseService<Product> {
             .pipe(retry(1));
     }
 
+    getNamesByQuery(query: string): Observable<Array<string>> {
+        this.loading = true;
+        return this.httpClient.get<Array<string>>(this.baseUrl + '/getNamesByQuery/' + query)
+            .pipe(retry(1));
+    }
+
+    getByQuery(query: string): Observable<Array<Product>> {
+        this.loading = true;
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getByQuery/' + query)
+            .pipe(retry(1));
+    }
 }

@@ -18,7 +18,8 @@ export class SettingsComponent implements OnInit {
 
     public show: boolean = false;
 
-    constructor(private translate: TranslateService, private cartService: CartService,
+    constructor(private translate: TranslateService,
+                private cartService: CartService,
                 public productsService: ProductsService) {
     }
 

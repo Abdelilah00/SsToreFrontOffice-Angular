@@ -6,11 +6,6 @@ import {ErrorPageComponent} from './pages/error-page/error-page.component';
 export const rootRouterConfig: Routes = [
     {
         path: '',
-        redirectTo: 'home/six',
-        pathMatch: 'full'
-    },
-    {
-        path: '',
         component: MainComponent,
         children: [
             {
@@ -18,6 +13,11 @@ export const rootRouterConfig: Routes = [
                 loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule)
             }
         ]
+    },
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
     },
     {
         path: '**',

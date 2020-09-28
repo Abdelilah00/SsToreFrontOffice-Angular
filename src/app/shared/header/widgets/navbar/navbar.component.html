@@ -44,6 +44,7 @@
                         </a>
                         <!-- Link -->
                         <a *ngIf="childrenItem.type === 'link' && !menuItem.megaMenu"
+                           [queryParams]='{categoryId:childrenItem.categoryId}'
                            [routerLink]="!childrenItem.type ? null : [childrenItem.path]">
                             {{childrenItem.name | translate}}
                         </a>
@@ -62,6 +63,7 @@
                             <li *ngFor="let childrenSubItem of childrenItem.children">
                                 <!-- Link -->
                                 <a *ngIf="childrenSubItem.type === 'link' && !menuItem.megaMenu"
+                                   [queryParams]='{categoryId:childrenItem.categoryId}'
                                    [routerLink]="!childrenSubItem.type ? null : [childrenSubItem.path]">
                                     {{childrenSubItem.name | translate}}
                                 </a>
@@ -90,6 +92,7 @@
                                      [class]="menuItem.megaMenuType == 'small' ? 'col-xl-4' : menuItem.megaMenuType == 'medium' ? 'col-xl-3' : '' ">
                                     <!-- Link -->
                                     <a *ngIf="childrenItem.type === 'link'"
+                                       [queryParams]='{categoryId:childrenItem.categoryId}'
                                        [routerLink]="!childrenItem.type ? null : [childrenItem.path]">
                                         <img [src]="childrenItem.image" alt="">
                                         <h6>{{childrenItem.name | translate}}</h6>
@@ -122,6 +125,7 @@
                                         <div class="menu-title">
                                             <!-- Link -->
                                             <a *ngIf="childrenItem.type === 'link'"
+                                               [queryParams]='{categoryId:childrenItem.categoryId}'
                                                [routerLink]="!childrenItem.type ? null : [childrenItem.path]">
                                                 <h5>{{childrenItem.name | translate}}</h5>
                                             </a>
@@ -132,6 +136,7 @@
                                                 <li *ngFor="let childrenSubItem of childrenItem.children">
                                                     <!-- Link -->
                                                     <a *ngIf="childrenSubItem.type === 'link'"
+                                                       [queryParams]='{categoryId:childrenItem.categoryId}'
                                                        [routerLink]="!childrenSubItem.type ? null : [childrenSubItem.path]">
                                                         {{childrenSubItem.name | translate}}
                                                     </a>

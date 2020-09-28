@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../../shared/models/product';
 import {ProductsService} from '../../../shared/services/products.service';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-search',
@@ -27,16 +28,23 @@ export class SearchComponent implements OnInit {
     public animation: any;
     public searchTerms: any = '';
 
-    constructor(private productsService: ProductsService) {
+    constructor(private productsService: ProductsService,
+                private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        this.productsService.getAll().subscribe(product => this.products = product);
+        this.route.queryParams.subscribe(params => {
+            const query = params['query'];
+            if (query != null) {
+                this.searchTerm(query);
+            }
+        });
+        //this.productsService.getAll().subscribe(product => this.products = product);
     }
 
-    public searchTerm(term: string, keys: string = 'name') {
-        let res = (this.products || []).filter((item) => keys.split(',').some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
-        this.searchProducts = res;
+    public searchTerm(query: string) {
+        this.productsService.getByQuery(query).subscribe(data => {
+            this.searchProducts = data;
+        });
     }
-
 }

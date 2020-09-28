@@ -11,19 +11,22 @@
             <div class="col-sm-12">
                 <div class="main-menu border-section border-top-0">
                     <div class="brand-logo layout2-logo">
-                        <a [routerLink]="['/home/six']"><img alt="" class="img-fluid"
-                                                             src="assets/images/icon/logo-4.png"></a>
+                        <a [routerLink]="['/home/six']">
+                            <img alt="" class="img-fluid" src="assets/images/icon/logo-4.svg" style='height: 55px;'>
+                        </a>
                     </div>
-                    <div>
-                        <form class="form_search" role="form">
-                            <input aria-expanded="true" class="nav-search nav-search-field"
-                                   id="query search-autocomplete" placeholder="Find the best for your pet..."
-                                   type="search">
-                            <button class="btn-search" name="nav-submit-button" type="button">
-                                <i class="ti-search"></i>
-                            </button>
-                        </form>
+
+                    <div class="form_search">
+                        <input #query (keyup.enter)='getByQuery(query.value)'
+                               aria-expanded="true"
+                               class="nav-search nav-search-field" id="query search-autocomplete"
+                               placeholder="Find the best for your pet..."
+                               type="search">
+                        <button (click)='getByQuery(query.value)' class="btn-search" name="nav-submit-button">
+                            <i class="ti-search"></i>
+                        </button>
                     </div>
+
                     <div class="menu-right pull-right">
                         <app-header-widgets [shoppingCartItems]="shoppingCartItems"></app-header-widgets>
                     </div>

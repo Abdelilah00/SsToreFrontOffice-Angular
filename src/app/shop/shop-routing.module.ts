@@ -20,7 +20,7 @@ const routes: Routes = [
     },
     // Product
     {
-        path: 'no-sidebar/collection/:category',
+        path: 'no-sidebar/collection',
         component: CollectionNoSidebarComponent
     },
     // Product Details
@@ -38,6 +38,11 @@ const routes: Routes = [
         path: 'checkout',
         component: CheckoutComponent
     },
+
+    {
+        path: 'search',
+        component: SearchComponent
+    },
     /**************************************/
     {
         path: 'checkout/success',
@@ -45,13 +50,14 @@ const routes: Routes = [
     },
 
     {
-        path: 'search',
-        component: SearchComponent
-    },
-    {
         path: 'wishlist',
         component: WishlistComponent
-    }
+    },
+    {
+        path: '',
+        redirectTo: 'home/six',
+        pathMatch: 'full'
+    },
 
 ];
 

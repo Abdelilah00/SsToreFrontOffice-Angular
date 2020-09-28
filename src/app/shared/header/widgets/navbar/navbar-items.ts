@@ -2,6 +2,7 @@
 export interface Menu {
     id?: number;
     path?: string;
+    categoryId?: number;
     name?: string;
     type?: string;
     megaMenu?: boolean;

@@ -29,11 +29,13 @@ export class NavbarComponent implements OnInit {
             let categories = data as Menu[];
             categories.forEach(category => {
                 category.type = 'link';
-                category.path = '/home/no-sidebar/collection/' + category.id;
+                category.path = '/home/no-sidebar/collection';
+                category.categoryId = category.id;
 
                 category.children.forEach(subCategory => {
                     subCategory.type = 'link';
-                    subCategory.path = '/home/no-sidebar/collection/' + subCategory.id;
+                    subCategory.path = '/home/no-sidebar/collection';
+                    subCategory.categoryId = subCategory.id;
                 });
             });
             this.menuItems[0].children = categories;

@@ -75,7 +75,7 @@ $(document).ready(function () {
     /*=====================
      05.RTL js
      ==========================*/
-    $(".rtl-btn").click(function () {
+    /*$(".rtl-btn").click(function () {
         $(this).toggleClass("active");
         if ($(this).hasClass('active')) {
             $("html").attr("dir", "rtl");
@@ -84,14 +84,14 @@ $(document).ready(function () {
             $("html").attr("dir", "ltr");
             $("body").removeClass('rtl');
         }
-    });
+    });*/
 
 
     /*=====================
      06.Color js
      ==========================*/
 
-    (function () {
+    /*(function () {
         $('<div class="color-picker" id="color-picker">' +
             '<a href="#" class="handle">' +
             '<i class="fa fa-cog"></i>' +
@@ -248,6 +248,6 @@ $(document).ready(function () {
         } else {
             $('.color-picker').animate({right: '-190px'});
         }
-    });
+    });*/
 
 });
