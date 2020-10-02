@@ -1,9 +1,11 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Product} from '../../../../shared/models/product';
+import {Product, SelectedCharacteristics} from '../../../../shared/models/product';
 import {ProductsService} from '../../../../shared/services/products.service';
 import {WishlistService} from '../../../../shared/services/wishlist.service';
 import {CartService} from '../../../../shared/services/cart.service';
+import {finalize} from 'rxjs/operators';
+
 
 @Component({
     selector: 'app-product-right-image',
@@ -11,20 +13,24 @@ import {CartService} from '../../../../shared/services/cart.service';
     styleUrls: ['./product-right-image.component.scss']
 })
 export class ProductRightImageComponent implements OnInit {
-
     public product: Product;
     public products: Product[] = [];
     public counter: number = 1;
-    public selectedSize: any = '';
+    public selectedValues: SelectedCharacteristics[] = [];
     public screenWidth;
     public slideRightNavConfig;
     public slideRightConfig = {
         slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
         arrows: true,
         fade: true,
-        asNavFor: '.slider-right-nav'
+        asNavFor: '.slider-right-nav',
+        autoplay: true,
+        autoplaySpeed: 2000,
+        focusOnChange: true,
+        swipe: true,
     };
+    private loaded = false;
 
     // Get Product By Id
     constructor(private route: ActivatedRoute,
@@ -39,9 +45,18 @@ export class ProductRightImageComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             const id = +params['id'];
-            this.productsService.get(id).subscribe(product => this.product = product);
+            this.productsService.get(id)
+                .pipe(
+                    finalize(() => {
+                        this.loaded = true;
+                    }))
+                .subscribe(product => {
+                    this.product = product;
+                    product.productCharacteristics.forEach(pc => {
+                        this.selectedValues.push({name: pc.characteristicName});
+                    });
+                });
         });
-        this.productsService.getAll().subscribe(product => this.products = product);
     }
 
     @HostListener('window:resize', ['$event'])
@@ -118,8 +133,16 @@ export class ProductRightImageComponent implements OnInit {
     }
 
     // Change size variant
-    public changeSizeVariant(variant) {
-        this.selectedSize = variant;
+    public changeCharacteristicVariant(variant, name) {
+        if (this.selectedValues !== undefined) {
+            this.selectedValues.find(char => char.name === name).value = variant;
+        }
+        this.product.selectedCharacteristics = this.selectedValues;
     }
 
+    public getSelectedValue(name) {
+        if (this.selectedValues !== undefined) {
+            return this.selectedValues.find(char => char.name === name).value;
+        }
+    }
 }

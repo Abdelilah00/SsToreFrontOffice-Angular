@@ -19,6 +19,11 @@ export type ProductSize = 'M' | 'L' | 'XL';
 // Product Tag
 export type ProductTags = 'nike' | 'puma' | 'lifestyle' | 'caprese';
 
+export class SelectedCharacteristics {
+    name?: string;
+    value?: string;
+}
+
 // Product
 export class Product extends BaseModel {
     name?: string;
@@ -29,17 +34,28 @@ export class Product extends BaseModel {
     }];
     overview?: string;
     category?: string;
+
     newest?: boolean;
     sale?: boolean;
 
-    salePrice?: number;
-    discount?: number;
+    productCharacteristics: [{
+        characteristicName: string,
+        value: string[]
+    }];
+
+
+    // Local Attr
+    selectedCharacteristics?: SelectedCharacteristics[];
+
+    discount?: number; // %
+    salePrice?: number; // after discount price
     pictures?: string;
-    shortDetails?: string;
     stock?: number;
+
+    shortDetails?: string;
     colors?: ProductColor[];
-    size?: ProductTags[];
-    tags?: ProductSize[];
+    size?: ProductSize[];
+    tags?: ProductTags[];
     variants?: any[];
 }
 

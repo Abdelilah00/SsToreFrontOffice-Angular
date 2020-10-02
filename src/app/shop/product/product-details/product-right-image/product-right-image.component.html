@@ -26,8 +26,8 @@
             <div class="row">
                 <div class="col-lg-5 col-sm-10 col-xs-12">
                     <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideRightConfig"
-                                        class="product-right-slick">
-                        <div *ngFor="let image of product.images" ngxSlickItem>
+                                        *ngIf='loaded' class="product-right-slick">
+                        <div *ngFor="let image of product?.images" ngxSlickItem>
                             <div>
                                 <img [src]="image.url" alt="" class="img-fluid">
                             </div>
@@ -38,8 +38,8 @@
                     <div class="row">
                         <div class="col-12 p-0">
                             <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideRightNavConfig"
-                                                class="slider-right-nav">
-                                <div *ngFor="let image of product.images" ngxSlickItem>
+                                                *ngIf='loaded' class="slider-right-nav">
+                                <div *ngFor="let image of product?.images" ngxSlickItem>
                                     <div>
                                         <img [src]="image.url" alt="" class="img-fluid">
                                     </div>
@@ -50,28 +50,39 @@
                 </div>
                 <div class="col-lg-6 rtl-text">
                     <div class="product-right">
-                        <h2>{{product.name}}</h2>
+                        <h2>{{product?.name}}</h2>
                         <h4 *ngIf="!productsService?.catalogMode">
-                            <del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del>
-                            <span>{{product.discount}}% off</span></h4>
-                        <h3 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h3>
+                            <del>{{product?.salePrice | currency:productsService?.currency:'symbol'}}</del>
+                            <span>{{product?.discount}}% off</span></h4>
+                        <h3 *ngIf="!productsService?.catalogMode">{{product?.price | currency:productsService?.currency:'symbol'}}</h3>
                         <ul *ngIf="!productsService?.catalogMode" class="color-variant">
-                            <li (click)="slickModal.slickGoTo(i)" *ngFor="let variant of product.variants let i = index"
+                            <li (click)="slickModal.slickGoTo(i)"
+                                *ngFor="let variant of product?.variants let i = index"
                                 [class]="variant.color"></li>
                         </ul>
                         <div *ngIf="!productsService?.catalogMode" class="product-description border-product">
-                            <h6 class="product-title size-text">select size
-                                <span><a data-target="#sizemodal" data-toggle="modal" href="">size chart</a></span>
-                            </h6>
-                            <div class="size-box">
-                                <ul>
-                                    <li *ngFor="let size of product.size" [ngClass]="{'active': selectedSize == size}">
-                                        <a (click)="changeSizeVariant(size)" [routerLink]="">{{size}}</a>
-                                    </li>
-                                </ul>
+                            <!--
+                                                        TODO: Replace this with Characteristics
+                            -->
+                            <div *ngFor='let characteristic of product?.productCharacteristics'>
+                                <h6 class="product-title size-text">select {{characteristic.characteristicName}}
+                                    <span><a data-target="#sizemodal" data-toggle="modal"
+                                             href="">{{characteristic.characteristicName}}</a></span>
+                                </h6>
+                                <div class="size-box">
+                                    <ul>
+                                        <li *ngFor="let cValue of characteristic.value"
+                                            [ngClass]="{'active': getSelectedValue(characteristic.characteristicName) == cValue}">
+                                            <a (click)="changeCharacteristicVariant(cValue, characteristic.characteristicName)"
+                                               [routerLink]="">{{cValue}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <h5 *ngIf="counter <= product.stock" class="avalibility"><span>In Stock</span></h5>
-                            <h5 *ngIf="counter > product.stock" class="avalibility"><span>Out of Stock</span></h5>
+
+
+                            <h5 *ngIf="counter <= product?.stock" class="avalibility"><span>In Stock</span></h5>
+                            <h5 *ngIf="counter > product?.stock" class="avalibility"><span>Out of Stock</span></h5>
                             <h6 class="product-title">quantity</h6>
                             <div class="qty-box">
                                 <div class="input-group">
@@ -93,14 +104,14 @@
                             </div>
                         </div>
                         <div *ngIf="!productsService?.catalogMode" class="product-buttons">
-                            <a (click)="addToCart(product, counter)" [class.disabled]="counter > product.stock"
+                            <a (click)="addToCart(product, counter)" [class.disabled]="counter > product?.stock"
                                class="btn btn-solid">add to cart</a>
-                            <a (click)="buyNow(product, counter)" [class.disabled]="counter > product.stock"
+                            <a (click)="buyNow(product, counter)" [class.disabled]="counter > product?.stock"
                                class="btn btn-solid">buy now</a>
                         </div>
                         <div class="border-product">
                             <h6 class="product-title">product details</h6>
-                            <p>{{product.shortDetails}}</p>
+                            <p>{{product?.shortDetails}}</p>
                         </div>
                         <div class="border-product">
                             <h6 class="product-title">share it</h6>
@@ -159,12 +170,12 @@
                            id="top-home-tab" role="tab">Description</a>
                         <div class="material-border"></div>
                     </li>
-                    <!--<li class="nav-item">
+                    <li class="nav-item">
                         <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-profile"
-                           id="profile-top-tab" role="tab">Details</a>
+                           id="profile-top-tab" role="tab">Specifications</a>
                         <div class="material-border"></div>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-contact"
                            id="contact-top-tab" role="tab">Video</a>
                         <div class="material-border"></div>
@@ -178,50 +189,47 @@
                 <div class="tab-content nav-material" id="top-tabContent">
                     <div aria-labelledby="top-home-tab" class="tab-pane fade show active" id="top-home" role="tabpanel">
                         <p>
-                            {{product.overview}}
+                            {{product?.overview}}
                         </p>
                     </div>
-                    <!-- <div aria-labelledby="profile-top-tab" class="tab-pane fade" id="top-profile" role="tabpanel">
-                         <p>
-                             {{product.overview}}
-                         </p>
-                     <div class="single-product-tables">
-                             <table>
-                                 <tbody>
-                                 <tr>
-                                     <td>Febric</td>
-                                     <td>Chiffon</td>
-                                 </tr>
-                                 <tr>
-                                     <td>Color</td>
-                                     <td>Red</td>
-                                 </tr>
-                                 <tr>
-                                     <td>Material</td>
-                                     <td>Crepe printed</td>
-                                 </tr>
-                                 </tbody>
-                             </table>
-                             <table>
-                                 <tbody>
-                                 <tr>
-                                     <td>Length</td>
-                                     <td>50 Inches</td>
-                                 </tr>
-                                 <tr>
-                                     <td>Size</td>
-                                     <td>S, M, L .XXL</td>
-                                 </tr>
-                                 </tbody>
-                             </table>
-                         </div>
-                    </div>
-                    <div aria-labelledby="contact-top-tab" class="tab-pane fade" id="top-contact" role="tabpanel">
-                        <div class="mt-3 text-center">
-                            <iframe allow="autoplay; encrypted-media" allowfullscreen height="315"
-                                    src="https://www.youtube.com/embed/BUWzX78Ye_8" width="560"></iframe>
+                    <div aria-labelledby="profile-top-tab" class="tab-pane fade" id="top-profile" role="tabpanel">
+                        <div class="single-product-tables">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>Febric</td>
+                                    <td>Chiffon</td>
+                                </tr>
+                                <tr>
+                                    <td>Color</td>
+                                    <td>Red</td>
+                                </tr>
+                                <tr>
+                                    <td>Material</td>
+                                    <td>Crepe printed</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>Length</td>
+                                    <td>50 Inches</td>
+                                </tr>
+                                <tr>
+                                    <td>Size</td>
+                                    <td>S, M, L .XXL</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </div>-->
+                    </div>
+                    <!--  <div aria-labelledby="contact-top-tab" class="tab-pane fade" id="top-contact" role="tabpanel">
+                          <div class="mt-3 text-center">
+                              <iframe allow="autoplay; encrypted-media" allowfullscreen height="315"
+                                      src="https://www.youtube.com/embed/BUWzX78Ye_8" width="560"></iframe>
+                          </div>
+                      </div>-->
                     <div aria-labelledby="review-top-tab" class="tab-pane fade" id="top-review" role="tabpanel">
 
                         <form class="theme-form">
