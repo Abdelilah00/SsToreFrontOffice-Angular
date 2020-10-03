@@ -21,7 +21,7 @@ interface TimerFormat {
 export class ProductRightImageComponent implements OnInit {
     public product: Product;
     public products: Product[] = [];
-    public counter: number = 1;
+    public counter = 1;
     public selectedValues: SelectedCharacteristics[] = [];
     public screenWidth;
     public slideRightNavConfig;
@@ -35,11 +35,7 @@ export class ProductRightImageComponent implements OnInit {
         autoplaySpeed: 2000,
         swipe: true,
     };
-    public configCountdownTimer = {
-        leftTime: 100,
-        format: 'dd hh:mm:ss',
-    };
-    timeLeft: number;
+    timeLeft = 0;
     dateLeft: TimerFormat;
 
     private loaded = false;
@@ -50,7 +46,6 @@ export class ProductRightImageComponent implements OnInit {
                 public productsService: ProductsService,
                 private wishlistService: WishlistService,
                 private cartService: CartService) {
-
         this.onResize();
     }
 
@@ -61,6 +56,7 @@ export class ProductRightImageComponent implements OnInit {
                 .pipe(
                     finalize(() => {
                         this.loaded = true;
+                        this.startTimer();
                     }))
                 .subscribe(product => {
                     this.product = product;
@@ -68,49 +64,9 @@ export class ProductRightImageComponent implements OnInit {
                         this.selectedValues.push({name: pc.characteristicName});
                     });
                     this.timeLeft = new Date(this.product.discount.endDate).getTime();
-
-                    const timer = setInterval(() => {
-                        if (this.timeLeft > 0) {
-                            this.timeLeft--;
-                            this.dateLeft = this.toDateTime(this.timeLeft);
-                        } else {
-                            clearInterval(timer);
-                        }
-                    }, 1000);
                 });
         });
 
-    }
-
-    toDateTime(ms): TimerFormat {
-
-        let date_future = ms;
-        let date_now = new Date().getTime();
-
-        // get total seconds between the times
-        let delta = Math.abs(date_future - date_now) / 1000;
-
-        // calculate (and subtract) whole days
-        let days = Math.floor(delta / 86400);
-        delta -= days * 86400;
-
-        // calculate (and subtract) whole hours
-        let hours = Math.floor(delta / 3600) % 24;
-        delta -= hours * 3600;
-
-        // calculate (and subtract) whole minutes
-        let minutes = Math.floor(delta / 60) % 60;
-        delta -= minutes * 60;
-
-        // what's left is seconds
-        let seconds = Math.floor(delta % 60);
-
-        return {
-            days: days.toString().padStart(2, '0'),
-            hours: hours.toString().padStart(2, '0'),
-            minutes: minutes.toString().padStart(2, '0'),
-            seconds: seconds.toString().padStart(2, '0'),
-        };
     }
 
     @HostListener('window:resize', ['$event'])
@@ -164,7 +120,6 @@ export class ProductRightImageComponent implements OnInit {
         }
     }
 
-
     // Add to cart
     public addToCart(product: Product, quantity) {
         if (quantity == 0) {
@@ -198,5 +153,47 @@ export class ProductRightImageComponent implements OnInit {
         if (this.selectedValues !== undefined) {
             return this.selectedValues.find(char => char.name === name).value;
         }
+    }
+
+    private getDateFrom(ms): TimerFormat {
+
+        const date_future = ms;
+        const date_now = new Date().getTime();
+
+        // get total seconds between the times
+        let delta = Math.abs(date_future - date_now) / 1000;
+
+        // calculate (and subtract) whole days
+        const days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+
+        // calculate (and subtract) whole hours
+        const hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+
+        // calculate (and subtract) whole minutes
+        const minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+
+        // what's left is seconds
+        const seconds = Math.floor(delta % 60);
+
+        return {
+            days: days.toString().padStart(2, '0'),
+            hours: hours.toString().padStart(2, '0'),
+            minutes: minutes.toString().padStart(2, '0'),
+            seconds: seconds.toString().padStart(2, '0'),
+        };
+    }
+
+    private startTimer() {
+        const timer = setInterval(() => {
+            if (this.timeLeft > 0) {
+                this.timeLeft--;
+                this.dateLeft = this.getDateFrom(this.timeLeft);
+            } else {
+                clearInterval(timer);
+            }
+        }, 1000);
     }
 }

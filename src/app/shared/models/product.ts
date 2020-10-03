@@ -36,7 +36,7 @@ export class Product extends BaseModel {
     category?: string;
 
     newest?: boolean;
-    sale?: boolean;
+    onSale?: boolean;
 
     productCharacteristics: [{
         characteristicName: string,
