@@ -13,7 +13,7 @@
                             <a href="tab-4">New Products</a>
                         </li>
                         <li class="">
-                            <a href="tab-6">Best Sellers</a>
+                            <a href="tab-6">Best Selling</a>
                         </li>
                     </ul>
                     <div class="tab-content-cls">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="tab-content" id="tab-6">
                             <div class="no-slider row">
-                                <div *ngFor="let product of bestSealedProducts | slice:0:8" class="product-box">
+                                <div *ngFor="let product of bestSellingProducts | slice:0:8" class="product-box">
                                     <app-product [product]="product"></app-product>
                                 </div>
                             </div>

@@ -42,7 +42,9 @@ import {ExitPopupComponent} from './product/widgets/exit-popup/exit-popup.compon
 import {AgeVerificationComponent} from './product/widgets/age-verification/age-verification.component';
 import {NewsletterComponent} from './product/widgets/newsletter/newsletter.component';
 
+
 @NgModule({
+
     exports: [ExitPopupComponent],
     imports: [
         CommonModule,
@@ -55,7 +57,7 @@ import {NewsletterComponent} from './product/widgets/newsletter/newsletter.compo
         RangeSliderModule,
         InfiniteScrollModule,
         NgxPayPalModule,
-        NgxImgZoomModule
+        NgxImgZoomModule,
     ],
     declarations: [
 

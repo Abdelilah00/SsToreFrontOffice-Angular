@@ -53,7 +53,7 @@
                         <h2>{{product?.name}}</h2>
                         <h4 *ngIf="!productsService?.catalogMode">
                             <del>{{product?.salePrice | currency:productsService?.currency:'symbol'}}</del>
-                            <span>{{product?.discount}}% off</span></h4>
+                            <span>{{product?.discount.percent * 100}}% off</span></h4>
                         <h3 *ngIf="!productsService?.catalogMode">{{product?.price | currency:productsService?.currency:'symbol'}}</h3>
                         <ul *ngIf="!productsService?.catalogMode" class="color-variant">
                             <li (click)="slickModal.slickGoTo(i)"
@@ -81,8 +81,8 @@
                             </div>
 
 
-                            <h5 *ngIf="counter <= product?.stock" class="avalibility"><span>In Stock</span></h5>
-                            <h5 *ngIf="counter > product?.stock" class="avalibility"><span>Out of Stock</span></h5>
+                            <h5 *ngIf="counter <= product?.stockQte" class="avalibility"><span>In Stock</span></h5>
+                            <h5 *ngIf="counter > product?.stockQte" class="avalibility"><span>Out of Stock</span></h5>
                             <h6 class="product-title">quantity</h6>
                             <div class="qty-box">
                                 <div class="input-group">
@@ -104,15 +104,15 @@
                             </div>
                         </div>
                         <div *ngIf="!productsService?.catalogMode" class="product-buttons">
-                            <a (click)="addToCart(product, counter)" [class.disabled]="counter > product?.stock"
+                            <a (click)="addToCart(product, counter)" [class.disabled]="counter > product?.stockQte"
                                class="btn btn-solid">add to cart</a>
-                            <a (click)="buyNow(product, counter)" [class.disabled]="counter > product?.stock"
+                            <a (click)="buyNow(product, counter)" [class.disabled]="counter > product?.stockQte"
                                class="btn btn-solid">buy now</a>
                         </div>
-                        <div class="border-product">
+                        <!--<div class="border-product">
                             <h6 class="product-title">product details</h6>
                             <p>{{product?.shortDetails}}</p>
-                        </div>
+                        </div>-->
                         <div class="border-product">
                             <h6 class="product-title">share it</h6>
                             <div class="product-icon">
@@ -130,25 +130,25 @@
                                 </form>
                             </div>
                         </div>
-                        <div *ngIf="!productsService?.catalogMode" class="border-product">
+                        <div *ngIf="!productsService?.catalogMode && loaded" class="border-product">
                             <h6 class="product-title">Time Reminder</h6>
                             <div class="timer">
                                 <p id="timer">
-                                            <span>25
-                                                <span class="padding-l">:</span>
-                                                <span class="timer-cal">Days</span>
-                                            </span>
-                                    <span>22
-                                                <span class="padding-l">:</span>
-                                                <span class="timer-cal">Hrs</span>
-                                            </span>
-                                    <span>13
-                                                <span class="padding-l">:</span>
-                                                <span class="timer-cal">Min</span>
-                                            </span>
-                                    <span>57
-                                                <span class="timer-cal">Sec</span>
-                                            </span>
+                                    <span>{{dateLeft?.days}}
+                                        <span class="padding-l">:</span>
+                                        <span class="timer-cal">Days</span>
+                                    </span>
+                                    <span>{{dateLeft?.hours}}
+                                        <span class="padding-l">:</span>
+                                        <span class="timer-cal">Hrs</span>
+                                    </span>
+                                    <span>{{dateLeft?.minutes}}
+                                        <span class="padding-l">:</span>
+                                        <span class="timer-cal">Min</span>
+                                    </span>
+                                    <span>{{dateLeft?.seconds}}
+                                        <span class="timer-cal">Sec</span>
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -194,34 +194,16 @@
                     </div>
                     <div aria-labelledby="profile-top-tab" class="tab-pane fade" id="top-profile" role="tabpanel">
                         <div class="single-product-tables">
-                            <table>
+                            <table *ngIf='loaded' class='table table-striped table-bordered'>
                                 <tbody>
-                                <tr>
-                                    <td>Febric</td>
-                                    <td>Chiffon</td>
-                                </tr>
-                                <tr>
-                                    <td>Color</td>
-                                    <td>Red</td>
-                                </tr>
-                                <tr>
-                                    <td>Material</td>
-                                    <td>Crepe printed</td>
+                                <tr *ngFor='let spec of product.specifications'>
+                                    <td>{{spec.name}}</td>
+                                    <td>{{spec.value}}</td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td>Length</td>
-                                    <td>50 Inches</td>
-                                </tr>
-                                <tr>
-                                    <td>Size</td>
-                                    <td>S, M, L .XXL</td>
-                                </tr>
-                                </tbody>
-                            </table>
+
+
                         </div>
                     </div>
                     <!--  <div aria-labelledby="contact-top-tab" class="tab-pane fade" id="top-contact" role="tabpanel">

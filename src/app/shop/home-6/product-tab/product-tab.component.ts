@@ -10,7 +10,7 @@ import * as $ from 'jquery';
 export class ProductTabSixComponent implements OnInit {
 
     @Input() newestProducts: Product;
-    @Input() bestSealedProducts: Product;
+    @Input() bestSellingProducts: Product;
 
     constructor() {
     }

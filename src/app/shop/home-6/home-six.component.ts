@@ -10,7 +10,7 @@ import {ProductsService} from '../../shared/services/products.service';
 export class HomeSixComponent implements OnInit {
 
     public newestProducts: Product[] = [];
-    public bestSealedProducts: Product[] = [];
+    public bestSellingProducts: Product[] = [];
 
     constructor(private productsService: ProductsService) {
     }
@@ -19,8 +19,8 @@ export class HomeSixComponent implements OnInit {
         this.productsService.getNewest().subscribe(product => {
             this.newestProducts = product;
         });
-        this.productsService.getBestSealed().subscribe(product => {
-            this.bestSealedProducts = product;
+        this.productsService.getBestSelling().subscribe(product => {
+            this.bestSellingProducts = product;
         });
     }
 

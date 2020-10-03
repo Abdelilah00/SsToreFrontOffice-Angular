@@ -17,9 +17,9 @@ export class ProductsService extends BaseService<Product> {
         super(httpClient, 'products', 'admin');
     }
 
-    getBestSealed(): Observable<Array<Product>> {
+    getBestSelling(): Observable<Array<Product>> {
         this.loading = true;
-        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getBestSealed')
+        return this.httpClient.get<Array<Product>>(this.baseUrl + '/getBestSelling')
             .pipe(retry(1));
     }
 

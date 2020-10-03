@@ -42,15 +42,20 @@ export class Product extends BaseModel {
         characteristicName: string,
         value: string[]
     }];
-
+    specifications: [{
+        name: string,
+        value: string
+    }];
 
     // Local Attr
     selectedCharacteristics?: SelectedCharacteristics[];
 
-    discount?: number; // %
+    discount?: { percent: number, endDate: Date }; // %
     salePrice?: number; // after discount price
+
+
     pictures?: string;
-    stock?: number;
+    stockQte?: number;
 
     shortDetails?: string;
     colors?: ProductColor[];

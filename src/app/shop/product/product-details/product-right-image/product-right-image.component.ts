@@ -6,6 +6,12 @@ import {WishlistService} from '../../../../shared/services/wishlist.service';
 import {CartService} from '../../../../shared/services/cart.service';
 import {finalize} from 'rxjs/operators';
 
+interface TimerFormat {
+    days: string;
+    hours: string;
+    minutes: string;
+    seconds: string;
+}
 
 @Component({
     selector: 'app-product-right-image',
@@ -27,9 +33,15 @@ export class ProductRightImageComponent implements OnInit {
         asNavFor: '.slider-right-nav',
         autoplay: true,
         autoplaySpeed: 2000,
-        focusOnChange: true,
         swipe: true,
     };
+    public configCountdownTimer = {
+        leftTime: 100,
+        format: 'dd hh:mm:ss',
+    };
+    timeLeft: number;
+    dateLeft: TimerFormat;
+
     private loaded = false;
 
     // Get Product By Id
@@ -55,8 +67,50 @@ export class ProductRightImageComponent implements OnInit {
                     product.productCharacteristics.forEach(pc => {
                         this.selectedValues.push({name: pc.characteristicName});
                     });
+                    this.timeLeft = new Date(this.product.discount.endDate).getTime();
+
+                    const timer = setInterval(() => {
+                        if (this.timeLeft > 0) {
+                            this.timeLeft--;
+                            this.dateLeft = this.toDateTime(this.timeLeft);
+                        } else {
+                            clearInterval(timer);
+                        }
+                    }, 1000);
                 });
         });
+
+    }
+
+    toDateTime(ms): TimerFormat {
+
+        let date_future = ms;
+        let date_now = new Date().getTime();
+
+        // get total seconds between the times
+        let delta = Math.abs(date_future - date_now) / 1000;
+
+        // calculate (and subtract) whole days
+        let days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+
+        // calculate (and subtract) whole hours
+        let hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+
+        // calculate (and subtract) whole minutes
+        let minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+
+        // what's left is seconds
+        let seconds = Math.floor(delta % 60);
+
+        return {
+            days: days.toString().padStart(2, '0'),
+            hours: hours.toString().padStart(2, '0'),
+            minutes: minutes.toString().padStart(2, '0'),
+            seconds: seconds.toString().padStart(2, '0'),
+        };
     }
 
     @HostListener('window:resize', ['$event'])

@@ -78,7 +78,7 @@ export class CartService {
     // TODO: link this with stock API
     public calculateStockCounts(product: CartItem, quantity): CartItem | Boolean {
         let qty = product.quantity + quantity;
-        let stock = product.product.stock;
+        let stock = product.product.stockQte;
         if (stock < qty) {
             this.toastrService.error('You can not add more items than available. In stock ' + stock + ' items.');
             return false;
