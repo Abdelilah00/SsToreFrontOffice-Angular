@@ -23,3 +23,5 @@ export interface Order extends BaseModel {
     orderId?: any;
     totalAmount?: any;
 }
+
+

@@ -18,9 +18,9 @@
                     <div class="col-lg-6 subscribe-wrapper">
                         <div class="subscribe-block">
                             <h2>newsletter</h2>
-                            <form>
+                            <form (ngSubmit)='subscribe()' [formGroup]='formGroup'>
                                 <div class="form-group">
-                                    <input class="form-control" id="exampleFormControlInput3"
+                                    <input class="form-control" formControlName='email' id="exampleFormControlInput3"
                                            placeholder="Enter your email" type="text">
                                     <button class="btn btn-solid btn-green" type="submit">subscribe</button>
                                 </div>
@@ -33,10 +33,9 @@
                         </div>
                         <div class="footer-contant">
                             <ul class="contact-details">
-                                <li>Multikart Demo Store, Demo store India 345-659</li>
-                                <li>Call Us: 123-456-7898</li>
-                                <li>Email Us: <a href="#">Support@Fiot.com</a></li>
-                                <li>Fax: 123456</li>
+                                <li>SsTore Demo Store</li>
+                                <li>Call Us: +212676958566</li>
+                                <li>Email Us: <a href="#">Contact@SsTore.com</a></li>
                             </ul>
                         </div>
                     </div>

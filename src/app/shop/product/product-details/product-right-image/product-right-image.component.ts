@@ -5,6 +5,9 @@ import {ProductsService} from '../../../../shared/services/products.service';
 import {WishlistService} from '../../../../shared/services/wishlist.service';
 import {CartService} from '../../../../shared/services/cart.service';
 import {finalize} from 'rxjs/operators';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ReviewsService} from '../../../../shared/services/reviews.service';
+import {ToastrService} from 'ngx-toastr';
 
 interface TimerFormat {
     days: string;
@@ -37,7 +40,7 @@ export class ProductRightImageComponent implements OnInit {
     };
     timeLeft = 0;
     dateLeft: TimerFormat;
-
+    public reviewFormGroup = this.createFormGroup();
     private loaded = false;
 
     // Get Product By Id
@@ -45,7 +48,9 @@ export class ProductRightImageComponent implements OnInit {
                 private router: Router,
                 public productsService: ProductsService,
                 private wishlistService: WishlistService,
-                private cartService: CartService) {
+                private cartService: CartService,
+                private reviewsService: ReviewsService,
+                private toasterService: ToastrService) {
         this.onResize();
     }
 
@@ -57,13 +62,17 @@ export class ProductRightImageComponent implements OnInit {
                     finalize(() => {
                         this.loaded = true;
                         this.startTimer();
+                        this.reviewFormGroup.controls['productId'].setValue(id);
                     }))
                 .subscribe(product => {
                     this.product = product;
+
                     product.productCharacteristics.forEach(pc => {
                         this.selectedValues.push({name: pc.characteristicName});
                     });
-                    this.timeLeft = new Date(this.product.discount.endDate).getTime();
+                    if (product.discount != null) {
+                        this.timeLeft = new Date(this.product.discount.endDate).getTime();
+                    }
                 });
         });
 
@@ -155,7 +164,17 @@ export class ProductRightImageComponent implements OnInit {
         }
     }
 
-    private getDateFrom(ms): TimerFormat {
+    postReview() {
+        this.reviewsService.create(this.reviewFormGroup.value)
+            .subscribe((response) => {
+                this.toasterService.success('Review Submitted');
+            }, (error) => {
+                this.toasterService.error(error.error.message);
+                console.table(error);
+            });
+    }
+
+    private msToDate(ms): TimerFormat {
 
         const date_future = ms;
         const date_now = new Date().getTime();
@@ -186,11 +205,21 @@ export class ProductRightImageComponent implements OnInit {
         };
     }
 
+    private createFormGroup(): FormGroup {
+        return new FormGroup({
+            customerFullName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]),
+            customerEmail: new FormControl('', [Validators.required, Validators.email]),
+            comment: new FormControl('', [Validators.required, Validators.maxLength(1000)]),
+            stars: new FormControl('', [Validators.required]),
+            productId: new FormControl('', [Validators.required])
+        });
+    }
+
     private startTimer() {
         const timer = setInterval(() => {
             if (this.timeLeft > 0) {
                 this.timeLeft--;
-                this.dateLeft = this.getDateFrom(this.timeLeft);
+                this.dateLeft = this.msToDate(this.timeLeft);
             } else {
                 clearInterval(timer);
             }

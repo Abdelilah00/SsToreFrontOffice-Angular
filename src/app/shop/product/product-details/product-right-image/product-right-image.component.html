@@ -50,11 +50,17 @@
                 </div>
                 <div class="col-lg-6 rtl-text">
                     <div class="product-right">
+
                         <h2>{{product?.name}}</h2>
-                        <h4 *ngIf='product.onSale'>
+
+                        <bar-rating [rate]="product?.startGlobal" [readOnly]="true"
+                                    [theme]="'fontawesome-o'"></bar-rating>
+
+                        <h4 *ngIf='product?.onSale'>
                             <del>{{product?.salePrice | currency:productsService?.currency:'symbol'}}</del>
                             <span>{{product?.discount.percent * 100}}% off</span>
                         </h4>
+
                         <h3 *ngIf="!productsService?.catalogMode">{{product?.price | currency:productsService?.currency:'symbol'}}</h3>
                         <ul *ngIf="!productsService?.catalogMode" class="color-variant">
                             <li (click)="slickModal.slickGoTo(i)"
@@ -62,9 +68,7 @@
                                 [class]="variant.color"></li>
                         </ul>
                         <div *ngIf="!productsService?.catalogMode" class="product-description border-product">
-                            <!--
-                                                        TODO: Replace this with Characteristics
-                            -->
+
                             <div *ngFor='let characteristic of product?.productCharacteristics'>
                                 <h6 class="product-title size-text">select {{characteristic.characteristicName}}
                                     <span><a data-target="#sizemodal" data-toggle="modal"
@@ -131,7 +135,7 @@
                                 </form>
                             </div>
                         </div>-->
-                        <div *ngIf="product.onSale && loaded" class="border-product">
+                        <div *ngIf="product?.onSale && loaded" class="border-product">
                             <h6 class="product-title">Time Reminder</h6>
                             <div class="timer">
                                 <p id="timer">
@@ -160,7 +164,7 @@
     </div>
 </section>
 <!-- Section ends -->
-<!-- product-tab starts -->
+<!-- product-tab stars -->
 <section class="tab-product m-0">
     <div class="container">
         <div class="row">
@@ -203,8 +207,6 @@
                                 </tr>
                                 </tbody>
                             </table>
-
-
                         </div>
                     </div>
                     <!--  <div aria-labelledby="contact-top-tab" class="tab-pane fade" id="top-contact" role="tabpanel">
@@ -215,46 +217,58 @@
                       </div>-->
                     <div aria-labelledby="review-top-tab" class="tab-pane fade" id="top-review" role="tabpanel">
 
-                        <form class="theme-form">
+                        <form (ngSubmit)='postReview()' [formGroup]="reviewFormGroup" class="theme-form">
                             <div class="form-row">
                                 <div class="col-md-12 ">
                                     <div class="media">
-                                        <label>Rating</label>
-                                        <div class="media-body ml-3">
-                                            <div class="rating three-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
+                                        <label style='margin-right: 10px'>Rating</label>
+                                        <bar-rating [rate]="" [theme]="'fontawesome-o'"
+                                                    formControlName='stars'></bar-rating>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="name">Name</label>
-                                    <input class="form-control" id="name" placeholder="Enter Your name" required
-                                           type="text">
+                                    <label for="fullName">Name</label>
+                                    <input class="form-control" formControlName='customerFullName' id="fullName"
+                                           placeholder="Enter Your name"
+                                           required type="text">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email">Email</label>
-                                    <input class="form-control" id="email" placeholder="Email" required type="text">
+                                    <input class="form-control" formControlName='customerEmail' id="email"
+                                           placeholder="Email" required
+                                           type="text">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="review">Review Title</label>
-                                    <input class="form-control" id="review" placeholder="Enter your Review Subjects"
-                                           required type="text">
+                                    <label for="comment">Review Title</label>
+                                    <textarea class="form-control" formControlName='comment'
+                                              id='comment' placeholder="Wrire Your Testimonial Here"
+                                              rows="6"></textarea>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="review">Review Title</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                              placeholder="Wrire Your Testimonial Here" rows="6"></textarea>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-solid" type="submit">Submit YOur Review</button>
+                                    <button [disabled]='!reviewFormGroup.valid' class="btn btn-solid" type="submit">
+                                        Submit
+                                        Your Review
+                                    </button>
                                 </div>
                             </div>
                         </form>
+
+                        <div class='flex flex-column '>
+                            <div *ngFor='let review of product?.reviews'
+                                 class='row'
+                                 style='background-color: rgba(211,147,224,0.07); border-bottom: 1px solid #18021a; margin: 20px auto; padding: 10px'>
+                                <div class='col-lg-2 col-md-12'>
+                                    <span>Abdelilah Dehaoui</span>
+                                </div>
+                                <div class='col-lg-10 col-md-12'>
+                                    <bar-rating [rate]="review.stars" [readOnly]="true"
+                                                [theme]="'fontawesome-o'"></bar-rating>
+                                    <span>{{review.comment}}</span>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

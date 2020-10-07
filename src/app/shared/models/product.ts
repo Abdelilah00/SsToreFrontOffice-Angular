@@ -27,7 +27,7 @@ export class SelectedCharacteristics {
 // Product
 export class Product extends BaseModel {
     name?: string;
-    price?: number;
+    price?: number; // init price
     imageCover?: string;
     images?: [{
         url: string;
@@ -46,16 +46,20 @@ export class Product extends BaseModel {
         name: string,
         value: string
     }];
+    reviews: [{
+        comment?: string,
+        stars: number
+    }];
 
     // Local Attr
     selectedCharacteristics?: SelectedCharacteristics[];
 
     discount?: { percent: number, endDate: Date }; // %
     salePrice?: number; // after discount price
-
+    stockQte?: number;
+    startGlobal: number;
 
     pictures?: string;
-    stockQte?: number;
 
     shortDetails?: string;
     colors?: ProductColor[];

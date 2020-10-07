@@ -33,7 +33,7 @@
 </div>
 <div class="product-detail">
     <div>
-        <bar-rating [rate]="5" [readOnly]="true"></bar-rating>
+        <bar-rating [rate]="product?.startGlobal" [readOnly]="true" [theme]="'fontawesome-o'"></bar-rating>
         <a [routerLink]="['/home/right-image/product', product.id]"><h6>{{product.name}}</h6></a>
         <h4>{{product.price}} USD
             <del *ngIf='product.onSale'><span class="money">{{product.salePrice}}USD</span></del>

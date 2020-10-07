@@ -25,70 +25,65 @@ import {TopbarTwoComponent} from './header/widgets/topbar/topbar-two/topbar-two.
 import {NavbarComponent} from './header/widgets/navbar/navbar.component';
 import {SettingsComponent} from './header/widgets/settings/settings.component';
 import {LeftMenuComponent} from './header/widgets/left-menu/left-menu.component';
-import {FooterOneComponent} from './footer/footer-one/footer-one.component';
-import {FooterTwoComponent} from './footer/footer-two/footer-two.component';
-import {FooterThreeComponent} from './footer/footer-three/footer-three.component';
 import {FooterFourComponent} from './footer/footer-four/footer-four.component';
 import {InformationComponent} from './footer/widgets/information/information.component';
 import {CategoriesComponent} from './footer/widgets/categories/categories.component';
 import {WhyWeChooseComponent} from './footer/widgets/why-we-choose/why-we-choose.component';
 import {CopyrightComponent} from './footer/widgets/copyright/copyright.component';
 import {SocialComponent} from './footer/widgets/social/social.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  exports: [
-    CommonModule,
-    TranslateModule,
-    HeaderOneComponent,
-    HeaderTwoComponent,
-    HeaderThreeComponent,
-    HeaderFourComponent,
-    HeaderFiveComponent,
-    LeftSidebarComponent,
-    FooterOneComponent,
-    FooterTwoComponent,
-    FooterThreeComponent,
-    FooterFourComponent,
-    OrderByPipe
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    TranslateModule
-  ],
-  declarations: [
-    HeaderOneComponent,
-    HeaderTwoComponent,
-    HeaderThreeComponent,
-    HeaderFourComponent,
-    HeaderFiveComponent,
-    LeftSidebarComponent,
-    FooterOneComponent,
-    FooterTwoComponent,
-    FooterThreeComponent,
-    FooterFourComponent,
-    OrderByPipe,
-    NavbarComponent,
-    SettingsComponent,
-    LeftMenuComponent,
-    TopbarOneComponent,
-    TopbarTwoComponent,
-    InformationComponent,
-    CategoriesComponent,
-    WhyWeChooseComponent,
-    CopyrightComponent,
-    SocialComponent
-  ],
-  providers: [
-    WINDOW_PROVIDERS,
-    LandingFixService,
-    InstagramService,
-    ProductsService,
-    WishlistService,
-    CartService,
-    OrderService,
-    PaginationService
-  ]
+    exports: [
+        CommonModule,
+        TranslateModule,
+        HeaderOneComponent,
+        HeaderTwoComponent,
+        HeaderThreeComponent,
+        HeaderFourComponent,
+        HeaderFiveComponent,
+        LeftSidebarComponent,
+
+        FooterFourComponent,
+        OrderByPipe
+    ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        TranslateModule,
+        ReactiveFormsModule
+    ],
+    declarations: [
+        HeaderOneComponent,
+        HeaderTwoComponent,
+        HeaderThreeComponent,
+        HeaderFourComponent,
+        HeaderFiveComponent,
+        LeftSidebarComponent,
+
+        FooterFourComponent,
+        OrderByPipe,
+        NavbarComponent,
+        SettingsComponent,
+        LeftMenuComponent,
+        TopbarOneComponent,
+        TopbarTwoComponent,
+        InformationComponent,
+        CategoriesComponent,
+        WhyWeChooseComponent,
+        CopyrightComponent,
+        SocialComponent
+    ],
+    providers: [
+        WINDOW_PROVIDERS,
+        LandingFixService,
+        InstagramService,
+        ProductsService,
+        WishlistService,
+        CartService,
+        OrderService,
+        PaginationService
+    ]
 })
 export class SharedModule {
 }
