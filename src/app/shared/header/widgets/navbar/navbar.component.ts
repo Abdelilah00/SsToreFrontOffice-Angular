@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
             children: []
         });
 
-        this.categoryService.getCategoryMenu().subscribe(data => {
+        this.categoryService.getTree().subscribe(data => {
             let categories = data as Menu[];
             categories.forEach(category => {
                 category.type = 'link';

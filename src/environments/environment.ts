@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    apiBaseUrl: 'http://localhost:8080/api',
+    apiBaseUrl: 'http://35.239.212.16:8080/api',
+    // apiBaseUrl: 'http://localhost:8080/api',
 };
 /*
  * In development mode, to ignore zone related error stack frames such as

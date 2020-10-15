@@ -10,7 +10,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class FooterFourComponent implements OnInit {
     formGroup: FormGroup = new FormGroup({
-        email: new FormControl('', Validators.required)
+        email: new FormControl('@gmail.com', Validators.email)
     });
 
     constructor(private subscriptionsService: SubscriptionsService,
