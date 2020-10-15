@@ -4,7 +4,8 @@
         <a [routerLink]="['/home/no-sidebar/product', product.id]"><img [src]="product.pictures[0]" alt=""
                                                                         class="img-fluid"></a>
     </div>
-    <div *ngIf="!productsService?.catalogMode" class="cart-info cart-wrap">
+    <!-- <div *ngIf="!productsService?.catalogMode" class="cart-info cart-wrap">-->
+    <div class="cart-info cart-wrap">
         <a (click)="addToWishlist(product)" [routerLink]="" title="Add to Wishlist">
             <i aria-hidden="true" class="fa fa-heart"></i>
         </a>
@@ -31,5 +32,7 @@
     <a [routerLink]="['/home/no-sidebar/product', product.id]">
         <h6>{{product.name}}</h6>
     </a>
-    <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h4>
+    <!--
+        <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h4>
+    -->
 </div>

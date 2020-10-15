@@ -1,16 +1,9 @@
-import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map, retry} from 'rxjs/operators';
 import {BaseModel, IListModel} from '../models/base-model.model';
 import {environment} from '../../../environments/environment';
 
-@Injectable({
-    providedIn: 'root'
-})
-/**
- * Service de base
- */
 export abstract class BaseService<TModel extends BaseModel> {
     protected baseUrl: string;
     protected loading: boolean;
@@ -19,12 +12,8 @@ export abstract class BaseService<TModel extends BaseModel> {
         headers: new HttpHeaders({'Content-Type': 'application/json'}),
     };
 
-    protected httpOptions1 = {
-        headers: new HttpHeaders({'Content-Type': 'multipart/form-data'}),
-        reportProgress: true
-    };
 
-    constructor(protected httpClient: HttpClient, protected uri: string, private role: string) {
+    protected constructor(protected httpClient: HttpClient, protected uri: string, private role: string) {
         this.baseUrl = `${environment.apiBaseUrl}/${role}/${encodeURIComponent(uri)}`;
     }
 

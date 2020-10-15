@@ -1,7 +1,2 @@
-FROM openjdk:latest
-
-ADD target/demo-0.0.1-SNAPSHOT.jar app.jar
-
-ENTRYPOINT ["java","-jar","app.jar"]
-
-EXPOSE 8080
+FROM nginx:1.17.1-alpine
+COPY /dist/multikart /usr/share/nginx/html

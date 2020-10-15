@@ -24,7 +24,10 @@
                 </ul>
             </div>
         </li>-->
-        <li *ngIf="!productsService?.catalogMode" class="onhover-div mobile-cart">
+        <!--
+                <li *ngIf="!productsService?.catalogMode" class="onhover-div mobile-cart">
+        -->
+        <li class="onhover-div mobile-cart">
             <div>
                 <a [routerLink]="'/home/cart'">
                     <img alt="" class="img-fluid" src="assets/images/icon/cart.png">
@@ -44,7 +47,10 @@
                             <a [routerLink]="['/home/left-sidebar/product', item.product.id]">
                                 <h4>{{ item.product.name }}</h4></a>
                             <h4><span>{{ item.quantity }}
-                                x {{ item.product.price | currency:productsService?.currency:'symbol' }}</span></h4>
+                                <!--
+                                                                x {{ item.product.price | currency:productsService?.currency:'symbol' }}</span></h4>
+                                -->
+                                x {{ item.product.price }}</span></h4>
                         </div>
                     </div>
                     <div class="close-circle">
@@ -54,7 +60,10 @@
                 <li>
                     <div class="total">
                         <h5>subtotal :
-                            <span>{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span></h5>
+                            <!--
+                                                        <span>{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span></h5>
+                            -->
+                            <span>{{ getTotal() | async}}</span></h5>
                     </div>
                 </li>
                 <li>

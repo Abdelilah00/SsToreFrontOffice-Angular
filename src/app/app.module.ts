@@ -1,7 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ShopModule} from './shop/shop.module';
 import {SharedModule} from './shared/shared.module';
@@ -14,7 +13,6 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 // components
 import {AppComponent} from './app.component';
 import {MainComponent} from './main/main.component';
-import {ErrorPageComponent} from './pages/error-page/error-page.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,11 +23,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     declarations: [
         AppComponent,
         MainComponent,
-        ErrorPageComponent
     ],
     imports: [
         BrowserModule,
-        HttpModule,
         BrowserAnimationsModule,
         ShopModule,
         SharedModule,

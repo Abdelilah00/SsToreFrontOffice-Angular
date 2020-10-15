@@ -41,7 +41,7 @@ export class ProductRightImageComponent implements OnInit {
     timeLeft = 0;
     dateLeft: TimerFormat;
     public reviewFormGroup = this.createFormGroup();
-    private loaded = false;
+    loaded = false;
 
     // Get Product By Id
     constructor(private route: ActivatedRoute,

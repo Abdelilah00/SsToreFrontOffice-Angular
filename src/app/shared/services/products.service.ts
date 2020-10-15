@@ -8,8 +8,9 @@ import {Observable} from 'rxjs';
 import {retry} from 'rxjs/operators';
 
 
-@Injectable({providedIn: 'root'})
-
+@Injectable({
+    providedIn: 'root'
+})
 
 export class ProductsService extends BaseService<Product> {
 

@@ -32,15 +32,17 @@ import {WhyWeChooseComponent} from './footer/widgets/why-we-choose/why-we-choose
 import {CopyrightComponent} from './footer/widgets/copyright/copyright.component';
 import {SocialComponent} from './footer/widgets/social/social.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CategoryService} from './services/category.service';
+import {ReviewsService} from './services/reviews.service';
 
 @NgModule({
     exports: [
         CommonModule,
         TranslateModule,
-        HeaderOneComponent,
-        HeaderTwoComponent,
-        HeaderThreeComponent,
-        HeaderFourComponent,
+        /*        HeaderOneComponent,
+                HeaderTwoComponent,
+                HeaderThreeComponent,
+                HeaderFourComponent,*/
         HeaderFiveComponent,
         LeftSidebarComponent,
 
@@ -51,7 +53,7 @@ import {ReactiveFormsModule} from '@angular/forms';
         CommonModule,
         RouterModule,
         TranslateModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     declarations: [
         HeaderOneComponent,
@@ -79,10 +81,12 @@ import {ReactiveFormsModule} from '@angular/forms';
         LandingFixService,
         InstagramService,
         ProductsService,
+        CategoryService,
+        OrderService,
+        ReviewsService,
         WishlistService,
         CartService,
-        OrderService,
-        PaginationService
+        PaginationService,
     ]
 })
 export class SharedModule {

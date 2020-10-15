@@ -9,7 +9,9 @@
                 <div class="media-body align-self-center">
                     <bar-rating [rate]="5" [readOnly]="true"></bar-rating>
                     <a [routerLink]="['/home/no-sidebar/product', product.id]"><h6>{{product.name}}</h6></a>
+<!--
                     <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h4>
+-->
                 </div>
             </div>
         </div>

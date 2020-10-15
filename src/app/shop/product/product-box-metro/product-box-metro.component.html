@@ -4,7 +4,8 @@
             <img [src]="product.pictures[0]" alt="" class="img-fluid">
         </a>
     </div>
-    <div *ngIf="!productsService?.catalogMode" class="cart-info cart-wrap">
+    <!--  <div *ngIf="!productsService?.catalogMode" class="cart-info cart-wrap">-->
+    <div class="cart-info cart-wrap">
         <button (click)="addToCart(product)" [attr.data-target]="'#addtocart'+product.id" data-toggle="modal"
                 title="Add to cart">
             <i class="ti-shopping-cart"></i>
@@ -21,8 +22,8 @@
     </div>
 </div>
 <div class="product-detail">
-    <a *ngIf="!productsService?.catalogMode" [routerLink]="['/home/no-sidebar/product', product.id]">
+    <a [routerLink]="['/home/no-sidebar/product', product.id]">
         <h6>{{product.name}}</h6>
     </a>
-    <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h4>
+    <h4>{{product.price}}</h4>
 </div>

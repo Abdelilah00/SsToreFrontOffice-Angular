@@ -7,7 +7,10 @@
         <a [routerLink]="['/home/no-sidebar/product', product.id]"><img
                 [src]="!variantImage ? product.imageCover : variantImage" alt="" class="img-fluid"></a>
     </div>
-    <div *ngIf="!productsService?.catalogMode" class="cart-box">
+    <!--
+        <div *ngIf="!productsService?.catalogMode" class="cart-box">
+    -->
+    <div class="cart-box">
         <button (click)="addToCart(product)" [attr.data-target]="'#addtocart'+product.id" [routerLink]=""
                 data-toggle="modal" title="Add to cart"><i class="ti-shopping-cart"></i></button>
         <!--<a (click)="addToWishlist(product)" [routerLink]="" title="Add to Wishlist"><i aria-hidden="true"
@@ -23,8 +26,11 @@
         <bar-rating [rate]="5" [readOnly]="true" class="text-center pro-rating"></bar-rating>
     </div>
     <a [routerLink]="['/home/no-sidebar/product', product.id]"><h6>{{product.name}}</h6></a>
-    <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}
-        <del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del>
+    <!-- <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}
+         <del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del>
+     </h4> -->
+    <h4>{{product.price}}
+        <del>{{product.salePrice}}</del>
     </h4>
     <ul *ngIf="product.variants" class="color-variant">
         <li (click)="changeVariantImage(variant.images)" *ngFor="let variant of product.variants"

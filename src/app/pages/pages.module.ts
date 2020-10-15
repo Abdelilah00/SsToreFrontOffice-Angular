@@ -5,7 +5,6 @@ import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {IsotopeModule} from 'ngx-isotope';
 
 import {AboutUsComponent} from './about-us/about-us.component';
-import {ErrorPageComponent} from './error-page/error-page.component';
 import {LookbookComponent} from './lookbook/lookbook.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
@@ -38,7 +37,7 @@ import {MasonaryFullwidthComponent} from './portfolio/masonary-fullwidth/masonar
   ],
   declarations: [
     AboutUsComponent,
-    ErrorPageComponent,
+    // ErrorPageComponent,
     LookbookComponent,
     LoginComponent,
     RegisterComponent,

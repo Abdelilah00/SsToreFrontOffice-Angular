@@ -196,7 +196,10 @@
                                         <li *ngFor="let item of checkOutItems">
                                             {{ item.product.name }} × {{ item.quantity }}
                                             <span>
+<!--
                                         	 {{ item.product.price * item.quantity | currency:productsService?.currency:'symbol' }}
+-->
+                                                {{ item.product.price * item.quantity}}
                                             </span>
                                         </li>
                                     </ul>
@@ -206,7 +209,10 @@
                                     <ul class="sub-total">
                                         <li>
                                             Subtotal <span
-                                                class="count">{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span>
+                                                class="count">{{ getTotal() | async }}</span>
+                                            <!--
+                                                                                            class="count">{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span>
+                                            -->
                                         </li>
                                         <li *ngIf='checkOutItems.length'>
                                             Shipping
@@ -224,8 +230,10 @@
                                         </li>
                                     </ul>
                                     <ul class="total">
-                                        <li>Total <span
-                                                class="count">{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span>
+                                        <!--
+                                                                                <li>Total <span class="count">{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span>
+                                        -->
+                                        <li>Total <span class="count">{{ getTotal() | async}}</span>
                                         </li>
                                     </ul>
                                 </div>
