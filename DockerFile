@@ -1,2 +1,10 @@
-FROM nginx:1.17.1-alpine
-COPY /dist/multikart /usr/share/nginx/html
+FROM node:latest As builder
+WORKDIR /usr/src/app
+COPY package.json package-lock.json ./
+RUN npm install
+COPY . .
+RUN npm run build --prod
+
+
+FROM nginx:latest
+COPY --from=builder /usr/src/app/dist/multikart/ /usr/share/nginx/html
