@@ -5,6 +5,7 @@ import {ProductsService} from '../../../shared/services/products.service';
 import {CartService} from '../../../shared/services/cart.service';
 import {Observable, of} from 'rxjs';
 import {OrdersService} from '../../../shared/services/orders.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-checkout',
@@ -25,7 +26,8 @@ export class CheckoutComponent implements OnInit {
     constructor(private fb: FormBuilder,
                 private cartService: CartService,
                 public productsService: ProductsService,
-                private orderService: OrdersService) {
+                private orderService: OrdersService,
+                private router: Router) {
     }
 
 
@@ -49,11 +51,9 @@ export class CheckoutComponent implements OnInit {
     }
 
     // stripe payment gateway
-    paypalCheckout() {
-        this.orderService.pay(this.checkoutFormGroup.value).subscribe(resp => {
-            if (resp.success) {
-                window.location.href = resp.message;
-            }
+    orderCheckout() {
+        this.orderService.create(this.checkoutFormGroup.value).subscribe(resp => {
+            this.router.navigate(['/home/checkout/success']);
         });
     }
 

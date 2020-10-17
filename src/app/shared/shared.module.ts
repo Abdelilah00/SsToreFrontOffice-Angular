@@ -14,10 +14,6 @@ import {PaginationService} from './models/paginate';
 // Pipes
 import {OrderByPipe} from './pipes/order-by.pipe';
 // components
-import {HeaderOneComponent} from './header/header-one/header-one.component';
-import {HeaderTwoComponent} from './header/header-two/header-two.component';
-import {HeaderThreeComponent} from './header/header-three/header-three.component';
-import {HeaderFourComponent} from './header/header-four/header-four.component';
 import {HeaderFiveComponent} from './header/header-five/header-five.component';
 import {LeftSidebarComponent} from './header/left-sidebar/left-sidebar.component';
 import {TopbarOneComponent} from './header/widgets/topbar/topbar-one/topbar-one.component';
@@ -39,10 +35,6 @@ import {ReviewsService} from './services/reviews.service';
     exports: [
         CommonModule,
         TranslateModule,
-        /*        HeaderOneComponent,
-                HeaderTwoComponent,
-                HeaderThreeComponent,
-                HeaderFourComponent,*/
         HeaderFiveComponent,
         LeftSidebarComponent,
 
@@ -56,10 +48,7 @@ import {ReviewsService} from './services/reviews.service';
         ReactiveFormsModule,
     ],
     declarations: [
-        HeaderOneComponent,
-        HeaderTwoComponent,
-        HeaderThreeComponent,
-        HeaderFourComponent,
+
         HeaderFiveComponent,
         LeftSidebarComponent,
 

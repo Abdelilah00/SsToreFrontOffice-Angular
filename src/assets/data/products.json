@@ -16,7 +16,7 @@
     "stock": 5,
     "new": true,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "yellow",
       "gray",
@@ -64,7 +64,7 @@
     "stock": 2,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "gray",
       "orange"
@@ -107,7 +107,7 @@
     "stock": 25,
     "new": false,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "blue",
       "white",
@@ -154,7 +154,7 @@
     "stock": 15,
     "new": true,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "pink",
       "gray",
@@ -202,7 +202,7 @@
     "stock": 12,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "pink",
       "yellow",
@@ -250,7 +250,7 @@
     "stock": 50,
     "new": false,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "blue",
       "gray",
@@ -296,7 +296,7 @@
     "stock": 30,
     "new": true,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "red",
       "white",
@@ -344,7 +344,7 @@
     "stock": 30,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "black",
       "yellow"
@@ -387,7 +387,7 @@
     "stock": 40,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "pink",
       "gray"
@@ -431,7 +431,7 @@
     "stock": 1,
     "new": false,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "red",
       "black",
@@ -479,7 +479,7 @@
     "stock": 16,
     "new": true,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "orange",
       "gray",
@@ -527,7 +527,7 @@
     "stock": 60,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "white",
       "black"
@@ -570,7 +570,7 @@
     "stock": 30,
     "new": false,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "gray",
       "green"
@@ -614,7 +614,7 @@
     "stock": 80,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "orange",
       "black",
@@ -662,7 +662,7 @@
     "stock": 11,
     "new": false,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "black",
       "white",
@@ -711,7 +711,7 @@
     "stock": 6,
     "new": false,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "pink",
       "yellow",
@@ -758,7 +758,7 @@
     "stock": 6,
     "new": true,
     "sale": true,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "pink",
       "yellow",
@@ -801,7 +801,7 @@
     "stock": 9,
     "new": false,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "red",
       "gray",
@@ -841,7 +841,7 @@
     "stock": 1,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "orange",
       "black",
@@ -884,7 +884,7 @@
     "stock": 9,
     "new": false,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "red",
       "gray",
@@ -932,7 +932,7 @@
     "stock": 1,
     "new": true,
     "sale": false,
-    "category": "women",
+    "categories": "women",
     "colors": [
       "orange",
       "black",
@@ -979,7 +979,7 @@
     "stock": 6,
     "new": true,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "white",
       "gray",
@@ -1027,7 +1027,7 @@
     "stock": 3,
     "new": false,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "orange",
       "green",
@@ -1075,7 +1075,7 @@
     "stock": 10,
     "new": true,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "white",
       "gray"
@@ -1119,7 +1119,7 @@
     "stock": 24,
     "new": false,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "green",
       "gray",
@@ -1167,7 +1167,7 @@
     "stock": 100,
     "new": false,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "pink",
       "green",
@@ -1215,7 +1215,7 @@
     "stock": 30,
     "new": true,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "orange",
       "black",
@@ -1264,7 +1264,7 @@
     "stock": 18,
     "new": false,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "black",
       "green"
@@ -1308,7 +1308,7 @@
     "stock": 16,
     "new": false,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "white",
       "pink",
@@ -1356,7 +1356,7 @@
     "stock": 20,
     "new": true,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "blue",
       "black"
@@ -1397,7 +1397,7 @@
     "stock": 21,
     "new": false,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "white",
       "black",
@@ -1445,7 +1445,7 @@
     "stock": 2,
     "new": true,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "green",
       "yellow"
@@ -1487,7 +1487,7 @@
     "stock": 3,
     "new": true,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "yellow",
       "gray",
@@ -1535,7 +1535,7 @@
     "stock": 38,
     "new": true,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "black",
       "red"
@@ -1579,7 +1579,7 @@
     "stock": 34,
     "new": false,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "pink",
       "gray"
@@ -1622,7 +1622,7 @@
     "stock": 10,
     "new": false,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "blue",
       "black",
@@ -1671,7 +1671,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "red",
       "white"
@@ -1714,7 +1714,7 @@
     "stock": 40,
     "new": false,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "orange",
       "gray",
@@ -1762,7 +1762,7 @@
     "stock": 50,
     "new": false,
     "sale": false,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "pink",
       "white"
@@ -1805,7 +1805,7 @@
     "stock": 80,
     "new": true,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "black",
       "green",
@@ -1846,7 +1846,7 @@
     "stock": 88,
     "new": true,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "blue",
       "black"
@@ -1889,7 +1889,7 @@
     "stock": 90,
     "new": false,
     "sale": true,
-    "category": "men",
+    "categories": "men",
     "colors": [
       "gray",
       "black",
@@ -1938,7 +1938,7 @@
     "stock": 2,
     "new": false,
     "sale": false,
-    "category": "vegetable"
+    "categories": "vegetable"
   },
   {
     "id": 50,
@@ -1957,7 +1957,7 @@
     "stock": 2,
     "new": false,
     "sale": false,
-    "category": "vegetable"
+    "categories": "vegetable"
   },
   {
     "id": 51,
@@ -1976,7 +1976,7 @@
     "stock": 2,
     "new": false,
     "sale": false,
-    "category": "vegetable"
+    "categories": "vegetable"
   },
   {
     "id": 52,
@@ -1995,7 +1995,7 @@
     "stock": 2,
     "new": false,
     "sale": false,
-    "category": "vegetable"
+    "categories": "vegetable"
   },
   {
     "id": 52,
@@ -2014,7 +2014,7 @@
     "stock": 2,
     "new": false,
     "sale": false,
-    "category": "vegetable"
+    "categories": "vegetable"
   },
   {
     "id": 53,
@@ -2033,7 +2033,7 @@
     "stock": 5,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "black"
     ],
@@ -2065,7 +2065,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "white",
       "black"
@@ -2101,7 +2101,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "blue",
       "black"
@@ -2138,7 +2138,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "brown",
       "black"
@@ -2175,7 +2175,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "brown",
       "white"
@@ -2213,7 +2213,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "black",
       "gray"
@@ -2251,7 +2251,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "blue",
       "white",
@@ -2294,7 +2294,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "watch",
+    "categories": "watch",
     "colors": [
       "brown",
       "gray"
@@ -2332,7 +2332,7 @@
     "stock": 6,
     "new": true,
     "sale": false,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "craft",
       "durian",
@@ -2357,7 +2357,7 @@
     "stock": 6,
     "new": true,
     "sale": false,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "durian",
       "vittoria"
@@ -2380,7 +2380,7 @@
     "stock": 2,
     "new": true,
     "sale": true,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "durian",
       "vittoria",
@@ -2404,7 +2404,7 @@
     "stock": 6,
     "new": false,
     "sale": false,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "craft",
       "vittoria",
@@ -2428,7 +2428,7 @@
     "stock": 6,
     "new": false,
     "sale": true,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "craft",
       "durian",
@@ -2452,7 +2452,7 @@
     "stock": 6,
     "new": false,
     "sale": true,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "craft",
       "aura"
@@ -2475,7 +2475,7 @@
     "stock": 4,
     "new": true,
     "sale": false,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "aura"
     ]
@@ -2497,7 +2497,7 @@
     "stock": 6,
     "new": true,
     "sale": false,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "durian",
       "aura"
@@ -2520,7 +2520,7 @@
     "stock": 6,
     "new": true,
     "sale": true,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "durian"
     ]
@@ -2542,7 +2542,7 @@
     "stock": 10,
     "new": false,
     "sale": false,
-    "category": "furniture",
+    "categories": "furniture",
     "tags": [
       "craft",
       "durian",
@@ -2566,7 +2566,7 @@
     "stock": 10,
     "new": false,
     "sale": false,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 72,
@@ -2585,7 +2585,7 @@
     "stock": 10,
     "new": true,
     "sale": false,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 73,
@@ -2604,7 +2604,7 @@
     "stock": 10,
     "new": false,
     "sale": true,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 74,
@@ -2623,7 +2623,7 @@
     "stock": 6,
     "new": true,
     "sale": false,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 75,
@@ -2642,7 +2642,7 @@
     "stock": 10,
     "new": true,
     "sale": true,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 76,
@@ -2661,7 +2661,7 @@
     "stock": 2,
     "new": false,
     "sale": false,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 77,
@@ -2680,7 +2680,7 @@
     "stock": 2,
     "new": false,
     "sale": true,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 78,
@@ -2699,7 +2699,7 @@
     "stock": 10,
     "new": true,
     "sale": true,
-    "category": "flower"
+    "categories": "flower"
   },
   {
     "id": 79,
@@ -2718,7 +2718,7 @@
     "stock": 1,
     "new": false,
     "sale": false,
-    "category": "beauty"
+    "categories": "beauty"
   },
   {
     "id": 80,
@@ -2737,7 +2737,7 @@
     "stock": 8,
     "new": true,
     "sale": false,
-    "category": "beauty"
+    "categories": "beauty"
   },
   {
     "id": 81,
@@ -2756,7 +2756,7 @@
     "stock": 6,
     "new": true,
     "sale": false,
-    "category": "beauty"
+    "categories": "beauty"
   },
   {
     "id": 82,
@@ -2775,7 +2775,7 @@
     "stock": 1,
     "new": false,
     "sale": true,
-    "category": "beauty"
+    "categories": "beauty"
   },
   {
     "id": 83,
@@ -2794,7 +2794,7 @@
     "stock": 8,
     "new": true,
     "sale": false,
-    "category": "beauty"
+    "categories": "beauty"
   },
   {
     "id": 84,
@@ -2813,7 +2813,7 @@
     "stock": 11,
     "new": true,
     "sale": true,
-    "category": "beauty"
+    "categories": "beauty"
   },
   {
     "id": 85,
@@ -2832,7 +2832,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "beauty"
+    "categories": "beauty"
   },
   {
     "id": 86,
@@ -2851,7 +2851,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 87,
@@ -2870,7 +2870,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 88,
@@ -2889,7 +2889,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 89,
@@ -2908,7 +2908,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 90,
@@ -2927,7 +2927,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 91,
@@ -2946,7 +2946,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 92,
@@ -2965,7 +2965,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 93,
@@ -2984,7 +2984,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "electronics"
+    "categories": "electronics"
   },
   {
     "id": 94,
@@ -3003,7 +3003,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 95,
@@ -3022,7 +3022,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 96,
@@ -3041,7 +3041,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 97,
@@ -3060,7 +3060,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 98,
@@ -3079,7 +3079,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 99,
@@ -3098,7 +3098,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 100,
@@ -3117,7 +3117,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 101,
@@ -3136,7 +3136,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "pets"
+    "categories": "pets"
   },
   {
     "id": 102,
@@ -3155,7 +3155,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 103,
@@ -3174,7 +3174,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 104,
@@ -3193,7 +3193,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 105,
@@ -3212,7 +3212,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 106,
@@ -3231,7 +3231,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 107,
@@ -3250,7 +3250,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 108,
@@ -3269,7 +3269,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 109,
@@ -3288,7 +3288,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "gym"
+    "categories": "gym"
   },
   {
     "id": 110,
@@ -3307,7 +3307,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 111,
@@ -3326,7 +3326,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 112,
@@ -3345,7 +3345,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 113,
@@ -3364,7 +3364,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 114,
@@ -3383,7 +3383,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 115,
@@ -3402,7 +3402,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 116,
@@ -3421,7 +3421,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 117,
@@ -3440,7 +3440,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "tools"
+    "categories": "tools"
   },
   {
     "id": 118,
@@ -3459,7 +3459,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 119,
@@ -3478,7 +3478,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 120,
@@ -3497,7 +3497,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 121,
@@ -3516,7 +3516,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 122,
@@ -3535,7 +3535,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 123,
@@ -3554,7 +3554,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 124,
@@ -3573,7 +3573,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 125,
@@ -3592,7 +3592,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 126,
@@ -3611,7 +3611,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "marijuana"
+    "categories": "marijuana"
   },
   {
     "id": 127,
@@ -3627,7 +3627,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 128,
@@ -3643,7 +3643,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 129,
@@ -3659,7 +3659,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 130,
@@ -3675,7 +3675,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 131,
@@ -3691,7 +3691,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 132,
@@ -3707,7 +3707,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 133,
@@ -3723,7 +3723,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 134,
@@ -3739,7 +3739,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 135,
@@ -3755,7 +3755,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 136,
@@ -3771,7 +3771,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 137,
@@ -3787,7 +3787,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 138,
@@ -3803,7 +3803,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 139,
@@ -3819,7 +3819,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 140,
@@ -3835,7 +3835,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 141,
@@ -3851,7 +3851,7 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   },
   {
     "id": 142,
@@ -3867,6 +3867,6 @@
     "stock": 20,
     "new": false,
     "sale": false,
-    "category": "metro"
+    "categories": "metro"
   }
 ]

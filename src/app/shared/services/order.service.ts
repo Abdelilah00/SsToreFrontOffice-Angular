@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Order} from '../models/order';
-import {Router} from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +10,7 @@ export class OrderService {
     // Array
     public OrderDetails;
 
-    constructor(private router: Router) {
+    constructor() {
     }
 
     // Get order items
@@ -28,7 +27,6 @@ export class OrderService {
             totalAmount: amount
         };
         this.OrderDetails = item;
-        this.router.navigate(['/home/checkout/success']);
     }
 
 }

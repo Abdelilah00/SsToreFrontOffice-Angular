@@ -2572,6 +2572,10 @@ header {
 .product-wrap {
   position: relative;
   transition: all 0.5s ease;
+  border: 1px #0a0100 solid;
+  padding: 5px;
+  //box-shadow: 5px 10px rgba(62, 64, 64, 0.64);
+
 
   &.product-wrap {
     //padding-bottom: 15px;
@@ -2639,9 +2643,9 @@ header {
     overflow: hidden;
 
     .front {
-      height: 395px;
-      display: flex;
+      height: 100%;
       align-items: center;
+
 
       opacity: 1;
       top: 0;

@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>product</h2>
+                    <h2>{{ 'product-title' | translate }}</h2>
                 </div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="'/home/six'">Home</a></li>
-                        <li aria-current="page" class="breadcrumb-item active">product</li>
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/six'">{{ 'home' | translate }}</a></li>
+                        <li aria-current="page" class="breadcrumb-item active">{{ 'product-title' | translate }}</li>
                     </ol>
                 </nav>
             </div>
@@ -95,9 +95,11 @@
                             </div>
 
 
-                            <h5 *ngIf="counter <= product?.stockQte" class="avalibility"><span>In Stock</span></h5>
-                            <h5 *ngIf="counter > product?.stockQte" class="avalibility"><span>Out of Stock</span></h5>
-                            <h6 class="product-title">quantity</h6>
+                            <h5 *ngIf="counter <= product?.stockQte" class="avalibility">
+                                <span>{{ 'in-stock' | translate }}</span></h5>
+                            <h5 *ngIf="counter > product?.stockQte" class="avalibility">
+                                <span>{{ 'out-of-stock' | translate }}</span></h5>
+                            <h6 class="product-title">{{ 'quantity' | translate }}</h6>
                             <div class="qty-box">
                                 <div class="input-group">
                                               <span class="input-group-prepend">
@@ -122,9 +124,9 @@
                         -->
                         <div class="product-buttons">
                             <a (click)="addToCart(product, counter)" [class.disabled]="counter > product?.stockQte"
-                               class="btn btn-solid">add to cart</a>
+                               class="btn btn-solid">{{ 'add-to-cart' | translate }}</a>
                             <a (click)="buyNow(product, counter)" [class.disabled]="counter > product?.stockQte"
-                               class="btn btn-solid">buy now</a>
+                               class="btn btn-solid">{{ 'buy-now' | translate }}</a>
                         </div>
                         <!--<div class="border-product">
                             <h6 class="product-title">product details</h6>
@@ -184,22 +186,22 @@
                 <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
                     <li class="nav-item">
                         <a aria-selected="true" class="nav-link active" data-toggle="tab" href="#top-home"
-                           id="top-home-tab" role="tab">Description</a>
+                           id="top-home-tab" role="tab">{{"description"|translate}}</a>
                         <div class="material-border"></div>
                     </li>
                     <li class="nav-item">
                         <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-profile"
-                           id="profile-top-tab" role="tab">Specifications</a>
+                           id="profile-top-tab" role="tab">{{"specifications"|translate}}</a>
                         <div class="material-border"></div>
                     </li>
                     <li class="nav-item">
                         <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-contact"
-                           id="contact-top-tab" role="tab">Video</a>
+                           id="contact-top-tab" role="tab">{{"video"|translate}}</a>
                         <div class="material-border"></div>
                     </li>
                     <li class="nav-item">
                         <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-review"
-                           id="review-top-tab" role="tab">Write Review</a>
+                           id="review-top-tab" role="tab">{{"write-review"|translate}}</a>
                         <div class="material-border"></div>
                     </li>
                 </ul>
