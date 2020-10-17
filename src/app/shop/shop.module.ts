@@ -7,7 +7,6 @@ import {SlickCarouselModule} from 'ngx-slick-carousel';
 import {BarRatingModule} from 'ngx-bar-rating';
 import {RangeSliderModule} from 'ngx-rangeslider-component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-import {NgxPayPalModule} from 'ngx-paypal';
 import {NgxImgZoomModule} from 'ngx-img-zoom';
 // Home-six components
 import {HomeSixComponent} from './home-6/home-six.component';
@@ -57,7 +56,6 @@ import {ErrorPageComponent} from '../pages/error-page/error-page.component';
         BarRatingModule,
         RangeSliderModule,
         InfiniteScrollModule,
-        NgxPayPalModule,
         NgxImgZoomModule,
     ],
     declarations: [
