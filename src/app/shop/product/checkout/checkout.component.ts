@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {PayPalConfig} from 'ngx-paypal';
-// import {  IPayPalConfig,  ICreateOrderRequest } from 'ngx-paypal';
 import {CartItem} from '../../../shared/models/cart-item';
 import {ProductsService} from '../../../shared/services/products.service';
 import {CartService} from '../../../shared/services/cart.service';
@@ -21,7 +19,6 @@ export class CheckoutComponent implements OnInit {
     public checkOutItems: CartItem[] = [];
     public orderDetails: any[] = [];
     public amount: number;
-    public payPalConfig ?: PayPalConfig;
 
 
     // Form Validator
