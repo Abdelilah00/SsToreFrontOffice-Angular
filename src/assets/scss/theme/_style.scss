@@ -2639,10 +2639,15 @@ header {
     overflow: hidden;
 
     .front {
+      height: 395px;
+      display: flex;
+      align-items: center;
+
       opacity: 1;
       top: 0;
       left: 0;
       transition: all 0.5s ease;
+      align-content: space-around;
     }
 
     .back {
