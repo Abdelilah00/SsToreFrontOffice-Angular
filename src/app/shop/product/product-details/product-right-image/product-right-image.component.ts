@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product, SelectedCharacteristics} from '../../../../shared/models/product';
 import {ProductsService} from '../../../../shared/services/products.service';
@@ -26,22 +26,27 @@ export class ProductRightImageComponent implements OnInit {
     public products: Product[] = [];
     public counter = 1;
     public selectedValues: SelectedCharacteristics[] = [];
-    public screenWidth;
-    public slideRightNavConfig;
-    public slideRightConfig = {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        asNavFor: '.slider-right-nav',
-        autoplay: true,
-        autoplaySpeed: 2500,
-        swipe: true,
-        infinite: true
-    };
+
     timeLeft = 0;
     dateLeft: TimerFormat;
     public reviewFormGroup = this.createFormGroup();
     loaded = false;
+
+    public slideRightConfig = {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+    };
+    public slideRightNavConfig = {
+        vertical: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.product-slick',
+        arrows: false,
+        dots: false,
+        focusOnSelect: true
+    };
 
     // Get Product By Id
     constructor(private route: ActivatedRoute,
@@ -51,7 +56,6 @@ export class ProductRightImageComponent implements OnInit {
                 private cartService: CartService,
                 private reviewsService: ReviewsService,
                 private toasterService: ToastrService) {
-        this.onResize();
     }
 
     ngOnInit() {
@@ -75,49 +79,6 @@ export class ProductRightImageComponent implements OnInit {
                 });
         });
 
-    }
-
-    @HostListener('window:resize', ['$event'])
-    onResize(event?) {
-        this.screenWidth = window.innerWidth;
-        if (this.screenWidth > 576) {
-            return this.slideRightNavConfig = {
-                lazyLoad: 'ondemand',
-                vertical: true,
-                verticalSwiping: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                asNavFor: '.product-right-slick',
-                arrows: false,
-                infinite: true,
-                centerMode: false,
-                dots: false,
-                focusOnSelect: true,
-            };
-        } else {
-            return this.slideRightNavConfig = {
-                lazyLoad: 'ondemand',
-                vertical: false,
-                verticalSwiping: false,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                asNavFor: '.product-right-slick',
-                arrows: false,
-                infinite: true,
-                centerMode: false,
-                dots: false,
-                focusOnSelect: true,
-                responsive: [
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            };
-        }
     }
 
     public increment() {

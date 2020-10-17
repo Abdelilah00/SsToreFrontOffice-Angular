@@ -24,30 +24,30 @@
     <div class="collection-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-sm-10 col-xs-12">
-                    <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideRightConfig"
-                                        *ngIf='loaded' class="product-right-slick">
+
+                <div class="col-lg-6 p-50">
+                    <ngx-slick-carousel #slickModal="slick-carousel" *ngIf='loaded' [config]="slideRightConfig"
+                                        class="product-slick">
                         <div *ngFor="let image of product.images" ngxSlickItem>
                             <div>
-                                <img [alt]="" [attr.src]="image.url" class="img-fluid">
+                                <img [src]="image.url" alt="" class="img-fluid">
                             </div>
                         </div>
                     </ngx-slick-carousel>
-                </div>
-                <div class="col-lg-1 col-sm-2 col-xs-12">
                     <div class="row">
                         <div class="col-12 p-0">
-                            <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideRightNavConfig"
-                                                *ngIf='loaded' class="slider-right-nav">
+                            <ngx-slick-carousel #slickModal="slick-carousel" *ngIf='loaded'
+                                                [config]="slideRightNavConfig" class="slider-nav">
                                 <div *ngFor="let image of product.images" ngxSlickItem>
                                     <div>
-                                        <img [alt]="" [attr.data-lazy]="image.url" class="img-fluid">
+                                        <img [src]="image.url" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </ngx-slick-carousel>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-6 rtl-text">
                     <div class="product-right">
 
