@@ -27,9 +27,9 @@
                 <div class="col-lg-5 col-sm-10 col-xs-12">
                     <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideRightConfig"
                                         *ngIf='loaded' class="product-right-slick">
-                        <div *ngFor="let image of product?.images" ngxSlickItem>
+                        <div *ngFor="let image of product.images" ngxSlickItem>
                             <div>
-                                <img [src]="image.url" alt="" class="img-fluid">
+                                <img [alt]="" [attr.src]="image.url" class="img-fluid">
                             </div>
                         </div>
                     </ngx-slick-carousel>
@@ -39,9 +39,9 @@
                         <div class="col-12 p-0">
                             <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideRightNavConfig"
                                                 *ngIf='loaded' class="slider-right-nav">
-                                <div *ngFor="let image of product?.images" ngxSlickItem>
+                                <div *ngFor="let image of product.images" ngxSlickItem>
                                     <div>
-                                        <img [src]="image.url" alt="" class="img-fluid">
+                                        <img [alt]="" [attr.data-lazy]="image.url" class="img-fluid">
                                     </div>
                                 </div>
                             </ngx-slick-carousel>
@@ -67,7 +67,7 @@
                         <!--
                                                 <h3 *ngIf="!productsService?.catalogMode">{{product?.price | currency:productsService?.currency:'symbol'}}</h3>
                         -->
-                        <h3>{{product?.price }}</h3>
+                        <h3>{{product?.price  | currency:productsService?.currency:'symbol'}}</h3>
                         <!--<ul *ngIf="!productsService?.catalogMode" class="color-variant">
                             <li (click)="slickModal.slickGoTo(i)"
                                 *ngFor="let variant of product?.variants let i = index"
@@ -192,11 +192,11 @@
                            id="profile-top-tab" role="tab">Specifications</a>
                         <div class="material-border"></div>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-contact"
                            id="contact-top-tab" role="tab">Video</a>
                         <div class="material-border"></div>
-                    </li>-->
+                    </li>
                     <li class="nav-item">
                         <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-review"
                            id="review-top-tab" role="tab">Write Review</a>
@@ -221,12 +221,12 @@
                             </table>
                         </div>
                     </div>
-                    <!--  <div aria-labelledby="contact-top-tab" class="tab-pane fade" id="top-contact" role="tabpanel">
-                          <div class="mt-3 text-center">
-                              <iframe allow="autoplay; encrypted-media" allowfullscreen height="315"
-                                      src="https://www.youtube.com/embed/BUWzX78Ye_8" width="560"></iframe>
-                          </div>
-                      </div>-->
+                    <div aria-labelledby="contact-top-tab" class="tab-pane fade" id="top-contact" role="tabpanel">
+                        <div class="mt-3 text-center">
+                            <iframe allow="autoplay; encrypted-media" allowfullscreen autofocus height="315"
+                                    src="https://www.youtube.com/embed/BUWzX78Ye_8" width="560"></iframe>
+                        </div>
+                    </div>
                     <div aria-labelledby="review-top-tab" class="tab-pane fade" id="top-review" role="tabpanel">
 
                         <form (ngSubmit)='postReview()' [formGroup]="reviewFormGroup" class="theme-form">

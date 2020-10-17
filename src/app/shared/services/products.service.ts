@@ -13,6 +13,7 @@ import {retry} from 'rxjs/operators';
 })
 
 export class ProductsService extends BaseService<Product> {
+    public currency: string = 'USD';
 
     constructor(httpClient: HttpClient) {
         super(httpClient, 'products', 'admin');

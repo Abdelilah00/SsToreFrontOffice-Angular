@@ -30,13 +30,13 @@ export class ProductRightImageComponent implements OnInit {
     public slideRightNavConfig;
     public slideRightConfig = {
         slidesToShow: 1,
-        slidesToScroll: 2,
-        arrows: true,
+        slidesToScroll: 1,
         fade: true,
         asNavFor: '.slider-right-nav',
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 2500,
         swipe: true,
+        infinite: true
     };
     timeLeft = 0;
     dateLeft: TimerFormat;
@@ -60,13 +60,12 @@ export class ProductRightImageComponent implements OnInit {
             this.productsService.get(id)
                 .pipe(
                     finalize(() => {
-                        this.loaded = true;
                         this.startTimer();
                         this.reviewFormGroup.controls['productId'].setValue(id);
+                        this.loaded = true;
                     }))
                 .subscribe(product => {
                     this.product = product;
-
                     product.productCharacteristics.forEach(pc => {
                         this.selectedValues.push({name: pc.characteristicName});
                     });
@@ -83,22 +82,24 @@ export class ProductRightImageComponent implements OnInit {
         this.screenWidth = window.innerWidth;
         if (this.screenWidth > 576) {
             return this.slideRightNavConfig = {
+                lazyLoad: 'ondemand',
                 vertical: true,
                 verticalSwiping: true,
-                slidesToShow: 3,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 asNavFor: '.product-right-slick',
                 arrows: false,
                 infinite: true,
                 dots: false,
                 centerMode: false,
-                focusOnSelect: true
+                focusOnSelect: true,
             };
         } else {
             return this.slideRightNavConfig = {
+                lazyLoad: 'ondemand',
                 vertical: false,
                 verticalSwiping: false,
-                slidesToShow: 3,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 asNavFor: '.product-right-slick',
                 arrows: false,
