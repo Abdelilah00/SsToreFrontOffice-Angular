@@ -42,10 +42,10 @@
             <ul *ngIf='shoppingCartItems.length' class="show-div shopping-cart">
                 <li *ngFor="let item of shoppingCartItems">
                     <div class="media">
-                        <a [routerLink]="['/home/left-sidebar/product', item.product.id]"><img
+                        <a [routerLink]="['/home/right-image/product', item.product.id]"><img
                                 [src]="item.product.imageCover" alt="Generic placeholder image" class="mr-3"></a>
                         <div class="media-body">
-                            <a [routerLink]="['/home/left-sidebar/product', item.product.id]">
+                            <a [routerLink]="['/home/right-image/product', item.product.id]">
                                 <h4>{{ item.product.name }}</h4></a>
                             <h4><span>{{ item.quantity }}
                                 <!--

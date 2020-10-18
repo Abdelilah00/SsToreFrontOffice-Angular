@@ -20,6 +20,7 @@ export type ProductSize = 'M' | 'L' | 'XL';
 export type ProductTags = 'nike' | 'puma' | 'lifestyle' | 'caprese';
 
 export class SelectedCharacteristics {
+    id?: number;
     name?: string;
     value?: string;
 }
@@ -32,6 +33,7 @@ export class Product extends BaseModel {
     images?: [{
         url: string;
     }];
+    videoUrl?: string;
     overview?: string;
     category?: string;
 
@@ -40,7 +42,7 @@ export class Product extends BaseModel {
 
     productCharacteristics: [{
         characteristicName: string,
-        value: string[]
+        value: string[],
     }];
     specifications: [{
         name: string,
@@ -57,7 +59,8 @@ export class Product extends BaseModel {
     discount?: { percent: number, endDate: Date }; // %
     salePrice?: number; // after discount price
     stockQte?: number;
-    startGlobal: number;
+    starsGlobal: number;
+
 
     pictures?: string;
 

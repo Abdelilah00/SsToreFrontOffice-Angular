@@ -53,7 +53,7 @@
 
                         <h2>{{product?.name}}</h2>
 
-                        <bar-rating [rate]="product?.startGlobal" [readOnly]="true"
+                        <bar-rating [rate]="product?.starsGlobal" [readOnly]="true"
                                     [theme]="'fontawesome-o'"></bar-rating>
 
                         <h4 *ngIf='product?.onSale'>
@@ -225,8 +225,10 @@
                     </div>
                     <div aria-labelledby="contact-top-tab" class="tab-pane fade" id="top-contact" role="tabpanel">
                         <div class="mt-3 text-center">
-                            <iframe allow="autoplay; encrypted-media" allowfullscreen autofocus height="315"
-                                    src="https://www.youtube.com/embed/BUWzX78Ye_8" width="560"></iframe>
+                            <iframe *ngIf='loaded' allow="autoplay; encrypted-media"
+                                    allowfullscreen autofocus
+                                    height="315" src="{{product.videoUrl}}"
+                                    width="560"></iframe>
                         </div>
                     </div>
                     <div aria-labelledby="review-top-tab" class="tab-pane fade" id="top-review" role="tabpanel">

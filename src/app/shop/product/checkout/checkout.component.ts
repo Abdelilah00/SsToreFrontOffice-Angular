@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
     public checkOutItems: CartItem[] = [];
     public orderDetails: any[] = [];
     public amount: number;
-
+    public shippingCost = 0;
 
     // Form Validator
     constructor(private fb: FormBuilder,
@@ -36,7 +36,7 @@ export class CheckoutComponent implements OnInit {
 
         this.cartItems.subscribe(products => {
             this.checkOutItems = products;
-            products.forEach(item => this.orderDetails.push({id: item['product'].id, qte: item['quantity']}));
+            products.forEach(item => this.orderDetails.push({productId: item['product'].id, qte: item['quantity']}));
         });
 
         this.checkoutFormGroup.controls['orderDetails'].setValue(this.orderDetails);
@@ -44,6 +44,13 @@ export class CheckoutComponent implements OnInit {
         this.getTotal().subscribe(amount => this.amount = amount);
     }
 
+    onChangeCity($event): void {
+        if ($event.target.value !== 'Oujda') {
+            this.shippingCost = 30;
+        } else {
+            this.shippingCost = 0;
+        }
+    }
 
     // Get sub Total
     public getTotal(): Observable<number> {
@@ -64,9 +71,7 @@ export class CheckoutComponent implements OnInit {
             customerPhoneNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]+')]),
             customerEmail: new FormControl('', [Validators.required, Validators.email]),
             customerAddress: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-            customerCountry: new FormControl('', Validators.required),
             customerCity: new FormControl('', Validators.required),
-            customerState: new FormControl('', Validators.required),
             customerZip: new FormControl('', Validators.required),
             orderDetails: new FormControl('', Validators.required)
         });

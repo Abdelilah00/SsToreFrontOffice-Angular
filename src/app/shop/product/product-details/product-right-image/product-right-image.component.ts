@@ -22,14 +22,14 @@ interface TimerFormat {
     styleUrls: ['./product-right-image.component.scss']
 })
 export class ProductRightImageComponent implements OnInit {
-    public product: Product;
-    public products: Product[] = [];
-    public counter = 1;
-    public selectedValues: SelectedCharacteristics[] = [];
+    product: Product;
+    products: Product[] = [];
+    counter = 1;
+    selectedValues: SelectedCharacteristics[] = [];
 
     timeLeft = 0;
     dateLeft: TimerFormat;
-    public reviewFormGroup = this.createFormGroup();
+    reviewFormGroup = this.createFormGroup();
     loaded = false;
 
     public slideRightConfig = {
@@ -93,7 +93,7 @@ export class ProductRightImageComponent implements OnInit {
 
     // Add to cart
     public addToCart(product: Product, quantity) {
-        if (quantity == 0) {
+        if (quantity === 0) {
             return false;
         }
         this.cartService.addToCart(product, parseInt(quantity));
