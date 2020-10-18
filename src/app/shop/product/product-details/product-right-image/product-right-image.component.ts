@@ -99,6 +99,7 @@ export class ProductRightImageComponent implements OnInit {
         this.cartService.addToCart(product, parseInt(quantity));
     }
 
+
     // Add to cart
     public buyNow(product: Product, quantity) {
         if (quantity > 0) {

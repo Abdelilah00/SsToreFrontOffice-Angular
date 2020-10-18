@@ -1,4 +1,5 @@
-<!-- breadcrumb start -->
+<!--
+ breadcrumb start
 <div *ngIf="!orderDetails" class="breadcrumb-section">
     <div class="container">
         <div class="row">
@@ -18,8 +19,8 @@
         </div>
     </div>
 </div>
-<!-- breadcrumb End -->
-<!-- section start -->
+ breadcrumb End
+ section start
 <section *ngIf="!orderDetails" class="p-0">
     <div class="container">
         <div class="row">
@@ -33,18 +34,21 @@
         </div>
     </div>
 </section>
-<!-- Section ends -->
+ Section ends
+-->
 
 <!-- thank-you section start -->
-<section *ngIf="orderDetails" class="section-b-space light-layout">
+<section class="section-b-space light-layout" style='height: 80vh;'>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="success-text">
                     <i aria-hidden="true" class="fa fa-check-circle"></i>
                     <h2>thank you</h2>
-                    <p>Payment is has been received Order Placed Successfully</p>
-                    <p>Transaction ID:{{orderDetails.orderId}}</p>
+                    <p>Order Placed Successfully</p>
+                    <!--
+                                        <p>Transaction ID:{{orderDetails.orderId}}</p>
+                    -->
                 </div>
             </div>
         </div>
@@ -52,6 +56,7 @@
 </section>
 <!-- Section ends -->
 <!-- order-detail section start -->
+<!--
 <section *ngIf="orderDetails" class="section-b-space">
     <div class="container">
         <div class="row">
@@ -136,4 +141,5 @@
         </div>
     </div>
 </section>
+-->
 <!-- Section ends -->

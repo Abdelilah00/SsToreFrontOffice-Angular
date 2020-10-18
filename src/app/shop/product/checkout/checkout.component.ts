@@ -36,7 +36,14 @@ export class CheckoutComponent implements OnInit {
 
         this.cartItems.subscribe(products => {
             this.checkOutItems = products;
-            products.forEach(item => this.orderDetails.push({productId: item['product'].id, qte: item['quantity']}));
+            products.forEach(item => {
+                    this.orderDetails.push({
+                        productId: item['product'].id,
+                        qte: item['quantity'],
+                        selectedCharacteristics: item['product'].selectedCharacteristics,
+                    });
+                }
+            );
         });
 
         this.checkoutFormGroup.controls['orderDetails'].setValue(this.orderDetails);
@@ -73,7 +80,7 @@ export class CheckoutComponent implements OnInit {
             customerAddress: new FormControl('', [Validators.required, Validators.maxLength(50)]),
             customerCity: new FormControl('', Validators.required),
             customerZip: new FormControl('', Validators.required),
-            orderDetails: new FormControl('', Validators.required)
+            orderDetails: new FormControl('', Validators.required),
         });
     }
 

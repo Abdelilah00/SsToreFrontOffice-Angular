@@ -2,29 +2,32 @@
     <ul>
         <li class="onhover-div mobile-search search-widgets" id="search-widgets">
             <div>
-                <img (click)="openSearch()" alt="" class="img-fluid" src="assets/images/icon/search.png">
+                <img (click)="openSearch()" alt="" class="img-fluid"
+                     src="assets/images/icon/search.png">
                 <i (click)="openSearch()" class="ti-search"></i>
             </div>
         </li>
-       <li class="onhover-div mobile-setting">
+        <!--<li class="onhover-div mobile-setting">
            <div><img alt="" class="img-fluid" src="assets/images/icon/setting.png">
                <i class="ti-settings"></i></div>
-           <div class="show-div setting">
-               <h6>language</h6>
-               <ul>
-                   <li><a (click)="changeLanguage('en')" [routerLink]="">English</a></li>
-                   <li><a (click)="changeLanguage('fr')" [routerLink]="">French</a></li>
-                   <li><a (click)="changeLanguage('ar')" [routerLink]="">العربية</a></li>
-               </ul>
-               <!--<h6 *ngIf="!productsService?.catalogMode">currency</h6>
-               <ul *ngIf="!productsService?.catalogMode" class="list-inline">
-                   <li><a (click)="updateCurrency('USD')" [routerLink]="">Dollar</a></li>
-                   <li><a (click)="updateCurrency('EUR')" [routerLink]="">Euro</a></li>
-                   <li><a (click)="updateCurrency('INR')" [routerLink]="">Rupees</a></li>
-                   <li><a (click)="updateCurrency('GBP')" [routerLink]="">Pound</a></li>
-               </ul>-->
-           </div>
-       </li>
+           <!v class="show-div setting">
+              h6>language</h6>
+              <ul>
+                  <li><a (click)="changeLanguage('en')" [routerLink]="">English</a></li>
+                  <li><a (click)="changeLanguage('fr')" [routerLink]="">French</a></li>
+                  &lt;!&ndash;
+                                     <li><a (click)="changeLanguage('ar')" [routerLink]="">العربية</a></li>
+                  &ndash;&gt;
+              </ul>-->
+        <!--<h6 *ngIf="!productsService?.catalogMode">currency</h6>
+        <ul *ngIf="!productsService?.catalogMode" class="list-inline">
+            <li><a (click)="updateCurrency('USD')" [routerLink]="">Dollar</a></li>
+            <li><a (click)="updateCurrency('EUR')" [routerLink]="">Euro</a></li>
+            <li><a (click)="updateCurrency('INR')" [routerLink]="">Rupees</a></li>
+            <li><a (click)="updateCurrency('GBP')" [routerLink]="">Pound</a></li>
+        </ul>
+    </div>
+</li>-->
         <!--
                 <li *ngIf="!productsService?.catalogMode" class="onhover-div mobile-cart">
         -->
@@ -85,13 +88,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
-                        <!--<form>
-                            <div class="form-group">
-                                <input class="form-control" id="exampleInputPassword1" placeholder="Search a Product"
-                                       type="text">
-                            </div>
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                        </form>-->
+                        <!-- <form>
+                             <div class="form-group">
+                                 <input class="form-control"  placeholder="Search a Product" type="text">
+                             </div>
+                             <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                         </form>-->
                     </div>
                 </div>
             </div>

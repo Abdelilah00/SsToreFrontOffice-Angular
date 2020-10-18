@@ -53,6 +53,7 @@ const routes: Routes = [
         path: 'wishlist',
         component: WishlistComponent
     },
+
     {
         path: '',
         redirectTo: 'home/six',
