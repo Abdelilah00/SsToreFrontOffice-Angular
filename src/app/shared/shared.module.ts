@@ -30,6 +30,7 @@ import {SocialComponent} from './footer/widgets/social/social.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CategoryService} from './services/category.service';
 import {ReviewsService} from './services/reviews.service';
+import {SafeUrlPipe} from './pipes/safe-url.pipe';
 
 @NgModule({
     exports: [
@@ -39,7 +40,8 @@ import {ReviewsService} from './services/reviews.service';
         LeftSidebarComponent,
 
         FooterFourComponent,
-        OrderByPipe
+        OrderByPipe,
+        SafeUrlPipe
     ],
     imports: [
         CommonModule,
@@ -63,7 +65,8 @@ import {ReviewsService} from './services/reviews.service';
         CategoriesComponent,
         WhyWeChooseComponent,
         CopyrightComponent,
-        SocialComponent
+        SocialComponent,
+        SafeUrlPipe
     ],
     providers: [
         WINDOW_PROVIDERS,

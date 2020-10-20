@@ -33,7 +33,7 @@ export class Product extends BaseModel {
     images?: [{
         url: string;
     }];
-    videoUrl?: string;
+    videoLink?: string;
     overview?: string;
     category?: string;
 
