@@ -6536,6 +6536,8 @@ background-color: $black;*/
   }
   .product-right {
     .product-buttons {
+      height: 100px;
+
       .btn-solid, .btn-outline {
         padding: 7px 13px;
       }
@@ -6992,6 +6994,8 @@ background-color: $black;*/
     }
   }
   .product-buttons {
+    height: 100px;
+
     .btn-solid, .btn-outline {
       padding: 7px 16px;
     }

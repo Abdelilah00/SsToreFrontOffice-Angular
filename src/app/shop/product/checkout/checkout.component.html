@@ -10,8 +10,8 @@
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="'/home/six'">Home</a></li>
-                        <li aria-current="page" class="breadcrumb-item active">Checkout</li>
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/six'">{{"home"|translate}}</a></li>
+                        <li aria-current="page" class="breadcrumb-item active">{{"checkout"|translate}}</li>
                     </ol>
                 </nav>
             </div>
@@ -27,11 +27,11 @@
                     <div class="row">
                         <div class="col-lg-6 col-sm-12 col-xs-12">
                             <div class="checkout-title">
-                                <h3>Billing Details</h3>
+                                <h3>{{"billingDetails"|translate}}</h3>
                             </div>
                             <div class="row check-out">
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <div class="field-label">First Name</div>
+                                    <div class="field-label">{{"firstName"|translate}}</div>
                                     <input autocomplete="off" formControlName='customerFirstName'
                                            placeholder="" type="text" value="">
                                     <div *ngIf="checkoutFormGroup.controls.customerFirstName.touched && checkoutFormGroup.controls.customerFirstName.errors?.required"
@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <div class="field-label">Last Name</div>
+                                    <div class="field-label">{{"lastName"|translate}}</div>
                                     <input autocomplete="off" formControlName='customerLastName'
                                            placeholder="" type="text" value="">
                                     <div *ngIf="checkoutFormGroup.controls.customerLastName.touched && checkoutFormGroup.controls.customerLastName.errors?.required"
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <div class="field-label">Phone</div>
+                                    <div class="field-label">{{"phoneNumber"|translate}}</div>
                                     <input autocomplete="off" formControlName='customerPhoneNumber'
                                            placeholder="" type="text" value="">
                                     <div *ngIf="checkoutFormGroup.controls.customerPhoneNumber.touched && checkoutFormGroup.controls.customerPhoneNumber.errors?.required"
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <div class="field-label">Email Address</div>
+                                    <div class="field-label">{{"emailAddress"|translate}}</div>
                                     <input autocomplete="off" formControlName='customerEmail'
                                            placeholder="" type="text" value="">
                                     <div *ngIf="checkoutFormGroup.controls.customerEmail.touched && checkoutFormGroup.controls.customerEmail.errors?.required"
@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    <div class="field-label">Address</div>
+                                    <div class="field-label">{{"shippingAddress"|translate}}</div>
                                     <input autocomplete="off" formControlName='customerAddress'
                                            placeholder="" type="text" value="">
                                     <div *ngIf="checkoutFormGroup.controls.customerAddress.touched && checkoutFormGroup.controls.customerAddress.errors?.required"
@@ -96,10 +96,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <div class="field-label">City</div>
+                                    <div class="field-label">{{"city"|translate}}</div>
                                     <select (change)='onChangeCity($event)' formControlName='customerCity'>
                                         <option value='Oujda'>Oujda</option>
-                                        <option value='out-oujda'>out Side Oujda</option>
+                                        <option value='out-oujda'>{{"outSideOujda"|translate}}</option>
                                     </select>
                                     <div *ngIf="checkoutFormGroup.controls.customerCity.touched && checkoutFormGroup.controls.customerCity.errors?.required"
                                          class="text text-danger">
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <div class="field-label">Postal Code</div>
+                                    <div class="field-label">{{"postalCode"|translate}}</div>
                                     <input autocomplete="off" formControlName='customerZip'
                                            placeholder="" type="text" value="">
                                     <div *ngIf="checkoutFormGroup.controls.customerZip.touched && checkoutFormGroup.controls.customerZip.errors?.required"
@@ -170,7 +170,7 @@
                             <div class="checkout-details">
                                 <div class="order-box">
                                     <div class="title-box">
-                                        <div>Product <span> Total</span></div>
+                                        <div>{{"product"|translate}} <span> Total</span></div>
                                     </div>
                                     <ul *ngIf='checkOutItems.length' class="qty">
                                         <li *ngFor="let item of checkOutItems">
@@ -185,14 +185,14 @@
                                     </ul>
                                     <ul class="sub-total">
                                         <li>
-                                            Subtotal <span
+                                            {{"subtotal"|translate}}<span
                                                 class="count">{{ getTotal() | async}} {{" " + productsService.currency}}</span>
                                             <!--
                                                 class="count">{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span>
                                             -->
                                         </li>
                                         <li>
-                                            Shipping <span
+                                            {{"shipping"|translate}} <span
                                                 class="count">{{ shippingCost + " " + productsService.currency}}</span>
                                             <!--
                                                 class="count">{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span>
@@ -255,7 +255,7 @@
                                         <button (click)="orderCheckout()"
                                                 [disabled]="!checkoutFormGroup.valid" class="btn-solid btn"
                                                 type="submit">
-                                            Place Order
+                                            {{"placeOrder"|translate}}
                                         </button>
                                         <!-- <ngx-paypal *ngIf="payment" [config]="payPalConfig"
                                                     [ngClass]="{'btn disabled': !checkoutFormGroup.valid}">

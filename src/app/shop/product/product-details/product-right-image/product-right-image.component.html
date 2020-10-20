@@ -122,11 +122,11 @@
                         <!--
                                                 <div *ngIf="!productsService?.catalogMode" class="product-buttons">
                         -->
-                        <div class="product-buttons">
+                        <div class="product-buttons row justify-content-center">
                             <a (click)="addToCart(product, counter)" [class.disabled]="counter > product?.stockQte"
-                               class="btn btn-solid">{{ 'add-to-cart' | translate }}</a>
+                               class="btn btn-solid align-self-start">{{ 'add-to-cart' | translate }}</a>
                             <a (click)="buyNow(product, counter)" [class.disabled]="counter > product?.stockQte"
-                               class="btn btn-solid">{{ 'buy-now' | translate }}</a>
+                               class="btn btn-solid align-self-end">{{ 'buy-now' | translate }}</a>
                         </div>
                         <!--<div class="border-product">
                             <h6 class="product-title">product details</h6>

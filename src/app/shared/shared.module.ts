@@ -38,7 +38,6 @@ import {SafeUrlPipe} from './pipes/safe-url.pipe';
         TranslateModule,
         HeaderFiveComponent,
         LeftSidebarComponent,
-
         FooterFourComponent,
         OrderByPipe,
         SafeUrlPipe

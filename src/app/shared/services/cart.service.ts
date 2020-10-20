@@ -4,6 +4,7 @@ import {CartItem} from '../models/cart-item';
 import {ToastrService} from 'ngx-toastr';
 import {BehaviorSubject, Observable, Subscriber} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {TranslateService} from '@ngx-translate/core';
 
 // Get product from Localstorage
 let products = JSON.parse(localStorage.getItem('cartItem')) || [];
@@ -18,7 +19,7 @@ export class CartService {
     public cartItems: BehaviorSubject<CartItem[]> = new BehaviorSubject([]);
     public observer: Subscriber<{}>;
 
-    constructor(private toastrService: ToastrService) {
+    constructor(private toastrService: ToastrService, private translateService: TranslateService) {
         this.cartItems.subscribe(products => products = products);
     }
 
@@ -42,7 +43,7 @@ export class CartService {
                 let stock = this.calculateStockCounts(products[index], quantity);
                 if (qty != 0 && stock) {
                     products[index]['quantity'] = qty;
-                    this.toastrService.success('This product has been added.');
+                    this.toastrService.success(this.translateService.instant('productAddedToCard'));
                 }
                 return true;
             }
@@ -52,7 +53,7 @@ export class CartService {
             product.images = null;
             item = {product: product, quantity: quantity};
             products.push(item);
-            this.toastrService.success('This product has been added.');
+            this.toastrService.success(this.translateService.instant('productAddedToCard'));
         }
 
         localStorage.setItem('cartItem', JSON.stringify(products));
@@ -80,7 +81,7 @@ export class CartService {
         let qty = product.quantity + quantity;
         let stock = product.product.stockQte;
         if (stock < qty) {
-            this.toastrService.error('You can not add more items than available. In stock ' + stock + ' items.');
+            this.toastrService.error(this.translateService.instant('youCantAddMoreItemsThanAvailableInStock') + stock + this.translateService.instant('items'));
             return false;
         }
         return true;
