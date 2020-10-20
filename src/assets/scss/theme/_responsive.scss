@@ -1284,7 +1284,7 @@
       &.nav-material {
         .single-product-tables {
           table {
-            width: 50%;
+            width: 100%;
           }
         }
       }
@@ -7008,6 +7008,11 @@ background-color: $black;*/
       table {
         width: 70%;
       }
+    }
+  }
+  .single-product-tables {
+    table {
+      width: 100%;
     }
   }
   .product-right {
