@@ -6543,6 +6543,9 @@ background-color: $black;*/
   .product-right {
     .product-buttons {
       height: 100px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
 
       .btn-solid, .btn-outline {
         padding: 7px 13px;
