@@ -10,7 +10,7 @@ export class SliderSixComponent implements OnInit {
   // Slick slider config
   public sliderConfig: any = {
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 3500
   };
 
   constructor() {

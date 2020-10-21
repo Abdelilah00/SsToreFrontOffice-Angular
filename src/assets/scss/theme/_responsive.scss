@@ -1002,7 +1002,7 @@
   }
   .home-slider {
     .home {
-      height: 70vh;
+      height: 35vh;
     }
 
     .slider-contain {
@@ -1919,7 +1919,7 @@ background-color: $black;*/
   }
   .home-slider {
     .home {
-      height: 65vh;
+      height: 32vh;
     }
 
     .slider-contain {
@@ -3475,6 +3475,12 @@ background-color: $black;*/
     .footer-logo {
       margin-top: 20px;
       margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+
+      img {
+        height: 200px;
+      }
     }
 
     li {
@@ -3729,7 +3735,7 @@ background-color: $black;*/
   }
   .home-slider {
     .home {
-      height: 60vh;
+      height: 30vh;
     }
 
     .slider-contain {
@@ -4892,7 +4898,7 @@ background-color: $black;*/
   }
   .home-slider {
     .home {
-      height: 58vh;
+      height: 29vh;
     }
 
     .slider-contain {
@@ -5744,7 +5750,7 @@ background-color: $black;*/
   }
   .home-slider {
     .home {
-      height: 55vh;
+      height: 27vh;
     }
 
     .slider-contain {
@@ -6786,7 +6792,7 @@ background-color: $black;*/
   }
   .home-slider {
     .home {
-      height: 50vh;
+      height: 25vh;
     }
 
     .slider-contain {
