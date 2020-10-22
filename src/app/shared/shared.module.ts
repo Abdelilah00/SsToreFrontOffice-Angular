@@ -31,6 +31,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {CategoryService} from './services/category.service';
 import {ReviewsService} from './services/reviews.service';
 import {SafeUrlPipe} from './pipes/safe-url.pipe';
+import {PaymentBannerComponent} from './header/widgets/payment-banner/payment-banner.component';
 
 @NgModule({
     exports: [
@@ -40,7 +41,8 @@ import {SafeUrlPipe} from './pipes/safe-url.pipe';
         LeftSidebarComponent,
         FooterFourComponent,
         OrderByPipe,
-        SafeUrlPipe
+        SafeUrlPipe,
+        PaymentBannerComponent
     ],
     imports: [
         CommonModule,
@@ -65,7 +67,8 @@ import {SafeUrlPipe} from './pipes/safe-url.pipe';
         WhyWeChooseComponent,
         CopyrightComponent,
         SocialComponent,
-        SafeUrlPipe
+        SafeUrlPipe,
+        PaymentBannerComponent
     ],
     providers: [
         WINDOW_PROVIDERS,

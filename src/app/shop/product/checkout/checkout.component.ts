@@ -68,6 +68,8 @@ export class CheckoutComponent implements OnInit {
     orderCheckout() {
         this.orderService.create(this.checkoutFormGroup.value).subscribe(resp => {
             this.router.navigate(['/home/checkout/success']);
+            // @ts-ignore
+            //fbq('trackCustom', 'CheckedOut', {currency: 'MAD', qte: 99});
         });
     }
 
