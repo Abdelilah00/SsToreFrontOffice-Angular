@@ -20,7 +20,7 @@
                         <input #query (keyup.enter)='getByQuery(query.value)'
                                aria-expanded="true"
                                class="nav-search nav-search-field" id="query search-autocomplete"
-                               placeholder="Find the best for your pet..."
+                               placeholder="{{'findTheBestForYou'|translate}}"
                                type="search">
                         <button (click)='getByQuery(query.value)' class="btn-search" name="nav-submit-button">
                             <i class="ti-search"></i>
