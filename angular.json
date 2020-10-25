@@ -42,7 +42,6 @@
               "node_modules/masonry-layout/dist/masonry.pkgd.min.js",
               "node_modules/isotope-layout/dist/isotope.pkgd.min.js",
               "node_modules/imagesloaded/imagesloaded.pkgd.js",
-              "node_modules/angulartics-facebook-pixel/dist/angulartics-facebook-pixel.min.js",
               "src/assets/js/footer-reveal.min.js"
             ]
           },
@@ -61,8 +60,10 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "vendorChunk": true,
+              "buildOptimizer": true,
+              "commonChunk": true,
+              "deleteOutputPath": true
             }
           }
         },
