@@ -17,13 +17,13 @@
                     </div>
                     <div class="col-lg-6 subscribe-wrapper">
                         <div class="subscribe-block">
-                            <h2>newsletter</h2>
+                            <h2>{{"newsletter"|translate}}</h2>
                             <form (ngSubmit)='subscribe()' [formGroup]='formGroup'>
                                 <div class="form-group">
                                     <input class="form-control" formControlName='email' id="exampleFormControlInput3"
                                            placeholder="Enter your email" type="email">
                                     <button [disabled]='!formGroup.valid' class="btn btn-solid btn-green" type="submit">
-                                        subscribe
+                                        {{"subscribe"|translate}}
                                     </button>
                                 </div>
                             </form>
@@ -31,13 +31,13 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="footer-title">
-                            <h4>store information</h4>
+                            <h4>{{"storeInformation"|translate}}</h4>
                         </div>
                         <div class="footer-contant">
                             <ul class="contact-details">
-                                <li>SsTore Demo Store</li>
-                                <li>Call Us: +212676958566</li>
-                                <li>Email Us: <a href="#">Contact@SsTore.com</a></li>
+                                <li>Orient Mall</li>
+                                <li>{{"call-us"|translate}}</li>
+                                <li>Email Us: <a href="#">Contact@orient-mall.ma</a></li>
                             </ul>
                         </div>
                     </div>
