@@ -4,6 +4,7 @@ import {CartItem} from '../../../models/cart-item';
 import {CartService} from '../../../../shared/services/cart.service';
 import {ProductsService} from '../../../../shared/services/products.service';
 import {Observable} from 'rxjs';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 declare var $: any;
 
@@ -18,12 +19,17 @@ export class SettingsComponent implements OnInit {
 
     public show: boolean = false;
 
+    formSearch: FormGroup;
+
     constructor(private translate: TranslateService,
                 private cartService: CartService,
                 public productsService: ProductsService) {
     }
 
     ngOnInit() {
+        this.formSearch = new FormGroup({
+            query: new FormControl('', Validators.required),
+        });
     }
 
     public updateCurrency(curr) {
