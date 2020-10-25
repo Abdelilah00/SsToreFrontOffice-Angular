@@ -68,7 +68,10 @@
                         <!--
                                                 <h3 *ngIf="!productsService?.catalogMode">{{product?.price | currency:productsService?.currency:'symbol'}}</h3>
                         -->
-                        <h3>{{product?.price  | currency:productsService?.currency:'symbol'}}</h3>
+                        <!--
+                                                <h3>{{product?.price  | currency:productsService?.currency:'symbol'}}</h3>
+                        -->
+                        <h3>{{product?.price}} MAD</h3>
                         <!--<ul *ngIf="!productsService?.catalogMode" class="color-variant">
                             <li (click)="slickModal.slickGoTo(i)"
                                 *ngFor="let variant of product?.variants let i = index"
@@ -207,14 +210,14 @@
                         <div class="material-border"></div>
                     </li>
                 </ul>
+
                 <div class="tab-content nav-material" id="top-tabContent">
                     <div aria-labelledby="top-home-tab" class="tab-pane fade show active" id="top-home" role="tabpanel">
-                        <p>
-                            {{product?.overview}}
+                        <p [innerHTML]='product?.overview' style='direction: rtl;text-align: right'>
                         </p>
                     </div>
                     <div aria-labelledby="profile-top-tab" class="tab-pane fade" id="top-profile" role="tabpanel">
-                        <div class="single-product-tables">
+                        <div class="single-product-tables" style='direction: rtl; text-align: right;'>
                             <table class='table table-striped table-bordered'>
                                 <tbody>
                                 <tr *ngFor='let spec of product?.specifications'>
