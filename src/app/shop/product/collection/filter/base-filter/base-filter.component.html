@@ -1,0 +1,15 @@
+<!-- brand filter start -->
+<div class="collection-collapse-block open">
+    <h3 class="collapse-block-title">{{filter.name}}</h3>
+    <div class="collection-collapse-block-content">
+        <div class="collection-brand-filter">
+
+            <div *ngFor="let value of filter.values" class="custom-control custom-checkbox collection-filter-checkbox">
+                <input (change)=checkedFilter($event) [value]="value" class="custom-control-input"
+                       id="{{filter.name+value}}" type="checkbox">
+                <label class="custom-control-label" for="{{filter.name+value}}">{{value}}</label>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -23,12 +23,11 @@ import {ProductBoxVerticalComponent} from './product/product-box-vertical/produc
 import {ProductBoxMetroComponent} from './product/product-box-metro/product-box-metro.component';
 import {CollectionNoSidebarComponent} from './product/collection/collection-no-sidebar/collection-no-sidebar.component';
 import {ColorComponent} from './product/collection/filter/color/color.component';
-import {BrandComponent} from './product/collection/filter/brand/brand.component';
 import {PriceComponent} from './product/collection/filter/price/price.component';
 import {ProductRightImageComponent} from './product/product-details/product-right-image/product-right-image.component';
 import {RelatedProductsComponent} from './product/product-details/related-products/related-products.component';
 import {SidebarComponent} from './product/product-details/sidebar/sidebar.component';
-import {CategoriesComponent} from './product/widgets/categories/categories.component';
+import {CategoriesComponent} from './product/collection/filter/categories/categories.component';
 import {QuickViewComponent} from './product/widgets/quick-view/quick-view.component';
 import {ModalCartComponent} from './product/widgets/modal-cart/modal-cart.component';
 import {NewProductComponent} from './product/widgets/new-product/new-product.component';
@@ -41,6 +40,7 @@ import {ExitPopupComponent} from './product/widgets/exit-popup/exit-popup.compon
 import {AgeVerificationComponent} from './product/widgets/age-verification/age-verification.component';
 import {NewsletterComponent} from './product/widgets/newsletter/newsletter.component';
 import {ErrorPageComponent} from '../pages/error-page/error-page.component';
+import {BaseFilterComponent} from './product/collection/filter/base-filter/base-filter.component';
 
 
 @NgModule({
@@ -75,7 +75,7 @@ import {ErrorPageComponent} from '../pages/error-page/error-page.component';
         ProductBoxMetroComponent,
         CollectionNoSidebarComponent,
         ColorComponent,
-        BrandComponent,
+        BaseFilterComponent,
         PriceComponent,
         ProductRightImageComponent,
         RelatedProductsComponent,

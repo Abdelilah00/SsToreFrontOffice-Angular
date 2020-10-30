@@ -4,7 +4,8 @@
     <div class="collection-collapse-block-content">
         <div class="collection-brand-filter">
             <div class="mt-5">
-                <range-slider (onRangeChange)="priceChanged($event)" [(ngModel)]="range" [barClass]="'stepBarClass'"
+                <range-slider (mouseup)='onMouseUp()' (onRangeChange)="priceChanged()" [(ngModel)]="range"
+                              [barClass]="'stepBarClass'"
                               [highlightClass]="'stephighlightClass'" [max]="max" [min]="min"
                               [sliderClass]="'stepSliderClass'" [step]="1">
                 </range-slider>

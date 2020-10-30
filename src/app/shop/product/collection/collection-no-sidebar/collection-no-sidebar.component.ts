@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Product} from '../../../../shared/models/product';
+import {FilterModel, Product} from '../../../../shared/models/product';
 import {ProductsService} from '../../../../shared/services/products.service';
-import {PaginationService} from '../../../../shared/models/paginate';
 import {animate, style, transition, trigger} from '@angular/animations';
 import * as $ from 'jquery';
+import {CharacteristicService} from '../../../../shared/services/characteristic.service';
 
 @Component({
     selector: 'app-collection-no-sidebar',
@@ -23,35 +23,62 @@ import * as $ from 'jquery';
         ])
     ]
 })
+
+
 export class CollectionNoSidebarComponent implements OnInit {
 
     public products: Product[] = [];
-    public sortByOrder: string = '';   // sorting
+    public sortByOrder = '';   // sorting
     public animation: any;   // Animation
     paginate: any = {};
-    private allProduct: Product[] = [];
+    public items: Product[] = [];
+    public tagsFilters: any[] = [];
+    public tags: any[] = [];
+    public colors: any[] = [];
+    public allCharacteristics: any;
+    private finaleFilter = new Array<FilterModel>();
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private productsService: ProductsService,
-                private paginateService: PaginationService) {
+                private characteristicService: CharacteristicService) {
+    }
+
+    // Update tags filter
+    updateFilters(tags: any[]) {
+        this.tagsFilters = tags;
+        this.animation === 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
+        this.updateProducts();
+    }
+
+
+    // Update price filter
+    updatePriceFilters(price: any) {
+        const priceFilter = this.finaleFilter.find(filter => filter.name === 'price');
+
+        if (priceFilter !== undefined || null) {
+            priceFilter.values = price;
+        } else {
+            this.finaleFilter.push({name: 'price', interval: 'BETWEEN', values: price});
+            this.finaleFilter.push({name: 'couleur', interval: 'IN', values: ['Rouge', 'Gris']});
+            this.finaleFilter.push({name: 'taille', interval: 'IN', values: ['1', '2']});
+        }
+
+        this.updateProducts();
     }
 
     ngOnInit() {
+        this.characteristicService.getAll().subscribe(data => this.allCharacteristics = data);
+
         this.route.queryParams.subscribe(params => {
             const query = params['categoryId'];
-
             if (!isNaN(query)) {
                 this.productsService.getByCategory(query).subscribe(products => {
-                    this.allProduct = products;
                     this.products = products;
-                    //this.setPage(1);
                 });
             } else {
                 this.productsService.getAll().subscribe(products => {
-                    this.allProduct = products;
                     this.products = products;
-                    //this.setPage(1);
                 });
             }
         });
@@ -86,14 +113,15 @@ export class CollectionNoSidebarComponent implements OnInit {
     // sorting type ASC / DESC / A-Z / Z-A etc.
     public onChangeSorting(val) {
         this.sortByOrder = val;
-        this.animation == 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
+        this.animation === 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
     }
 
     public setPage(page: number) {
-        // get paginate object from service
-        this.paginate = this.paginateService.getPager(this.allProduct.length, page);
-        // get current page of items
-        this.products = this.allProduct.slice(this.paginate.startIndex, this.paginate.endIndex + 1);
     }
 
+    private updateProducts(): void {
+        if (this.finaleFilter.length > 0) {
+            this.productsService.getByFilter(this.finaleFilter).subscribe(prods => this.products = prods);
+        }
+    }
 }

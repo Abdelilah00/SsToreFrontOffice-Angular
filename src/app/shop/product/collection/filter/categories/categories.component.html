@@ -1,0 +1,17 @@
+<div (click)="mobileFilterBack()" class="collection-mobile-back">
+  <span class="filter-back">
+    <i aria-hidden="true" class="fa fa-angle-left"></i> back
+</span>
+</div>
+<div class="collection-collapse-block border-0 open">
+    <h3 class="collapse-block-title">Category</h3>
+    <div class="collection-collapse-block-content">
+        <div class="collection-brand-filter">
+            <ul class="category-list">
+                <li *ngFor='let category of categories'>
+                    <a [routerLink]="'/home/no-sidebar/collection'">{{category.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

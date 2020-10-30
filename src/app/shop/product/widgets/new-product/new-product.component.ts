@@ -15,7 +15,7 @@ export class NewProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productsService.getAll().subscribe(product => this.products = product);
+    this.productsService.getNewest().subscribe(product => this.products = product);
   }
 
 }

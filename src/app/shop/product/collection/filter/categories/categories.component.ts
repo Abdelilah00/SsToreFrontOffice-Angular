@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
+import {CategoryService} from '../../../../../shared/services/category.service';
 
 @Component({
     selector: 'app-categories',
@@ -7,8 +8,9 @@ import * as $ from 'jquery';
     styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
+    private categories: any[];
 
-    constructor() {
+    constructor(private categoryService: CategoryService) {
     }
 
     // collapse toggle
@@ -26,11 +28,13 @@ export class CategoriesComponent implements OnInit {
                 nextLevel.slideDown(speed);
             }
         });
+        this.categoryService.getParents().subscribe(data => this.categories = data);
+
     }
 
     // For mobile view
     public mobileFilterBack() {
-        $('.collection-filter').css("left", "-365px");
+        $('.collection-filter').css('left', '-365px');
     }
 
 }

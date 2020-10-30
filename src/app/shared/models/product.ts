@@ -19,6 +19,12 @@ export type ProductSize = 'M' | 'L' | 'XL';
 // Product Tag
 export type ProductTags = 'nike' | 'puma' | 'lifestyle' | 'caprese';
 
+export interface FilterModel {
+    name: string;
+    interval: string;
+    values: string[];
+}
+
 export class SelectedCharacteristics {
     id?: number;
     name?: string;

@@ -24,6 +24,23 @@
     <div class="collection-wrapper">
         <div class="container">
             <div class="row">
+                <div class="col-sm-3 collection-filter">
+                    <div class="coll_sidebar_sticky">
+                        <div class="collection-filter-block">
+                            <app-categories></app-categories>
+                        </div>
+
+                        <div class="collection-filter-block">
+                            <app-price (priceFilters)="updatePriceFilters($event)"></app-price>
+                        </div>
+
+                        <div class="collection-filter-block">
+                            <app-base-filter (onChangeFilter)="updateFilters($event)"
+                                             *ngFor='let filter of allCharacteristics'
+                                             [filter]="filter"></app-base-filter>
+                        </div>
+                    </div>
+                </div>
                 <div class="collection-content col">
                     <div class="page-main-content">
                         <div class="container-fluid">

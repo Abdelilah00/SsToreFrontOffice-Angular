@@ -17,8 +17,13 @@ export class CategoryService extends BaseService<Category> {
 
     getTree(): Observable<Array<Category>> {
         this.loading = true;
-        return this.httpClient.get<Array<Category>>(this.baseUrl + '/getTree' +
-            '')
+        return this.httpClient.get<Array<Category>>(this.baseUrl + '/getTree')
+            .pipe(retry(1));
+    }
+
+    getParents(): Observable<Array<Category>> {
+        this.loading = true;
+        return this.httpClient.get<Array<Category>>(this.baseUrl + '/getParents')
             .pipe(retry(1));
     }
 
