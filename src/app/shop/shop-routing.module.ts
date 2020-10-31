@@ -43,11 +43,11 @@ const routes: Routes = [
         path: 'search',
         component: SearchComponent
     },
-    /**************************************/
     {
         path: 'checkout/success',
         component: SuccessComponent
     },
+    /**************************************/
 
     {
         path: 'wishlist',

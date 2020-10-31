@@ -205,8 +205,13 @@
                         <div class="material-border"></div>
                     </li>
                     <li class="nav-item">
-                        <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-review"
-                           id="review-top-tab" role="tab">{{"write-review"|translate}}</a>
+                        <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-reviews"
+                           id="reviews-top-tab" role="tab">{{"reviews"|translate}}</a>
+                        <div class="material-border"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-selected="false" class="nav-link" data-toggle="tab" href="#top-write-review"
+                           id="write-review-top-tab" role="tab">{{"write-review"|translate}}</a>
                         <div class="material-border"></div>
                     </li>
                 </ul>
@@ -236,8 +241,26 @@
                                     width="560"></iframe>
                         </div>
                     </div>
-                    <div aria-labelledby="review-top-tab" class="tab-pane fade" id="top-review" role="tabpanel">
+                    <div aria-labelledby="reviews-top-tab" class="tab-pane fade" id="top-reviews" role="tabpanel">
+                        <div class='flex flex-column '>
+                            <div *ngFor='let review of product?.reviews'
+                                 class='row'
+                                 style='background-color: rgba(211,147,224,0.07); border-bottom: 1px solid #18021a; margin: 20px auto; padding: 10px'>
+                                <div class='col-lg-2 col-md-12'>
+                                    <span>Abdelilah Dehaoui</span>
+                                </div>
+                                <div class='col-lg-10 col-md-12'>
+                                    <bar-rating [rate]="review.stars" [readOnly]="true"
+                                                [theme]="'fontawesome-o'"></bar-rating>
+                                    <span>{{review.comment}}</span>
+                                </div>
 
+                            </div>
+                        </div>
+
+                    </div>
+                    <div aria-labelledby="write-review-top-tab" class="tab-pane fade" id="top-write-review"
+                         role="tabpanel">
                         <form (ngSubmit)='postReview()' [formGroup]="reviewFormGroup" class="theme-form">
                             <div class="form-row">
                                 <div class="col-md-12 ">
@@ -273,23 +296,6 @@
                                 </div>
                             </div>
                         </form>
-
-                        <div class='flex flex-column '>
-                            <div *ngFor='let review of product?.reviews'
-                                 class='row'
-                                 style='background-color: rgba(211,147,224,0.07); border-bottom: 1px solid #18021a; margin: 20px auto; padding: 10px'>
-                                <div class='col-lg-2 col-md-12'>
-                                    <span>Abdelilah Dehaoui</span>
-                                </div>
-                                <div class='col-lg-10 col-md-12'>
-                                    <bar-rating [rate]="review.stars" [readOnly]="true"
-                                                [theme]="'fontawesome-o'"></bar-rating>
-                                    <span>{{review.comment}}</span>
-                                </div>
-
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
