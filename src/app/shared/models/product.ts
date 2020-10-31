@@ -48,7 +48,7 @@ export class Product extends BaseModel {
 
     productCharacteristics: [{
         name: string,
-        value: string[],
+        values: string[],
     }];
     specifications: [{
         name: string,
