@@ -32,7 +32,6 @@ export class CollectionNoSidebarComponent implements OnInit {
     public animation: any;   // Animation
     paginate: any = {};
     public items: Product[] = [];
-    public tagsFilters: any[] = [];
     public tags: any[] = [];
     public colors: any[] = [];
     public allCharacteristics: any;
@@ -45,12 +44,19 @@ export class CollectionNoSidebarComponent implements OnInit {
     }
 
     // Update tags filter
-    updateFilters(tags: any[]) {
-        this.tagsFilters = tags;
+    updateFilters(selectedFilter: any) {
+        const filter = this.finaleFilter.find(x => x.name === selectedFilter.name);
+
+        console.log(filter);
+        if (filter !== undefined || null) {
+            filter.values = selectedFilter.values;
+        } else {
+            this.finaleFilter.push({name: selectedFilter.name, interval: 'IN', values: selectedFilter.values});
+        }
+
         this.animation === 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
         this.updateProducts();
     }
-
 
     // Update price filter
     updatePriceFilters(price: any) {
@@ -60,10 +66,10 @@ export class CollectionNoSidebarComponent implements OnInit {
             priceFilter.values = price;
         } else {
             this.finaleFilter.push({name: 'price', interval: 'BETWEEN', values: price});
-            this.finaleFilter.push({name: 'couleur', interval: 'IN', values: ['Rouge', 'Gris']});
-            this.finaleFilter.push({name: 'taille', interval: 'IN', values: ['1', '2']});
+
         }
 
+        this.animation === 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
         this.updateProducts();
     }
 

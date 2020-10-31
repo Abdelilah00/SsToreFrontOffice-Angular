@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FilterModel, ProductTags} from '../../../../../shared/models/product';
+import {FilterModel} from '../../../../../shared/models/product';
 
 declare var $: any;
 
@@ -12,7 +12,7 @@ export class BaseFilterComponent implements OnInit {
 
     // Using Input nad Output EventEmitter
     @Input() filter: FilterModel;
-    @Output() onChangeFilter: EventEmitter<ProductTags[]> = new EventEmitter<ProductTags[]>();
+    @Output() onChangeFilter: EventEmitter<any> = new EventEmitter<any>();
 
     // Array
     public checkedTagsArray: any[] = [];
@@ -21,7 +21,6 @@ export class BaseFilterComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.onChangeFilter.emit(this.checkedTagsArray);   // Pass value Using emit
         $('.collapse-block-title').on('click', function (e) {
             e.preventDefault;
             const speed = 300;
@@ -40,12 +39,13 @@ export class BaseFilterComponent implements OnInit {
 
     // value checked call this function
     checkedFilter(event) {
-        let index = this.checkedTagsArray.indexOf(event.target.value);  // checked and unchecked value
+        const index = this.checkedTagsArray.indexOf(event.target.value);
         if (event.target.checked) {
             this.checkedTagsArray.push(event.target.value);
-        }// push in array cheked value
-        else {
+        } else {
             this.checkedTagsArray.splice(index, 1);
-        }  // removed in array unchecked value
+        }
+
+        this.onChangeFilter.emit({name: this.filter.name, values: this.checkedTagsArray});
     }
 }

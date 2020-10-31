@@ -47,7 +47,7 @@ export class Product extends BaseModel {
     onSale?: boolean;
 
     productCharacteristics: [{
-        characteristicName: string,
+        name: string,
         value: string[],
     }];
     specifications: [{

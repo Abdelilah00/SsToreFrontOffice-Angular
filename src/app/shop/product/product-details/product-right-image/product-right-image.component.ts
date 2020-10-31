@@ -71,14 +71,13 @@ export class ProductRightImageComponent implements OnInit {
                 .subscribe(product => {
                     this.product = product;
                     product.productCharacteristics.forEach(pc => {
-                        this.selectedValues.push({name: pc.characteristicName});
+                        this.selectedValues.push({name: pc.name});
                     });
                     if (product.discount != null) {
                         this.timeLeft = new Date(this.product.discount.endDate).getTime();
                     }
                 });
         });
-
     }
 
     public increment() {
@@ -98,7 +97,6 @@ export class ProductRightImageComponent implements OnInit {
         }
         this.cartService.addToCart(product, parseInt(quantity));
     }
-
 
     // Add to cart
     public buyNow(product: Product, quantity) {
@@ -133,7 +131,6 @@ export class ProductRightImageComponent implements OnInit {
                 this.toasterService.success('Review Submitted');
             }, (error) => {
                 this.toasterService.error(error.error.message);
-                console.table(error);
             });
     }
 

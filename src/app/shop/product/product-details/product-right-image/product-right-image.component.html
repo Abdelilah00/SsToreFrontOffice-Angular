@@ -83,15 +83,15 @@
                         <div class="product-description border-product">
 
                             <div *ngFor='let characteristic of product?.productCharacteristics'>
-                                <h6 class="product-title size-text">select {{characteristic.characteristicName}}
+                                <h6 class="product-title size-text">select {{characteristic.name}}
                                     <span><a data-target="#sizemodal" data-toggle="modal"
-                                             href="">{{characteristic.characteristicName}}</a></span>
+                                             href="">{{characteristic.name}}</a></span>
                                 </h6>
                                 <div class="size-box">
                                     <ul>
-                                        <li *ngFor="let cValue of characteristic.value"
-                                            [ngClass]="{'active': getSelectedValue(characteristic.characteristicName) == cValue}">
-                                            <a (click)="changeCharacteristicVariant(cValue, characteristic.characteristicName)"
+                                        <li *ngFor="let cValue of characteristic.values"
+                                            [ngClass]="{'active': getSelectedValue(characteristic.name) == cValue}">
+                                            <a (click)="changeCharacteristicVariant(cValue, characteristic.name)"
                                                [routerLink]="">{{cValue}}</a>
                                         </li>
                                     </ul>
