@@ -34,7 +34,7 @@ export class CollectionNoSidebarComponent implements OnInit {
     public items: Product[] = [];
     public tags: any[] = [];
     public colors: any[] = [];
-    public allCharacteristics: any;
+    public allCharacteristics: any[];
     private finaleFilter = new Array<FilterModel>();
 
     constructor(private route: ActivatedRoute,
@@ -47,7 +47,6 @@ export class CollectionNoSidebarComponent implements OnInit {
     updateFilters(selectedFilter: any) {
         const filter = this.finaleFilter.find(x => x.name === selectedFilter.name);
 
-        console.log(filter);
         if (filter !== undefined || null) {
             filter.values = selectedFilter.values;
         } else {
@@ -61,20 +60,26 @@ export class CollectionNoSidebarComponent implements OnInit {
     // Update price filter
     updatePriceFilters(price: any) {
         const priceFilter = this.finaleFilter.find(filter => filter.name === 'price');
+        priceFilter.values = price;
 
-        if (priceFilter !== undefined || null) {
-            priceFilter.values = price;
-        } else {
-            this.finaleFilter.push({name: 'price', interval: 'BETWEEN', values: price});
+        this.animation === 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
+        this.updateProducts();
+    }
 
-        }
+    updateCategoryFilter(categoryName: any) {
+        const categoryFilter = this.finaleFilter.find(x => x.name === 'category');
+        categoryFilter.values = [categoryName];
 
         this.animation === 'fadeOut' ? this.fadeIn() : this.fadeOut(); // animation
         this.updateProducts();
     }
 
     ngOnInit() {
-        this.characteristicService.getAll().subscribe(data => this.allCharacteristics = data);
+        this.characteristicService.getAll()
+            .subscribe(data => {
+                this.allCharacteristics = data;
+                this.sleep(1000).then(() => this.addClickEventToFilter());
+            });
 
         this.route.queryParams.subscribe(params => {
             const query = params['categoryId'];
@@ -88,6 +93,9 @@ export class CollectionNoSidebarComponent implements OnInit {
                 });
             }
         });
+        this.finaleFilter.push({name: 'price', interval: 'BETWEEN', values: ['10', '1000']});
+        // TODO: setDefaultSelect
+        this.finaleFilter.push({name: 'category', interval: '=', values: ['Sacs']});
     }
 
     // Animation Effect fadeIn
@@ -125,9 +133,29 @@ export class CollectionNoSidebarComponent implements OnInit {
     public setPage(page: number) {
     }
 
+    private sleep(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
     private updateProducts(): void {
         if (this.finaleFilter.length > 0) {
             this.productsService.getByFilter(this.finaleFilter).subscribe(prods => this.products = prods);
         }
+    }
+
+    private addClickEventToFilter(): void {
+        $('.collapse-block-title').click(function () {
+            const speed = 300;
+            const thisItem = $(this).parent();
+            const nextLevel = $(this).next('.collection-collapse-block-content');
+
+            if (thisItem.hasClass('open')) {
+                thisItem.removeClass('open');
+                nextLevel.slideUp(speed);
+            } else {
+                thisItem.addClass('open');
+                nextLevel.slideDown(speed);
+            }
+        });
     }
 }

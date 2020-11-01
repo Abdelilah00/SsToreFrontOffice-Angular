@@ -16,7 +16,6 @@ export class PriceComponent implements OnInit {
     public min = 10;
     public max = 1000;
     public range = [10, 1000];
-    mouseUp = false;
 
     constructor() {
     }
@@ -24,18 +23,10 @@ export class PriceComponent implements OnInit {
     ngOnInit() {
     }
 
-    // rangeChanged
-    async priceChanged() {
-        await this.sleep(200);
-        if (this.mouseUp) {
-            this.priceFilters.emit(this.range);
-            this.mouseUp = false;
-        }
-    }
 
-    onMouseUp(): void {
-        this.mouseUp = true;
-        this.priceChanged();
+    async onMouseUp() {
+        await this.sleep(200);
+        this.priceFilters.emit(this.range);
     }
 
     sleep(ms): any {

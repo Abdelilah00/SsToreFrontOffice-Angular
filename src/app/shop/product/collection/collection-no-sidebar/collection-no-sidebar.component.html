@@ -27,7 +27,7 @@
                 <div class="col-sm-3 collection-filter">
                     <div class="coll_sidebar_sticky">
                         <div class="collection-filter-block">
-                            <app-categories></app-categories>
+                            <app-categories (onSelectCategory)='updateCategoryFilter($event)'></app-categories>
                         </div>
 
                         <div class="collection-filter-block">
@@ -158,3 +158,7 @@
 <!-- section End -->
 <app-quick-view></app-quick-view>
 <app-modal-cart></app-modal-cart>
+
+<script>
+
+</script>

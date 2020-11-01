@@ -21,20 +21,7 @@ export class BaseFilterComponent implements OnInit {
     }
 
     ngOnInit() {
-        $('.collapse-block-title').on('click', function (e) {
-            e.preventDefault;
-            const speed = 300;
-            const thisItem = $(this).parent();
-            const nextLevel = $(this).next('.collection-collapse-block-content');
 
-            if (thisItem.hasClass('open')) {
-                thisItem.removeClass('open');
-                nextLevel.slideUp(speed);
-            } else {
-                thisItem.addClass('open');
-                nextLevel.slideDown(speed);
-            }
-        });
     }
 
     // value checked call this function

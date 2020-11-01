@@ -7,9 +7,9 @@
     <h3 class="collapse-block-title">Category</h3>
     <div class="collection-collapse-block-content">
         <div class="collection-brand-filter">
-            <ul class="category-list">
+            <ul (click)='newCategorySelect()' class="category-list">
                 <li *ngFor='let category of categories'>
-                    <a [routerLink]="'/home/no-sidebar/collection'">{{category.name}}</a>
+                    <a [className]="category.name=='Sacs'?'selectedCategory':null">{{category.name}}</a>
                 </li>
             </ul>
         </div>

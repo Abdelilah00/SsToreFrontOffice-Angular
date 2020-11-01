@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import * as $ from 'jquery';
 import {CategoryService} from '../../../../../shared/services/category.service';
 
@@ -8,28 +8,31 @@ import {CategoryService} from '../../../../../shared/services/category.service';
     styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-    private categories: any[];
+    categories: any[];
+    @Output() onSelectCategory: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(private categoryService: CategoryService) {
     }
 
     // collapse toggle
     ngOnInit() {
-        $('.collapse-block-title').on('click', function (e) {
-            e.preventDefault;
-            var speed = 300;
-            var thisItem = $(this).parent(),
-                nextLevel = $(this).next('.collection-collapse-block-content');
-            if (thisItem.hasClass('open')) {
-                thisItem.removeClass('open');
-                nextLevel.slideUp(speed);
-            } else {
-                thisItem.addClass('open');
-                nextLevel.slideDown(speed);
-            }
+        this.categoryService.getParents().subscribe(data => {
+            this.categories = data;
+            this.sleep(100).then(() => this.addClickEventListener());
         });
-        this.categoryService.getParents().subscribe(data => this.categories = data);
 
+    }
+
+    sleep(ms): any {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    addClickEventListener(): void {
+        //TODO: setDefaultSelect
+        $('li>a').click(function () {
+            $('.selectedCategory').removeClass('selectedCategory');
+            $(this).addClass('selectedCategory');
+        });
     }
 
     // For mobile view
@@ -37,4 +40,10 @@ export class CategoriesComponent implements OnInit {
         $('.collection-filter').css('left', '-365px');
     }
 
+    newCategorySelect(): void {
+        const category = document.getElementsByClassName('selectedCategory');
+        if (category != null || undefined) {
+            this.onSelectCategory.emit(category.item(0).innerHTML);
+        }
+    }
 }
