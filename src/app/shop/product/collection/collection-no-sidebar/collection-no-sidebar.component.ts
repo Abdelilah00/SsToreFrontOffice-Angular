@@ -83,6 +83,7 @@ export class CollectionNoSidebarComponent implements OnInit {
 
         this.route.queryParams.subscribe(params => {
             const query = params['categoryId'];
+            // TODO: link this with category filter
             if (!isNaN(query)) {
                 this.productsService.getByCategory(query).subscribe(products => {
                     this.products = products;
@@ -92,10 +93,13 @@ export class CollectionNoSidebarComponent implements OnInit {
                     this.products = products;
                 });
             }
+
         });
         this.finaleFilter.push({name: 'price', interval: 'BETWEEN', values: ['10', '1000']});
         // TODO: setDefaultSelect
         this.finaleFilter.push({name: 'category', interval: '=', values: ['Sacs']});
+
+        this.updateProducts();
     }
 
     // Animation Effect fadeIn
